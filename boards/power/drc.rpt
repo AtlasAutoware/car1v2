@@ -1,178 +1,210 @@
-** Drc report for /home/claude/carv2/boards/power/atlas_power.kicad_pcb **
-** Created on 2026-10-26 07:11:36 **
+** Drc report for atlas_power.kicad_pcb **
+** Created on 2026-11-09T15:48:02 **
+** Report includes: Errors, Warnings, Exclusions **
 
-** Found 45 DRC violations **
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(155.7500 mm, 40.4350 mm): Circle on F.Silkscreen
-    @(156.9500 mm, 42.3450 mm): Footprint Text 'K' of D406
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(141.6500 mm, 33.8100 mm): Line on F.Silkscreen
-    @(136.5000 mm, 33.6500 mm): Footprint Text 'USB' of MOD701
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(135.5100 mm, 33.8700 mm): Line on F.Silkscreen
-    @(136.5000 mm, 33.6500 mm): Footprint Text 'USB' of MOD701
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(139.1600 mm, 33.8700 mm): Line on F.Silkscreen
-    @(136.5000 mm, 33.6500 mm): Footprint Text 'USB' of MOD701
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(136.5100 mm, 33.8700 mm): Arc on F.Silkscreen
-    @(136.5000 mm, 33.6500 mm): Footprint Text 'USB' of MOD701
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(108.9400 mm, 36.5100 mm): Line on F.Silkscreen
-    @(122.0000 mm, 36.8500 mm): Value 'DEV+' of J407
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(121.5600 mm, 36.5100 mm): Line on F.Silkscreen
-    @(122.0000 mm, 36.8500 mm): Value 'DEV+' of J407
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-    @(68.4200 mm, 52.7400 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(68.4200 mm, 51.2300 mm): Line on F.Silkscreen
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(42.4200 mm, 52.7400 mm): Line on F.Silkscreen
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-    @(52.6600 mm, 51.2300 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-    @(55.4200 mm, 51.2300 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-    @(55.4200 mm, 52.7400 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(62.3910 mm, 51.2300 mm): Line on F.Silkscreen
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(65.6600 mm, 51.2300 mm): Line on F.Silkscreen
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
-    @(58.6900 mm, 51.2300 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(118.5000 mm, 87.1500 mm): Footprint Text 'UP' of MOD601
-    @(118.5000 mm, 87.8964 mm): Reference 'U601'
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(123.7000 mm, 106.8500 mm): Footprint Text 'P1' of MOD601
-    @(113.3500 mm, 107.0150 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(123.7000 mm, 106.8500 mm): Footprint Text 'P1' of MOD601
-    @(123.6300 mm, 107.0150 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(113.3000 mm, 106.8500 mm): Footprint Text 'P2' of MOD601
-    @(113.3500 mm, 107.0150 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(118.5000 mm, 103.9500 mm): Footprint Text 'USB HUB 5997' of MOD601
-    @(113.3500 mm, 88.9950 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(118.5000 mm, 103.9500 mm): Footprint Text 'USB HUB 5997' of MOD601
-    @(121.1400 mm, 106.9550 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(118.5000 mm, 103.9500 mm): Footprint Text 'USB HUB 5997' of MOD601
-    @(123.6300 mm, 107.0150 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(123.7000 mm, 96.6500 mm): Footprint Text 'P3' of MOD601
-    @(123.6300 mm, 107.0150 mm): Line on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(52.2000 mm, 83.1050 mm): Footprint Text 'K' of D501
-    @(51.0000 mm, 81.1950 mm): Circle on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(149.3000 mm, 62.6700 mm): Footprint Text 'K' of D1001
-    @(148.8000 mm, 70.3400 mm): Rect on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(149.3000 mm, 58.3300 mm): Circle on F.Silkscreen
-    @(152.0000 mm, 58.3300 mm): Circle on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(148.8000 mm, 70.3400 mm): Rect on F.Silkscreen
-    @(152.0000 mm, 62.6700 mm): Footprint Text 'K' of D1002
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(156.8000 mm, 65.2950 mm): Footprint Text 'CAM REG' of MOD402
-    @(157.0000 mm, 64.5786 mm): Reference 'J1001'
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(118.7000 mm, 68.3050 mm): Footprint Text 'K' of D404
-    @(117.5000 mm, 66.3950 mm): Circle on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(141.2700 mm, 88.5950 mm): Footprint Text 'K' of D405
-    @(140.0700 mm, 86.6850 mm): Circle on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(102.8000 mm, 95.3050 mm): Footprint Text 'K' of D401
-    @(101.6000 mm, 93.3950 mm): Circle on F.Silkscreen
-[silk_overlap]: Silkscreen overlap
-    Rule: board setup constraints silk; Severity: warning
-    @(101.3000 mm, 87.6300 mm): Footprint Text 'K' of D402
-    @(100.2000 mm, 85.6200 mm): Circle on F.Silkscreen
+** Found 47 DRC violations **
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(155.7500 mm, 40.4350 mm): Circle of D406 on F.Silkscreen
+    @(156.9500 mm, 42.3450 mm): Footprint text of D406 (K)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(141.6500 mm, 33.8100 mm): Segment of U302 on F.Silkscreen
+    @(136.5000 mm, 33.6500 mm): Footprint text of MOD701 (USB)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(135.5100 mm, 33.8700 mm): Segment of U302 on F.Silkscreen
+    @(136.5000 mm, 33.6500 mm): Footprint text of MOD701 (USB)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(136.5000 mm, 33.6500 mm): Footprint text of MOD701 (USB)
+    @(139.1600 mm, 33.8700 mm): Segment of U302 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(136.5100 mm, 33.8700 mm): Arc of U302 on F.Silkscreen
+    @(136.5000 mm, 33.6500 mm): Footprint text of MOD701 (USB)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(122.0000 mm, 36.8500 mm): Value field of J407 (DEV+)
+    @(108.9400 mm, 36.5100 mm): Segment of J201 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(121.5600 mm, 36.5100 mm): Segment of J201 on F.Silkscreen
+    @(122.0000 mm, 36.8500 mm): Value field of J407 (DEV+)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.4200 mm, 52.7400 mm): Segment of Q303 on F.Silkscreen
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(68.4200 mm, 51.2300 mm): Segment of Q303 on F.Silkscreen
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(42.4200 mm, 52.7400 mm): Segment of Q301 on F.Silkscreen
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(52.6600 mm, 51.2300 mm): Segment of Q301 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(55.4200 mm, 51.2300 mm): Segment of Q302 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(55.4200 mm, 52.7400 mm): Segment of Q302 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(62.3910 mm, 51.2300 mm): Segment of Q302 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(65.6600 mm, 51.2300 mm): Segment of Q302 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(58.6900 mm, 51.2300 mm): Segment of Q302 on F.Silkscreen
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(118.5000 mm, 87.8964 mm): Reference field of U601
+    @(118.5000 mm, 87.1500 mm): Footprint text of MOD601 (UP)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(123.7000 mm, 106.8500 mm): Footprint text of MOD601 (P1)
+    @(113.3500 mm, 107.0150 mm): Segment of U601 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(123.6300 mm, 107.0150 mm): Segment of U601 on F.Silkscreen
+    @(123.7000 mm, 106.8500 mm): Footprint text of MOD601 (P1)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(113.3000 mm, 106.8500 mm): Footprint text of MOD601 (P2)
+    @(113.3500 mm, 107.0150 mm): Segment of U601 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(113.3500 mm, 88.9950 mm): Segment of U601 on F.Silkscreen
+    @(118.5000 mm, 103.9500 mm): Footprint text of MOD601 (USB HUB 5997)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(121.1400 mm, 106.9550 mm): Segment of U601 on F.Silkscreen
+    @(118.5000 mm, 103.9500 mm): Footprint text of MOD601 (USB HUB 5997)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(123.6300 mm, 107.0150 mm): Segment of U601 on F.Silkscreen
+    @(118.5000 mm, 103.9500 mm): Footprint text of MOD601 (USB HUB 5997)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(123.6300 mm, 107.0150 mm): Segment of U601 on F.Silkscreen
+    @(123.7000 mm, 96.6500 mm): Footprint text of MOD601 (P3)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(51.0000 mm, 81.1950 mm): Circle of D501 on F.Silkscreen
+    @(52.2000 mm, 83.1050 mm): Footprint text of D501 (K)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.8000 mm, 70.3400 mm): Rectangle of F403 on F.Silkscreen
+    @(149.3000 mm, 62.6700 mm): Footprint text of D1001 (K)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(149.3000 mm, 58.3300 mm): Circle of D1001 on F.Silkscreen
+    @(152.0000 mm, 58.3300 mm): Circle of D1002 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(148.8000 mm, 70.3400 mm): Rectangle of F403 on F.Silkscreen
+    @(152.0000 mm, 62.6700 mm): Footprint text of D1002 (K)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(157.0000 mm, 64.5786 mm): Reference field of J1001
+    @(156.8000 mm, 65.2950 mm): Footprint text of MOD402 (CAM REG)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(117.5000 mm, 66.3950 mm): Circle of D404 on F.Silkscreen
+    @(118.7000 mm, 68.3050 mm): Footprint text of D404 (K)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(141.2700 mm, 88.5950 mm): Footprint text of D405 (K)
+    @(140.0700 mm, 86.6850 mm): Circle of D405 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(101.6000 mm, 93.3950 mm): Circle of D401 on F.Silkscreen
+    @(102.8000 mm, 95.3050 mm): Footprint text of D401 (K)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(100.2000 mm, 85.6200 mm): Circle of D402 on F.Silkscreen
+    @(101.3000 mm, 87.6300 mm): Footprint text of D402 (K)
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(39.2000 mm, 77.1700 mm): Reference 'J904'
+    Local override; warning
+    @(52.0000 mm, 68.8500 mm): Reference field of J401
+    @(61.8500 mm, 63.4500 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(51.9949 mm, 43.1000 mm): Reference 'TP101'
+    Local override; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(67.9900 mm, 53.5000 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(53.6829 mm, 34.4250 mm): Line on F.Silkscreen
+    Local override; warning
+    @(60.5400 mm, 52.5800 mm): Footprint text of HS301 (HEATSINK = BAT+  INSULATE)
+    @(54.9900 mm, 53.5000 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(60.5400 mm, 52.5800 mm): Footprint Text 'HEATSINK = BAT+  INSULATE' of HS301
+    Local override; warning
+    @(55.9949 mm, 59.5000 mm): Reference field of TP301
+    @(61.8500 mm, 63.4500 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(46.5000 mm, 38.8000 mm): Footprint Text 'K' of D101
+    Local override; warning
+    @(53.6829 mm, 34.4250 mm): Segment of C101 on F.Silkscreen
+    @(53.7100 mm, 43.6602 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(49.5000 mm, 34.4000 mm): Circle on F.Silkscreen
+    Local override; warning
+    @(51.9949 mm, 43.1000 mm): Reference field of TP101
+    @(53.7100 mm, 43.6602 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(55.9949 mm, 59.5000 mm): Reference 'TP301'
+    Local override; warning
+    @(49.5000 mm, 34.4000 mm): Circle of J101 on F.Silkscreen
+    @(53.7100 mm, 43.6602 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(52.0000 mm, 68.8500 mm): Reference 'J401'
+    Local override; warning
+    @(46.5000 mm, 38.8000 mm): Footprint text of D101 (K)
+    @(53.7100 mm, 43.6602 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(123.7000 mm, 106.8500 mm): Footprint Text 'P1' of MOD601
+    Local override; warning
+    @(35.0000 mm, 67.0000 mm): Reference field of J901
+    @(61.8500 mm, 63.4500 mm): Polygon on F.Mask
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(118.5000 mm, 103.9500 mm): Footprint Text 'USB HUB 5997' of MOD601
+    Local override; warning
+    @(123.7000 mm, 106.8500 mm): Footprint text of MOD601 (P1)
+    @(122.3000 mm, 105.6250 mm): PTH pad 1 [CON_3V3] of U601
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(35.0000 mm, 67.0000 mm): Reference 'J901'
+    Local override; warning
+    @(118.5000 mm, 103.9500 mm): Footprint text of MOD601 (USB HUB 5997)
+    @(114.6800 mm, 103.0850 mm): PTH pad 13 [P2_DP] of U601
 [silk_over_copper]: Silkscreen clipped by solder mask
-    Local override; Severity: warning
-    @(35.0000 mm, 72.0000 mm): Circle on F.Silkscreen
+    Local override; warning
+    @(118.5000 mm, 103.9500 mm): Footprint text of MOD601 (USB HUB 5997)
+    @(122.3000 mm, 103.0850 mm): PTH pad 2 [unconnected-(U601-GP0-Pad2)] of U601
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(39.2000 mm, 77.1700 mm): Reference field of J904
+    @(61.8500 mm, 63.4500 mm): Polygon on F.Mask
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(35.0000 mm, 72.0000 mm): Circle of J901 on F.Silkscreen
+    @(61.8500 mm, 63.4500 mm): Polygon on F.Mask
 
 ** Found 0 unconnected pads **
 
 ** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - PTH inside courtyard
+    - NPTH inside courtyard
+    - Footprint component type doesn't match footprint pads
+    - Footprint not found in libraries
+    - Footprint doesn't match copy in library
 
 ** End of Report **

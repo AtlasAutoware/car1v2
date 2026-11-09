@@ -1,0 +1,9 @@
+supplier,what,qty,unit_usd,line_usd,basis,note
+DigiKey,Adafruit 5807 USB-C PD trigger,1,5.95,5.95,cart,in the DigiKey cart now; leave it or move it to a later order
+eBay or Amazon,"XL4015 CC/CV buck module, 5 A",1,8.00,8.00,est,generic; check its current-sense side on the bench (review B1)
+Anker,Anker 715 65 W USB-C charger (A2663),1,29.99,29.99,quote,September 2026
+any,"USB-C cable, 5 A e-marked, 1 m",1,10.00,10.00,est,
+18650 Battery Store,"Molicel P28A 18650, 12 + 2 spare",14,5.99,83.86,quote,2026-09-26
+18650 Battery Store,"shipping, lithium cells by ground",1,15.00,15.00,est,
+any,"Fish-paper rings, Kapton, 1 mm foam, 7-pin sense lead and NTC",1,22.00,22.00,est,September estimate
+eBay,"Capacitor spot welder (Glitter 801D), only if no welder can be borrowed",1,304.51,304.51,quote,"2026-09-26, 269.51 + 35.00 shipping"

@@ -1,0 +1,24 @@
+supplier,what,qty,unit_usd,line_usd,basis,note
+PCBWay,"ATLAS-PWR-1 bare boards, 5 pcs: 130 x 84 mm, 4 layers, 2 oz outside, 1 oz inside, HASL lead-free",1,155.79,155.79,quote,instant quote 2026-10-26; upload boards/power/out/fab/atlas_power_gerbers_pcbway.zip for the reviewed price
+PCBWay,"DHL to Fairfax, VA",1,26.55,26.55,quote,instant quote 2026-10-26
+PCBWay,US import duty on the boards,1,54.53,54.53,est,35 % of the board price; PCBWay shows its own figure at checkout
+PCBWay (reserve),"Second order of the same boards, only if the first has a mistake",1,155.79,155.79,quote,same quote
+PCBWay (reserve),"DHL to Fairfax, VA",1,26.55,26.55,quote,same quote
+PCBWay (reserve),US import duty on the boards,1,54.53,54.53,est,same 35 %
+Amazon,"JKBMS JK-B1A8S10P smart BMS, 3S-8S Li-ion, 100 A, Bluetooth (ASIN B0D148FGQB)",1,66.49,66.49,page,"in stock, free delivery Nov 10. Replaces the JBD 4S 100 A, sold out at 18650battery.com and 18650batterystore.com"
+Hobbywing Direct,"Hobbywing UBEC 10A V2 Car, SKU 30603003: 2-6S in, 6.0 / 7.4 / 8.4 V out, 10 A continuous",1,24.99,24.99,page,replaces the Castle BEC 2.0 (46.95) and the Castle Link (26.99); the page does not show a stock count
+Hobbywing Direct,shipping,1,6.00,6.00,est,not read
+Small parts,"Emergency-stop push button, normally closed, twist to release, 16 or 22 mm panel hole",1,9.99,9.99,est,
+Small parts,MIDI bolt-down fuse 100 A with a holder,1,12.00,12.00,est,the fuse alone was 2.74 at Mouser on 2026-10-24
+Small parts,XT90-S anti-spark connector pair,1,6.00,6.00,est,plain XT90s are on the shelf (Progressive RC order 310320)
+Small parts,"10 AWG silicone wire, 1 m red and 1 m black",1,10.00,10.00,est,
+Small parts,"16 and 18 AWG silicone wire, 2 m each colour",1,8.00,8.00,est,
+Small parts,"M5 ring terminals for 10 AWG, heat-shrink assortment",1,7.00,7.00,est,
+Small parts,"Pre-crimped JST PH and XH leads, Dupont housings and crimps (E-stop, FSESC COMM, J14 harness)",1,9.00,9.00,est,
+Small parts,"40-wire IDC ribbon cable, 150 mm (Adafruit 1988)",1,4.00,4.00,est,"2.95 on 2026-10-24, unverified then too"
+Small parts,"USB leads: USB-A right-angle to USB-C 0.3 m, micro-USB to USB-A 0.3 m, micro-USB jack lead, panel-mount USB-C extension",1,22.00,22.00,est,never priced in rev B
+Small parts,"M3 brass standoffs, 25 mm, 6 pcs (the 7 mm deck spacers are printed)",1,8.00,8.00,est,7.99 for an Amazon assortment in September
+Small parts,"M3 brass heat-set inserts, 50 pcs",1,9.00,9.00,est,screws come from the MISUMI gift
+Small parts,"Kapton tape, zip ties, 3 mm plywood sheet 300 x 300 mm",1,12.00,12.00,est,
+Small parts,JST-XH 5-pin balance-lead extension (pack balance plug to the BMS),1,6.00,6.00,est,
+SendCutSend (gift code),"6061 bar 40 x 15 x 3 mm with three 3.2 mm holes, and the 3 mm acrylic FET shield",1,0.00,0.00,est,"paid from the 250.00 gift code (Aug 5 email), never used; confirm the code applied at checkout"

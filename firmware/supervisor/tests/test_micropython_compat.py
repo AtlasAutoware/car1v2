@@ -12,9 +12,9 @@ import os
 import pytest
 
 FIRMWARE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ON_PICO = ('pins.py', 'hal.py', 'jbd.py', 'link.py', 'sequencer.py', 'main.py')
+ON_PICO = ('pins.py', 'hal.py', 'jbd.py', 'link.py', 'sequencer.py', 'car_profile.py', 'main.py')
 ALLOWED_IMPORTS = {'time', 'math', 'json', 'sys', 'os', 'select', 'machine', 'micropython', 'gc',
-                   'pins', 'hal', 'jbd', 'link', 'sequencer'}
+                   'pins', 'hal', 'jbd', 'link', 'sequencer', 'car_profile'}
 
 
 def tree(name):

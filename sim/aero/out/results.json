@@ -1,0 +1,125 @@
+{
+ "nowing@8": {
+  "case": "nowing",
+  "speed_mps": 8.0,
+  "cells": 267356,
+  "iterations": 500,
+  "rho": 1.2,
+  "body": {
+   "drag_N": 1.5808,
+   "lift_N": 0.5608,
+   "side_N": 0.041,
+   "sd_drag_N": 0.0136,
+   "sd_lift_N": 0.0147,
+   "samples": 5,
+   "area_m2": 0.6626
+  },
+  "total": {
+   "drag_N": 1.5808,
+   "lift_N": 0.5608,
+   "frontal_area_m2": 0.03644,
+   "Cd": 1.13,
+   "Cl": 0.401,
+   "CdA_m2": 0.04117
+  }
+ },
+ "wing_0@8": {
+  "case": "wing_0",
+  "speed_mps": 8.0,
+  "cells": 345958,
+  "iterations": 500,
+  "rho": 1.2,
+  "body": {
+   "drag_N": 1.5869,
+   "lift_N": 0.5189,
+   "side_N": 0.041,
+   "sd_drag_N": 0.0127,
+   "sd_lift_N": 0.0137,
+   "samples": 5,
+   "area_m2": 0.6627
+  },
+  "wing": {
+   "drag_N": 0.0176,
+   "lift_N": -0.0091,
+   "side_N": -0.0047,
+   "sd_drag_N": 0.0,
+   "sd_lift_N": 0.0005,
+   "samples": 5,
+   "area_m2": 0.0382
+  },
+  "total": {
+   "drag_N": 1.6045,
+   "lift_N": 0.5097,
+   "frontal_area_m2": 0.03824,
+   "Cd": 1.093,
+   "Cl": 0.347,
+   "CdA_m2": 0.04178
+  }
+ },
+ "wing_m12@8": {
+  "case": "wing_m12",
+  "speed_mps": 8.0,
+  "cells": 350790,
+  "iterations": 500,
+  "rho": 1.2,
+  "body": {
+   "drag_N": 1.5869,
+   "lift_N": 0.4997,
+   "side_N": 0.0446,
+   "sd_drag_N": 0.0129,
+   "sd_lift_N": 0.0137,
+   "samples": 5,
+   "area_m2": 0.6627
+  },
+  "wing": {
+   "drag_N": 0.0301,
+   "lift_N": -0.0375,
+   "side_N": -0.0045,
+   "sd_drag_N": 0.0003,
+   "sd_lift_N": 0.0009,
+   "samples": 5,
+   "area_m2": 0.0384
+  },
+  "total": {
+   "drag_N": 1.6169,
+   "lift_N": 0.4621,
+   "frontal_area_m2": 0.03824,
+   "Cd": 1.101,
+   "Cl": 0.315,
+   "CdA_m2": 0.04211
+  }
+ },
+ "wing_m20@8": {
+  "case": "wing_m20",
+  "speed_mps": 8.0,
+  "cells": 350646,
+  "iterations": 500,
+  "rho": 1.2,
+  "body": {
+   "drag_N": 1.584,
+   "lift_N": 0.4902,
+   "side_N": 0.0489,
+   "sd_drag_N": 0.012,
+   "sd_lift_N": 0.0126,
+   "samples": 5,
+   "area_m2": 0.6627
+  },
+  "wing": {
+   "drag_N": 0.0412,
+   "lift_N": -0.0481,
+   "side_N": -0.0026,
+   "sd_drag_N": 0.0005,
+   "sd_lift_N": 0.0011,
+   "samples": 5,
+   "area_m2": 0.0382
+  },
+  "total": {
+   "drag_N": 1.6252,
+   "lift_N": 0.4421,
+   "frontal_area_m2": 0.03824,
+   "Cd": 1.107,
+   "Cl": 0.301,
+   "CdA_m2": 0.04232
+  }
+ }
+}

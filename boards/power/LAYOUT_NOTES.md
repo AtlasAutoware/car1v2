@@ -350,3 +350,23 @@ boards/tools/run_kicad.sh glb-power      # 3D model for share/make_renders.py: o
 - Do not use `fab-power` for the order: it deletes out/fab first and writes KiCad's own set (both CPL sides, a BOM
   from the schematic, a zip with every layer). The files in out/fab come from `tools/fab_outputs.py power` (plain
   Python around kicad-cli, KiCad 7 or later, no schematic needed); run that again after any change to the board.
+
+## KiCad 10 results (2026-11-09, team laptop, KiCad 10.0.8 flatpak)
+
+`erc-power` and `drc-power` have now been run. The reports are in this directory as `erc.rpt` and `drc.rpt`.
+
+| check | result |
+| --- | --- |
+| ERC, all sheets | 0 errors, 0 warnings |
+| DRC, unconnected pads | 0 |
+| DRC, footprint and schematic parity errors | 0, after the fix below |
+| DRC, warnings | 47, all silkscreen: 33 `silk_overlap`, 14 `silk_over_copper` |
+
+- The first parity run found one real difference: R801, R802 and R805 are marked do-not-populate in the
+  schematic and were not on the board. The three footprints now carry the `dnp` attribute (commit 0071d04).
+  No pad, track or zone changed, so the Gerbers in `out/fab` are still the ones from Oct 26.
+- The 47 warnings are labels touching other silkscreen (the "K" cathode marks next to the diode circles, the
+  hub module's pin labels over U601, the "HEATSINK = BAT+ INSULATE" note) and labels clipped where the solder
+  mask is opened over the bare power copper. None is on a pad. They were left as they are: clearing them
+  means moving text by hand in KiCad 10's editor, and the layout scripts here still run on KiCad 7.
+- `render-power` and `glb-power` were not run.

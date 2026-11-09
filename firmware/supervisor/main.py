@@ -16,6 +16,7 @@ import time
 
 import hal
 from jbd import JbdClient
+from car_profile import SETTINGS
 from link import LineLink
 from sequencer import (FAULT, HALTING, INIT, LOCKOUT, OFF, PRECHARGE, RUN, SHUTDOWN_REQUESTED,
                        Sequencer, Settings)
@@ -152,10 +153,10 @@ def start():
     for name in (LOCKOUT_FLAG, COLD_FLAG):
         if _file_exists(name):
             os.remove(name)
-    app = App(hw, clock, hal.UsbSerial(), hal.BmsUart(), cold_start=cold)
+    app = App(hw, clock, hal.UsbSerial(), hal.BmsUart(), settings=SETTINGS, cold_start=cold)
     hal.keyboard_interrupt(False)
     wdt = hal.start_watchdog(WATCHDOG_MS)
-    tick = Settings.TICK_MS
+    tick = SETTINGS.TICK_MS
     next_t = time.ticks_ms()
     try:
         while True:

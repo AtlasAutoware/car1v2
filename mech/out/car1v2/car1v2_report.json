@@ -1,0 +1,130 @@
+{
+ "params": {
+  "C1_BODY": [
+   55.6,
+   55.6,
+   41.3
+  ],
+  "C1_SCREW_MAX": 4.0,
+  "C1_SLOT": [
+   36.0,
+   50.0
+  ],
+  "C1_HOLES": null,
+  "C1_FLOOR": 3.0,
+  "M25_CLEAR": 2.9,
+  "M25_HEAD": 5.0,
+  "OAKD": [
+   97.0,
+   29.5,
+   22.9
+  ],
+  "OAKD_VESA": 75.0,
+  "M4_CLEAR": 4.5,
+  "OAKD_LIFT": 8.0,
+  "ESTOP_D": 22.3,
+  "ESTOP_PLATE": [
+   46.0,
+   46.0
+  ],
+  "ESTOP_T": 4.0,
+  "ESTOP_FOOT": 24.0,
+  "JK_BMS": [
+   151.0,
+   105.0,
+   15.5
+  ],
+  "OAKD_MASS_KG": 0.1,
+  "CRASH_G": 20.0,
+  "PETGCF_WEAK_MPA": 20.0
+ },
+ "arch_top_z": 103.75,
+ "tim561_top_z": 91.75,
+ "c1": {
+  "centre_x": 199.0,
+  "base_z": 5.4,
+  "top_z": 46.7,
+  "screw": "M2.5 x 6 from below",
+  "thread_engaged_mm": 3.0
+ },
+ "oakd": {
+  "camera_back_x": 173.0,
+  "camera_front_x": 195.9,
+  "camera_bottom_z": 116.75,
+  "lens_axis_z": 131.5,
+  "arch_insert_x": [
+   180.0,
+   196.0
+  ],
+  "m4_slot_z": [
+   123.5,
+   139.5
+  ],
+  "m3_head_clear_of_upright_mm": 3.9
+ },
+ "checks": {
+  "deck_insert_to_slot_relief_mm": 1.66,
+  "deck_inserts_clear_of_slots": true,
+  "c1_body_inside_plinth": true,
+  "c1_top_below_camera_base_mm": 57.05,
+  "camera_lens_axis_above_c1_top_mm": 84.8,
+  "m3_heads_clear_of_upright": true,
+  "camera_upright_hand_check": {
+   "force_N": 19.6,
+   "arm_mm": 22.75,
+   "stress_MPa": 1.7,
+   "factor_vs_weak_axis": 11.8,
+   "gussets_counted": false
+  }
+ },
+ "parts": {
+  "c1_plinth": {
+   "bed_xyz": [
+    70.0,
+    64.0,
+    6.0
+   ],
+   "volume_cm3": 23.2,
+   "mass_g_solid_petgcf": 30.0,
+   "solids": 1
+  },
+  "oakd_cradle": {
+   "bed_xyz": [
+    48.0,
+    91.0,
+    44.5
+   ],
+   "volume_cm3": 23.9,
+   "mass_g_solid_petgcf": 31.0,
+   "solids": 1
+  },
+  "estop_bracket": {
+   "bed_xyz": [
+    50.0,
+    46.0,
+    24.0
+   ],
+   "volume_cm3": 12.0,
+   "mass_g_solid_petgcf": 16.0,
+   "solids": 1
+  },
+  "bms_fence_jk": {
+   "bed_xyz": [
+    155.0,
+    22.6,
+    63.0
+   ],
+   "volume_cm3": 23.6,
+   "mass_g_solid_petgcf": 31.0,
+   "solids": 1
+  }
+ },
+ "unverified": [
+  "C1 hole pattern (slots cover square patterns 36 to 50 mm)",
+  "OAK-D Pro M4 pair on its back: spacing 75 mm and height (the slots take any height)",
+  "M4 thread depth in the camera: choose the screw so it does not bottom out",
+  "E-stop button diameter",
+  "where the E-stop bracket bolts to the deck (two M3 inserts to add at the tail)",
+  "JK BMS size and where its leads leave; bms_fence_jk has had no interference check"
+ ]
+}

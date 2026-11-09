@@ -21,6 +21,7 @@ far. **None of it has run on a Pico or on the real board yet** (see "What is unv
 | `jbd.py` | The JBD BMS protocol on UART0 at 9600 baud | yes |
 | `link.py` | The JSON line protocol to the Jetson on USB | yes |
 | `sequencer.py` | The state machine, and every timing and threshold in `Settings` | yes |
+| `car_profile.py` | Which car the Pico is on: `SETTINGS` is car 1 v2 stage 1 (4S LiPo, JK BMS that does not talk to the Pico, lidar on USB). Set it to `Settings` for rev B's 18650 pack, JBD BMS and TiM561 | yes |
 | `main.py` | Wiring, watchdog, LEDs; MicroPython runs it at power-up | yes |
 | `sim.py` | A simulated power board for running everything on a PC | no |
 | `tests/` | pytest: `python3 -m pytest firmware/supervisor/tests` | no |
@@ -31,13 +32,13 @@ far. **None of it has run on a Pico or on the real board yet** (see "What is unv
    as a USB drive called RPI-RP2. Download the MicroPython UF2 for the board from
    https://micropython.org/download/RPI_PICO/ (a Pico 2 needs the RPI_PICO2 build) and drag it
    onto that drive. The Pico restarts as a USB serial port.
-2. **The files.** Copy the six files marked "yes" above to the Pico's own file system. Do not copy
+2. **The files.** Copy the seven files marked "yes" above to the Pico's own file system. Do not copy
    `sim.py` or `tests/`.
    - Thonny: Tools > Options > Interpreter > "MicroPython (Raspberry Pi Pico)". Open each file
      and use File > Save as... > Raspberry Pi Pico, keeping the same name.
    - mpremote (`pip install mpremote`), from this folder:
      ```
-     mpremote connect /dev/ttyACM0 cp pins.py hal.py jbd.py link.py sequencer.py main.py :
+     mpremote connect /dev/ttyACM0 cp pins.py hal.py jbd.py link.py sequencer.py car_profile.py main.py :
      mpremote connect /dev/ttyACM0 reset
      ```
 3. **First start.** After `reset`, `main.py` runs. A `machine.reset()` counts as a restart, not a
