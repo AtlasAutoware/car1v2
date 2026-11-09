@@ -133,6 +133,9 @@ upload (`boards/power/out/fab/atlas_power_gerbers_pcbway.zip`). Four things happ
    and still gives it 2 mA when the cut-off really trips. Same footprint, no copper change. This comes from
    datasheets, not from a bench: try the five parts on a breadboard first (checklist C5).
 
+After the value changes, KiCad 10 was run once more on the laptop: 0 errors, 0 parity issues, the same 47
+silkscreen warnings.
+
 The silkscreen warnings were left alone. They are cosmetic, and clearing them means moving labels on a board
 whose layout tools run on KiCad 7 here; the first order is five boards for hand assembly with the build guide
 open. If a clean report matters for the sponsor article, it is an hour in KiCad's editor.

@@ -383,3 +383,5 @@ boards/tools/run_kicad.sh glb-power      # 3D model for share/make_renders.py: o
   Samsung CL32B106KBJNNNE, C104, C603 and C604 KEMET C1206C105K5RACTU, U402 TL431ACLP (straight leads).
 - The schematic sheets, the board's footprint fields, `atlas_power_parts.json`, both BOMs and the lists in
   `out/fab` were edited together. The Gerbers were not regenerated: no pad, track, zone or silkscreen changed.
+- KiCad 10.0.8 was run again on the laptop after these edits (reports dated 2026-11-09 17:50): ERC 0 errors and
+  0 warnings; DRC 0 schematic parity issues, 0 unconnected pads, 0 footprint errors, the same 47 silkscreen warnings.
