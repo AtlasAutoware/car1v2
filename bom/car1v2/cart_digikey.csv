@@ -78,10 +78,10 @@ keep,1528-5997-ND,5997,Adafruit CH334F 4-port USB hub,1,4.9500,4.95,,in stock,MO
 keep,2183-2813-ND,2813,Pololu pushbutton power switch,1,10.1400,10.14,,ships in about 1 day,MOD401
 delete,1528-1988-ND,3142,"WRONG PART: Adafruit jumper wires, added by mistake for the ribbon cable",1,3.9500,3.95,,in stock,-
 phase2,1528-5807-ND,5807,Adafruit HUSB238 USB-C PD trigger,1,5.9500,5.95,,in stock,MOD501 (USB-C charging)
-add by hand,,,"P12417-ND, Panasonic EEU-FM1V681: 680 uF 35 V, 12.5 mm can, 22 mm seated, 5.0 mm pitch. 1,548 in stock",4,1.47,5.88,,not in the cart (page),"C101 C102 C103 + 1. Replaces EEU-FR1V681L. FM series, not FR: the ripple rating was not compared"
-add by hand,,,"P12366-ND, Panasonic EEU-FM1C102: 1000 uF 16 V, 10 mm can, 22 mm seated, 5.0 mm pitch. 2,715 in stock",2,1.14,2.28,,not in the cart (page),C404 + 1. Replaces EEU-FR1C102L. 6 mm taller than the 10 x 16 mm part the board was drawn with
-add by hand,,,"1276-3387-1-ND, Samsung CL32B106KBJNNNE: 10 uF 50 V X7R 1210. 573,447 in stock",10,0.43,4.28,,not in the cart (page),"C301 C402 C403 C501 C702 + 5 (the price break is at 10). Replaces Murata GRM32ER71H106KA12L, backordered"
-add by hand,,,"P12408-ND, Panasonic EEU-FM1V151: 150 uF 35 V, 8 mm can, 13 mm seated, 3.5 mm pitch. 32,224 in stock",2,0.58,1.16,,not in the cart (page),"C405 + 1. A VALUE CHANGE: 150 uF, not 220 uF. No 220 uF 35 V part in an 8 mm can was in stock (EEU-FR1V221, Rubycon 35ZLH220MEFC8X11.5 and Nichicon UHE1V221MPD all showed 0); EEU-FM1V221 and EEU-FC1V221 are 10 mm cans"
+keep,P12417-ND,EEU-FM1V681,"680 uF 35 V, 12.5 mm can, 22 mm seated, 5.0 mm pitch (replaces EEU-FR1V681L; FM series, ripple rating not compared)",4,1.4700,5.88,,"in stock: 1,548",C101 C102 C103 + 1
+keep,P12366-ND,EEU-FM1C102,"1000 uF 16 V, 10 mm can, 22 mm seated, 5.0 mm pitch (replaces EEU-FR1C102L)",2,1.0700,2.14,,"in stock: 2,715",C404 + 1
+keep,1276-3387-1-ND,CL32B106KBJNNNE,"10 uF 50 V X7R 1210, cut tape (replaces the backordered Murata part)",10,0.4280,4.28,,"in stock: 573,447",C301 C402 C403 C501 C702 + 5
+keep,P12408-ND,EEU-FM1V151,"150 uF 35 V, 8 mm can, 13 mm seated, 3.5 mm pitch. A VALUE CHANGE for C405 (was 220 uF): no 220 uF 35 V part in an 8 mm can was in stock",2,0.5800,1.16,,"in stock: 32,224",C405 + 1
 add by hand,,,TL431 in TO-92 with straight leads (TI TL431ACLP),2,0.50,1.00,,not in the cart (est),U402 + 1; 0.14 at Mouser on 2026-10-24. Not the formed-lead TL431ACLPRE3
 add by hand,,,"1N5247B 17 V zener, DO-35",2,0.17,0.34,,not in the cart (quote),D502 + 1; Mouser 2026-10-24
 add by hand,,,4.7 ohm 0.6 W metal film axial (Vishay MBB02070C4708FCT00),2,0.26,0.52,,not in the cart (quote),R408 + 1; Mouser 2026-10-24

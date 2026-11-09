@@ -110,23 +110,18 @@ DK = [
  ('2183-2813-ND', '2813', 'Pololu pushbutton power switch', 1, 10.14, None, 'ships in about 1 day', 'MOD401', 'keep'),
  ('1528-1988-ND', '3142', 'WRONG PART: Adafruit jumper wires, added by mistake for the ribbon cable', 1, 3.95, None, 'in stock', '-', 'delete'),
  ('1528-5807-ND', '5807', 'Adafruit HUSB238 USB-C PD trigger', 1, 5.95, None, 'in stock', 'MOD501 (USB-C charging)', 'phase2'),
+ ('P12417-ND', 'EEU-FM1V681', '680 uF 35 V, 12.5 mm can, 22 mm seated, 5.0 mm pitch (replaces EEU-FR1V681L; FM series, ripple rating not compared)', 4, 1.47, None, 'in stock: 1,548', 'C101 C102 C103 + 1', 'keep'),
+ ('P12366-ND', 'EEU-FM1C102', '1000 uF 16 V, 10 mm can, 22 mm seated, 5.0 mm pitch (replaces EEU-FR1C102L)', 2, 1.07, None, 'in stock: 2,715', 'C404 + 1', 'keep'),
+ ('1276-3387-1-ND', 'CL32B106KBJNNNE', '10 uF 50 V X7R 1210, cut tape (replaces the backordered Murata part)', 10, 0.428, None, 'in stock: 573,447', 'C301 C402 C403 C501 C702 + 5', 'keep'),
+ ('P12408-ND', 'EEU-FM1V151', '150 uF 35 V, 8 mm can, 13 mm seated, 3.5 mm pitch. A VALUE CHANGE for C405 (was 220 uF): no 220 uF 35 V part in an 8 mm can was in stock', 2, 0.58, None, 'in stock: 32,224', 'C405 + 1', 'keep'),
 ]
-DK_CART_SUBTOTAL_READ = 164.72     # what the cart showed with all 79 lines
-DK_CART_TARIFF_READ = 27.44
+DK_CART_SUBTOTAL_READ = 178.18     # what the cart showed with all 79 lines
+DK_CART_TARIFF_READ = 28.75
 DK_SHIP = 4.99                     # USPS Ground Advantage (FedEx or UPS Ground 8.49)
 
 # Lines DigiKey would not take from a pasted list, to add by hand in the same cart.
 # (what, qty, unit, basis, note)
 DK_BY_HAND = [
- ('P12417-ND, Panasonic EEU-FM1V681: 680 uF 35 V, 12.5 mm can, 22 mm seated, 5.0 mm pitch. 1,548 in stock', 4, 1.47, 'page',
-  'C101 C102 C103 + 1. Replaces EEU-FR1V681L. FM series, not FR: the ripple rating was not compared'),
- ('P12366-ND, Panasonic EEU-FM1C102: 1000 uF 16 V, 10 mm can, 22 mm seated, 5.0 mm pitch. 2,715 in stock', 2, 1.14, 'page',
-  'C404 + 1. Replaces EEU-FR1C102L. 6 mm taller than the 10 x 16 mm part the board was drawn with'),
- ('1276-3387-1-ND, Samsung CL32B106KBJNNNE: 10 uF 50 V X7R 1210. 573,447 in stock', 10, 0.428, 'page',
-  'C301 C402 C403 C501 C702 + 5 (the price break is at 10). Replaces Murata GRM32ER71H106KA12L, backordered'),
- ('P12408-ND, Panasonic EEU-FM1V151: 150 uF 35 V, 8 mm can, 13 mm seated, 3.5 mm pitch. 32,224 in stock', 2, 0.58, 'page',
-  'C405 + 1. A VALUE CHANGE: 150 uF, not 220 uF. No 220 uF 35 V part in an 8 mm can was in stock (EEU-FR1V221, '
-  'Rubycon 35ZLH220MEFC8X11.5 and Nichicon UHE1V221MPD all showed 0); EEU-FM1V221 and EEU-FC1V221 are 10 mm cans'),
  ('TL431 in TO-92 with straight leads (TI TL431ACLP)', 2, 0.50, 'est', 'U402 + 1; 0.14 at Mouser on 2026-10-24. Not the formed-lead TL431ACLPRE3'),
  ('1N5247B 17 V zener, DO-35', 2, 0.17, 'quote', 'D502 + 1; Mouser 2026-10-24'),
  ('4.7 ohm 0.6 W metal film axial (Vishay MBB02070C4708FCT00)', 2, 0.26, 'quote', 'R408 + 1; Mouser 2026-10-24'),
@@ -137,9 +132,9 @@ DK_BY_HAND = [
 # ----------------------------------------------------------------------------- the other stage 1 carts
 # (supplier, what, qty, unit, basis, note)
 OTHER = [
- ('PCBWay', 'ATLAS-PWR-1 bare boards, 5 pcs: 130 x 84 mm, 4 layers, 2 oz outside, 1 oz inside, HASL lead-free', 1, 155.79, 'quote',
-  'instant quote 2026-10-26; upload boards/power/out/fab/atlas_power_gerbers_pcbway.zip for the reviewed price'),
- ('PCBWay', 'DHL to Fairfax, VA', 1, 26.55, 'quote', 'instant quote 2026-10-26'),
+ ('PCBWay', 'ATLAS-PWR-1 bare boards, 5 pcs: 130 x 84 mm, 4 layers, 2 oz outside, 1 oz inside, HASL lead-free', 1, 155.79, 'page',
+  'instant quote read again 2026-11-09 (same as Oct 26). Not signed in at PCBWay, so it is not in a cart; the price is "subject to review" after the Gerbers are uploaded'),
+ ('PCBWay', 'DHL to Fairfax, VA', 1, 26.55, 'page', 'instant quote 2026-11-09'),
  ('PCBWay', 'US import duty on the boards', 1, round(155.79 * PCB_DUTY, 2), 'est', '35 % of the board price; PCBWay shows its own figure at checkout'),
  ('PCBWay (reserve)', 'Second order of the same boards, only if the first has a mistake', 1, 155.79, 'quote', 'same quote'),
  ('PCBWay (reserve)', 'DHL to Fairfax, VA', 1, 26.55, 'quote', 'same quote'),
@@ -180,6 +175,10 @@ CONDITIONAL = [
  ('Motor sensor-lead adapter or a longer sensor lead', 8.00, 'if the Puller Pro\'s plug and the FSESC\'s socket differ (A4)'),
  ('Small-parts shipping from sellers that charge it', 15.00, 'the small-parts lines assume free shipping'),
 ]
+
+# The same board at JLCPCB, read on 2026-11-09 with the Gerbers uploaded and saved to the cart there (no order placed).
+JLC = dict(boards=90.79, parts='engineering fee 25.00, board 6.80, lead-free HASL 5.30, 2 oz outer copper 36.70, 1 oz inner copper 16.99',
+           shipping=26.60, shipping_note='UPS Express Saver, duties-paid service, 2 to 4 business days')
 
 # Phase 2: the built-in 18650 pack with USB-C charging. Priced, not in the stage 1 carts.
 PHASE2 = [
@@ -386,18 +385,28 @@ def main():
     A(f'| quote | {money(basis_sum("quote"))} | an earlier quote (PCBWay Oct 26, Mouser Oct 24), not read again |')
     A(f'| est | {money(basis_sum("est"))} | an estimate: nobody has read a price for the exact item |')
     A('')
-    A('The DigiKey cart as it stands holds 79 lines and shows '
+    A('The DigiKey cart as it stands holds 83 lines and shows '
       f'{money(DK_CART_SUBTOTAL_READ)} with a {money(DK_CART_TARIFF_READ)} tariff estimate. The script checks that its copy '
       f'of those lines adds to the same subtotal ({money(cart_total)}). Before checkout: delete {len(drop)} lines '
       f'({", ".join(r[0] for r in drop)}): four wrong parts (two added by mistake, and the two "L" capacitors the review found '
-      'are the wrong size) and three backordered lines; '
-      f'add the {len(DK_BY_HAND)} lines marked "add by hand", four of which now carry a DigiKey number and the stock read on {TODAY}; '
+      'are the wrong size) and three backordered lines. Their four replacements were added to the cart today; '
+      f'add the {len(DK_BY_HAND)} low-value lines marked "add by hand"; '
       f'and decide whether the PD trigger ({ph2[0][0]}) stays. '
       'Three kept lines are on short backorder (the red LED to Nov 16, the 2.2k resistor to Nov 23, the 3.3 ohm resistor past due).')
     A('')
     A('The cart buys the parts for one board, with spares of the cheap parts. PCBWay\'s smallest order is five bare boards, '
       'so four boards stay bare. Eight parts are bought once (U401, MOD401, MOD601, J409, J601, U601, J801, J1003): a second '
       'board would need those again.')
+    A('')
+    A('### The same boards at JLCPCB')
+    A('')
+    jlc_duty = JLC['boards'] * PCB_DUTY
+    jlc_all = JLC['boards'] + JLC['shipping'] + jlc_duty
+    A(f'Read on {TODAY} with the Gerbers uploaded: {money(JLC["boards"])} for five boards ({JLC["parts"]}) plus '
+      f'{money(JLC["shipping"])} shipping ({JLC["shipping_note"]}). The duty was not shown before checkout; at the same assumed '
+      f'35 % it is {money(jlc_duty)}, so about **{money(jlc_all)}** an order against {money(pcb1)} at PCBWay. That is '
+      f'{money(pcb1 - jlc_all)} less per order, {money(2 * (pcb1 - jlc_all))} with the reserve order. The board is saved in the JLCPCB cart. '
+      'The totals on this page still use PCBWay: it is the dearer of the two, and PCBWay has offered support that JLCPCB has not.')
     A('')
     A('### Only if the shelf check says so')
     A('')

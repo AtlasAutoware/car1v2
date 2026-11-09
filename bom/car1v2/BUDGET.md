@@ -20,9 +20,9 @@ The three debits were spent before this design and are not part of the 1,500: FS
 | | USD |
 | --- | ---: |
 | The most car 1 v2 may use | 1,500.00 |
-| Stage 1 (below), cash, no credit used | 968.08 |
-| Left under the cap after stage 1 | 531.92 |
-| Left in the account after stage 1 | 863.84 |
+| Stage 1 (below), cash, no credit used | 967.72 |
+| Left under the cap after stage 1 | 532.28 |
+| Left in the account after stage 1 | 864.20 |
 
 ## Stage 1: the car drives on a 4S LiPo we own
 
@@ -30,27 +30,31 @@ Everything the car must have, plus battery telemetry, the IMU and one-cable debu
 
 | cart | merchandise | tariff or duty | shipping | sales tax (6 %, assumed) | total |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| DigiKey, Web ID 379079317 (`cart_digikey.csv`) | 159.09 | 31.81 | 4.99 | 11.75 | 207.64 |
+| DigiKey, Web ID 379079317 (`cart_digikey.csv`) | 158.95 | 31.61 | 4.99 | 11.73 | 207.28 |
 | PCBWay, 5 bare boards | 155.79 | 54.53 | 26.55 | 0.00 | 236.87 |
 | PCBWay, reserve for a second board order | 155.79 | 54.53 | 26.55 | 0.00 | 236.87 |
 | Amazon, JK smart BMS | 66.49 | 0.00 | 0.00 | 3.99 | 70.48 |
 | Hobbywing Direct, servo BEC | 24.99 | 0.00 | 6.00 | 1.86 | 32.85 |
 | Small parts, any seller (`cart_other.csv`), all estimates | 172.99 | 0.00 | in the estimates | 10.38 | 183.37 |
 | SendCutSend, bar and shield | 0.00 (gift code) | 0.00 | 0.00 | 0.00 | 0.00 |
-| **Stage 1** | | | | | **968.08** |
+| **Stage 1** | | | | | **967.72** |
 
 How firm each dollar is (every line of the carts before sales tax, so PCBWay's shipping and duty are in it; DigiKey's tariff and shipping are not):
 
 | basis | USD | meaning |
 | --- | ---: | --- |
-| cart | 142.97 | in the DigiKey cart on 2026-11-09, with stock shown |
-| page | 105.08 | read on the product page on 2026-11-09 |
-| quote | 365.54 | an earlier quote (PCBWay Oct 26, Mouser Oct 24), not read again |
+| cart | 156.43 | in the DigiKey cart on 2026-11-09, with stock shown |
+| page | 273.82 | read on the product page on 2026-11-09 |
+| quote | 183.20 | an earlier quote (PCBWay Oct 26, Mouser Oct 24), not read again |
 | est | 289.71 | an estimate: nobody has read a price for the exact item |
 
-The DigiKey cart as it stands holds 79 lines and shows 164.72 with a 27.44 tariff estimate. The script checks that its copy of those lines adds to the same subtotal (164.72). Before checkout: delete 7 lines (490-6544-2-ND, P14398-ND, P124227-ND, P14443-ND, 1276-1066-1-ND, P14397-ND, 1528-1988-ND): four wrong parts (two added by mistake, and the two "L" capacitors the review found are the wrong size) and three backordered lines; add the 8 lines marked "add by hand", four of which now carry a DigiKey number and the stock read on 2026-11-09; and decide whether the PD trigger (1528-5807-ND) stays. Three kept lines are on short backorder (the red LED to Nov 16, the 2.2k resistor to Nov 23, the 3.3 ohm resistor past due).
+The DigiKey cart as it stands holds 83 lines and shows 178.18 with a 28.75 tariff estimate. The script checks that its copy of those lines adds to the same subtotal (178.18). Before checkout: delete 7 lines (490-6544-2-ND, P14398-ND, P124227-ND, P14443-ND, 1276-1066-1-ND, P14397-ND, 1528-1988-ND): four wrong parts (two added by mistake, and the two "L" capacitors the review found are the wrong size) and three backordered lines. Their four replacements were added to the cart today; add the 4 low-value lines marked "add by hand"; and decide whether the PD trigger (1528-5807-ND) stays. Three kept lines are on short backorder (the red LED to Nov 16, the 2.2k resistor to Nov 23, the 3.3 ohm resistor past due).
 
 The cart buys the parts for one board, with spares of the cheap parts. PCBWay's smallest order is five bare boards, so four boards stay bare. Eight parts are bought once (U401, MOD401, MOD601, J409, J601, U601, J801, J1003): a second board would need those again.
+
+### The same boards at JLCPCB
+
+Read on 2026-11-09 with the Gerbers uploaded: 90.79 for five boards (engineering fee 25.00, board 6.80, lead-free HASL 5.30, 2 oz outer copper 36.70, 1 oz inner copper 16.99) plus 26.60 shipping (UPS Express Saver, duties-paid service, 2 to 4 business days). The duty was not shown before checkout; at the same assumed 35 % it is 31.78, so about **149.17** an order against 236.87 at PCBWay. That is 87.70 less per order, 175.41 with the reserve order. The board is saved in the JLCPCB cart. The totals on this page still use PCBWay: it is the dearer of the two, and PCBWay has offered support that JLCPCB has not.
 
 ### Only if the shelf check says so
 
@@ -62,11 +66,11 @@ Not in the stage 1 total. Section A of `docs/CAR1V2_CHECKLIST.md` decides each o
 | NVMe SSD, 250 to 500 GB, for the second Jetson | 47.70 | if it has no storage of its own (A2) |
 | Motor sensor-lead adapter or a longer sensor lead | 8.48 | if the Puller Pro's plug and the FSESC's socket differ (A4) |
 | Small-parts shipping from sellers that charge it | 15.90 | the small-parts lines assume free shipping |
-| **All four** | **101.76** | stage 1 would then be 1,069.84 |
+| **All four** | **101.76** | stage 1 would then be 1,069.48 |
 
 ### If the estimates are wrong
 
-A pessimistic stage 1: the PCB quote 15 % higher, duty at 55 % instead of 35 %, DHL 10 % higher, every small-parts estimate 30 % over, DigiKey by FedEx, Hobbywing shipping at $10, and all four conditional items bought. That comes to **1,272.86**, with the reserve board order included. It is under the cap by 227.14. Without the reserve order it is 965.96.
+A pessimistic stage 1: the PCB quote 15 % higher, duty at 55 % instead of 35 %, DHL 10 % higher, every small-parts estimate 30 % over, DigiKey by FedEx, Hobbywing shipping at $10, and all four conditional items bought. That comes to **1,272.50**, with the reserve board order included. It is under the cap by 227.50. Without the reserve order it is 965.60.
 
 ## Priced, not in stage 1
 
@@ -74,9 +78,9 @@ A pessimistic stage 1: the PCB quote 15 % higher, duty at 55 % instead of 35 %, 
 | --- | ---: | --- |
 | Phase 2: built-in 18650 pack and USB-C charging (`cart_phase2_18650_usbc.csv`) | 508.07 | 185.29 if a spot welder can be borrowed. September quotes, not read again. |
 | Sensor upgrade: Triton and TiM561 wiring (`cart_sensor_upgrade.csv`) | 84.64 | October quotes, not read again. |
-| **Stage 1 + phase 2** | **1,476.15** | 23.85 under the cap, but only if every estimate holds. In the pessimistic case above it does not fit. Treat phase 2 as not yet affordable inside the cap |
-| Stage 1 + phase 2 with a borrowed welder + sensor upgrade | 1,238.01 | 261.99 under the cap |
-| Stage 1 + phase 2 + sensor upgrade | 1,560.79 | 60.79 OVER the cap |
+| **Stage 1 + phase 2** | **1,475.79** | 24.21 under the cap, but only if every estimate holds. In the pessimistic case above it does not fit. Treat phase 2 as not yet affordable inside the cap |
+| Stage 1 + phase 2 with a borrowed welder + sensor upgrade | 1,237.65 | 262.35 under the cap |
+| Stage 1 + phase 2 + sensor upgrade | 1,560.43 | 60.43 OVER the cap |
 
 ## Credits and sponsorships (from the admin@ mailbox, Nov 9)
 
@@ -91,4 +95,4 @@ A pessimistic stage 1: the PCB quote 15 % higher, duty at 55 % instead of 35 %, 
 | Dassault Systemes | SOLIDWORKS Student Team sponsorship: 20 activations, expires 2028-07-31 | approved Nov 9 | CAD and Flow Simulation for docs/AERO.md | no cash value in the car |
 | Edmund Optics, LUCID, SICK, Hakko, MEAN WELL, MISUMI, Anderson, Progressive RC, RC4WD | hardware already received | see shelf.csv | see shelf.csv | yes: on the shelf |
 
-If PCBWay moves its $200 support to the rev B board order, stage 1 falls to 768.08. If Bay Area Circuits prices and sponsors the boards instead, both PCBWay lines (473.74) fall to shipping only. Neither is counted, because neither has been confirmed for this board. Gift codes and serial numbers are in the emails, not in this repository.
+If PCBWay moves its $200 support to the rev B board order, stage 1 falls to 767.72. If Bay Area Circuits prices and sponsors the boards instead, both PCBWay lines (473.74) fall to shipping only. Neither is counted, because neither has been confirmed for this board. Gift codes and serial numbers are in the emails, not in this repository.

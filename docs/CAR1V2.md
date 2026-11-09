@@ -11,7 +11,8 @@ Status on 2026-11-09: designed and priced. Nothing ordered, nothing built, nothi
 | | |
 | --- | --- |
 | Design basis | rev B (`docs/REV_B.md`): one hand-soldered power board, the NVIDIA dev-kit carrier, a Flipsky ESC |
-| Money | $1,831.92 expected in the bank; the car may use $1,500; stage 1 comes to $968.08, and $1,272.86 if every estimate turns out badly (`bom/car1v2/BUDGET.md`) |
+| Money | $1,831.92 expected in the bank; the car may use $1,500; stage 1 comes to $967.72, and $1,272.50 if every estimate turns out badly (`bom/car1v2/BUDGET.md`) |
+| Board price, read today | PCBWay $182.34 before duty (unchanged since Oct 26). JLCPCB $117.39 before duty, in the JLCPCB cart. The budget uses PCBWay |
 | Student build guide | `docs/CAR1V2_BUILD.md` (session by session; the board itself is `docs/BUILD_POWER_BOARD.md`) |
 | Student checklist | `docs/CAR1V2_CHECKLIST.md` (what to confirm, measure and test by hand) |
 | Wiring | `docs/CAR1V2_WIRING.md` |
@@ -106,7 +107,7 @@ It found three limits, and they are stated here so nobody relies on more than is
 | Battery telemetry on the Jetson | yes, pack level | The supervisor measures pack and motor-bus voltage and sends them once a second; the Jetson's battery daemon already falls back to that when no BMS answers. Cell voltages, current and temperature are in the JK phone app, not on the Jetson: the JK's serial port runs at 115200 baud and the board's optocouplers were chosen for the JBD's 9600. |
 | IMU | yes | The OAK-D Pro's. |
 | Laptop debugging over one USB-C cable | yes | The hub block on the board: the Jetson, the FSESC and the serial console behind one port. About $16 of parts at cart prices. |
-| Built-in 18650 pack with USB-C charging | not yet; priced | It needs cells, a charger and a spot welder the team does not have: $508.07 with a welder, $185.29 if one can be borrowed. With stage 1 that is $1,476.15, which is under the cap only if every estimate holds; in the pessimistic case it is not. $323 of it is one welder and the prices are September quotes. Treat it as not yet affordable inside the cap. The board is built ready for it (only two plug-in modules are left off), so it can follow once the car drives. |
+| Built-in 18650 pack with USB-C charging | not yet; priced | It needs cells, a charger and a spot welder the team does not have: $508.07 with a welder, $185.29 if one can be borrowed. With stage 1 that is $1,475.79, which is under the cap only if every estimate holds; in the pessimistic case it is not. $323 of it is one welder and the prices are September quotes. Treat it as not yet affordable inside the cap. The board is built ready for it (only two plug-in modules are left off), so it can follow once the car drives. |
 
 ## The power board for this car
 
@@ -151,7 +152,8 @@ Five parts DigiKey cannot ship have substitutes, each read on its DigiKey page t
 | C104, C603, C604 | TDK C3216X7R1H105K160AB (out until March 2027) | KEMET C1206C105K5RACTU, 1 uF 50 V X7R | yes, by its part number; in the cart |
 
 The first version of this list had two "long-lead" Panasonic parts that the review showed were different can
-sizes. They are still sitting in the DigiKey cart and are marked for deletion in `cart_digikey.csv`. The FM
+sizes. The four Panasonic and Samsung replacements were added to the DigiKey cart today (83 lines, $178.18).
+Seven lines still have to come out of that cart before checkout; `cart_digikey.csv` marks them "delete". The FM
 series replaces the FR series; its ripple-current rating was not compared with what the design needs.
 
 ## Settings to make

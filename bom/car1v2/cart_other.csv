@@ -1,6 +1,6 @@
 supplier,what,qty,unit_usd,line_usd,basis,note
-PCBWay,"ATLAS-PWR-1 bare boards, 5 pcs: 130 x 84 mm, 4 layers, 2 oz outside, 1 oz inside, HASL lead-free",1,155.79,155.79,quote,instant quote 2026-10-26; upload boards/power/out/fab/atlas_power_gerbers_pcbway.zip for the reviewed price
-PCBWay,"DHL to Fairfax, VA",1,26.55,26.55,quote,instant quote 2026-10-26
+PCBWay,"ATLAS-PWR-1 bare boards, 5 pcs: 130 x 84 mm, 4 layers, 2 oz outside, 1 oz inside, HASL lead-free",1,155.79,155.79,page,"instant quote read again 2026-11-09 (same as Oct 26). Not signed in at PCBWay, so it is not in a cart; the price is ""subject to review"" after the Gerbers are uploaded"
+PCBWay,"DHL to Fairfax, VA",1,26.55,26.55,page,instant quote 2026-11-09
 PCBWay,US import duty on the boards,1,54.53,54.53,est,35 % of the board price; PCBWay shows its own figure at checkout
 PCBWay (reserve),"Second order of the same boards, only if the first has a mistake",1,155.79,155.79,quote,same quote
 PCBWay (reserve),"DHL to Fairfax, VA",1,26.55,26.55,quote,same quote
