@@ -21,4 +21,10 @@ Small parts,"M3 brass standoffs, 25 mm, 6 pcs (the 7 mm deck spacers are printed
 Small parts,"M3 brass heat-set inserts, 50 pcs",1,9.00,9.00,est,screws come from the MISUMI gift
 Small parts,"Kapton tape, zip ties, 3 mm plywood sheet 300 x 300 mm",1,12.00,12.00,est,
 Small parts,JST-XH 5-pin balance-lead extension (pack balance plug to the BMS),1,6.00,6.00,est,
+Small parts,"32-pitch pinion, 15 tooth, 1/8 in (3.175 mm) bore, for the Puller Pro (docs/PERFORMANCE.md)",1,8.00,8.00,est,only if the chassis does not already carry a 14 or 15 tooth pinion (checklist A4)
+Small parts,"In-line mini blade fuse holders, 2, with a 10 A fuse (UBEC lead) and a 7.5 A fuse (latch lead)",1,8.00,8.00,est,review S8
+Small parts,LiPo charging bag,1,12.00,12.00,est,review B5
+Small parts,"Servo extension leads, 3-pin, 2 (FSESC servo signal to J904, and a spare)",1,6.00,6.00,est,review B5
+Small parts,"24 or 26 AWG hookup wire in a few colours (latch ON and OFF, E-stop loop)",1,8.00,8.00,est,review B5
+Small parts,"M3 nuts, M2.5 x 6 and M4 x 8 screws, if the MISUMI box has none",1,8.00,8.00,est,review B5
 SendCutSend (gift code),"6061 bar 40 x 15 x 3 mm with three 3.2 mm holes, and the 3 mm acrylic FET shield",1,0.00,0.00,est,"paid from the 250.00 gift code (Aug 5 email), never used; confirm the code applied at checkout"

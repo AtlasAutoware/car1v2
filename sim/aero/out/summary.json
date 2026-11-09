@@ -83,13 +83,13 @@
    "drag_power_W": 0.2,
    "lift_no_wing_N": 0.035,
    "lift_pct_of_weight": [
-    0.12,
-    0.09
+    0.08,
+    0.06
    ],
    "wing20_extra_downforce_N": 0.0074,
    "wing20_pct_of_weight": [
-    0.025,
-    0.019
+    0.017,
+    0.013
    ]
   },
   {
@@ -100,13 +100,13 @@
    "drag_power_W": 3.09,
    "lift_no_wing_N": 0.219,
    "lift_pct_of_weight": [
-    0.74,
-    0.56
+    0.49,
+    0.39
    ],
    "wing20_extra_downforce_N": 0.0464,
    "wing20_pct_of_weight": [
-    0.158,
-    0.118
+    0.104,
+    0.082
    ]
   },
   {
@@ -117,19 +117,53 @@
    "drag_power_W": 12.65,
    "lift_no_wing_N": 0.561,
    "lift_pct_of_weight": [
-    1.91,
-    1.43
+    1.26,
+    0.99
    ],
    "wing20_extra_downforce_N": 0.1187,
    "wing20_pct_of_weight": [
-    0.403,
-    0.302
+    0.267,
+    0.21
+   ]
+  },
+  {
+   "speed_mps": 11.0,
+   "q_Pa": 72.6,
+   "reynolds_length": 358000.0,
+   "drag_no_wing_N": 2.989,
+   "drag_power_W": 32.88,
+   "lift_no_wing_N": 1.06,
+   "lift_pct_of_weight": [
+    2.38,
+    1.88
+   ],
+   "wing20_extra_downforce_N": 0.2244,
+   "wing20_pct_of_weight": [
+    0.504,
+    0.397
+   ]
+  },
+  {
+   "speed_mps": 13.5,
+   "q_Pa": 109.35,
+   "reynolds_length": 439000.0,
+   "drag_no_wing_N": 4.502,
+   "drag_power_W": 60.77,
+   "lift_no_wing_N": 1.597,
+   "lift_pct_of_weight": [
+    3.59,
+    2.83
+   ],
+   "wing20_extra_downforce_N": 0.338,
+   "wing20_pct_of_weight": [
+    0.759,
+    0.598
    ]
   }
  ],
  "mass_range_kg": [
-  3.0,
-  4.0
+  4.54,
+  5.76
  ],
  "hand_estimate_clean_air": [
   {
@@ -145,12 +179,12 @@
  ],
  "speed_for_5pct_of_weight_mps": {
   "cfd": [
-   28.0,
-   33.0
+   35.0,
+   39.0
   ],
   "clean_air_hand": [
-   18.0,
-   21.0
+   22.0,
+   25.0
   ]
  },
  "cooling": {
@@ -176,12 +210,16 @@
   "front_to_side_pressure_Pa": {
    "2.0": 1.9,
    "5.0": 11.8,
-   "8.0": 30.2
+   "8.0": 30.2,
+   "11.0": 57.1,
+   "13.5": 85.9
   },
   "side_suction_Pa": {
    "2.0": 0.8,
    "5.0": 4.8,
-   "8.0": 12.3
+   "8.0": 12.3,
+   "11.0": 23.3,
+   "13.5": 35.1
   }
  }
 }

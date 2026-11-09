@@ -6,9 +6,11 @@ the rear wing from the printed kit, and do the electronics get enough air.
 Short answers:
 
 - **Air does not matter at today's speeds.** At the 2 m/s cap the air pushes back with about 0.1 N and lifts
-  the car by about 0.04 N. The car weighs something like 30 to 40 N.
-- **The wing is left off.** In the model the kit's wing adds at most 0.12 N of downforce at 8 m/s and about
-  0.007 N at 2 m/s. It is plastic at the highest point at the back of the car and two posts in the lidar's
+  the car by about 0.04 N. The car weighs about 45 to 57 N (4.5 to 5.8 kg, `sim/perf/mass.py`).
+- **It still matters little at race speed.** At 13.5 m/s, the top of the speed range in
+  `docs/PERFORMANCE.md`, drag is 4.5 N (61 W) and the body lifts by 1.6 N, about 3 % of the weight.
+- **The wing is left off.** In the model the kit's wing adds at most 0.12 N of downforce at 8 m/s, 0.34 N at
+  13.5 m/s and about 0.007 N at 2 m/s. It is plastic at the highest point at the back of the car and two posts in the lidar's
   rear view, for nothing measurable.
 - **Cooling is the fans' job, not the car's speed.** The pressure the car's motion makes across the vents is
   about 2 Pa at 2 m/s. The vent area in the pods is enough for the air the electronics need.
@@ -62,18 +64,22 @@ How to read it:
 
 ## At the speeds the car drives
 
-Forces scale with the square of the speed. The car's weight is not known yet (checklist B10), so the shares
-use 3 to 4 kg.
+Forces scale with the square of the speed. The car has not been weighed (checklist B10), so the shares use
+the range from the mass budget in `sim/perf/mass.py`, 4.54 to 5.76 kg.
 
 | speed | drag, no wing | power to push the air | lift, no wing | lift as a share of the weight | what the 20 deg wing adds |
 | --- | ---: | ---: | ---: | --- | --- |
-| 2 m/s | 0.10 N | 0.2 W | +0.035 N | 0.09 to 0.12 % | 0.007 N (0.02 to 0.03 %) |
-| 5 m/s | 0.62 N | 3.1 W | +0.219 N | 0.56 to 0.74 % | 0.046 N (0.12 to 0.16 %) |
-| 8 m/s | 1.58 N | 12.7 W | +0.561 N | 1.43 to 1.91 % | 0.119 N (0.30 to 0.40 %) |
+| 2 m/s | 0.10 N | 0.2 W | +0.035 N | 0.06 to 0.08 % | 0.007 N (0.01 to 0.02 %) |
+| 5 m/s | 0.62 N | 3.1 W | +0.219 N | 0.39 to 0.49 % | 0.046 N (0.08 to 0.10 %) |
+| 8 m/s | 1.58 N | 12.7 W | +0.561 N | 0.99 to 1.26 % | 0.119 N (0.21 to 0.27 %) |
+| 11 m/s | 2.99 N | 32.9 W | +1.060 N | 1.88 to 2.38 % | 0.224 N (0.40 to 0.50 %) |
+| 13.5 m/s | 4.50 N | 60.8 W | +1.597 N | 2.83 to 3.59 % | 0.338 N (0.60 to 0.76 %) |
 
-2 m/s is today's speed cap, 5 m/s a fast lap, 8 m/s the speed the model ran at. For the wing to add even
-5 % to the tyres' load, the car would have to go about 28 to 33 m/s by the model, or about 18 to 21 m/s by
-the kinder hand estimate. Grip on this car comes from tyres, weight and where the weight sits.
+2 m/s is today's speed cap, 5 m/s a fast lap, 8 m/s the speed the model ran at, 11 m/s the fastest published
+competition cars and 13.5 m/s the limit set in `docs/PERFORMANCE.md`. For the wing to add even 5 % to the
+tyres' load, the car would have to go about 35 to 39 m/s by the model, or about 22 to 25 m/s by the kinder
+hand estimate. Grip on this car comes from tyres, weight and where the weight sits. The one aerodynamic
+effect worth remembering at race speed is the lift: 1.6 N at 13.5 m/s takes about 3 % off the grip.
 
 ## What this changed in the design
 
@@ -88,7 +94,7 @@ the kinder hand estimate. Grip on this car comes from tyres, weight and where th
    costs nothing in performance either way at these speeds. Fit it as drawn, flat. The kit's struts hold it
    at 0 degrees only; tilting it would need new struts, and the model says they are not worth drawing.
 4. **Nothing else was reshaped.** A smoother nose or covered wheels would cut drag, but drag is 0.2 W at
-   2 m/s against tens of watts for the motor and the Jetson. Mass and a low centre of gravity are worth
+   2 m/s and 61 W at 13.5 m/s, where the motor is taking about 700 W. Mass and a low centre of gravity are worth
    more: keep the LiPo low in the chassis bay, as the design already does.
 
 ## Cooling

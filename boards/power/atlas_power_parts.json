@@ -3225,7 +3225,7 @@
 },
 {
 "ref": "R419",
-"value": "10k",
+"value": "470",
 "footprint": "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder",
 "pads": {
 "1": "VDEV_F",
@@ -3235,9 +3235,9 @@
 "dnp": false,
 "side": "B",
 "fields": {
-"MPN": "RC1206FR-0710KL",
+"MPN": "RC1206FR-07470RL",
 "Manufacturer": "Yageo",
-"Description": "PNP B-E pull-up",
+"Description": "PNP B-E resistor: the TL431 can draw up to 1 mA below its threshold; 470 Ohm keeps Q404 off until 1.3 mA (car 1 v2 review S1)",
 "Price": "0.10",
 "Source": "https://www.findchips.com/search/RC1206FR-0710KL",
 "Verified": "yes"

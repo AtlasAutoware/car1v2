@@ -1,0 +1,10 @@
+{
+ "m": 5.15,
+ "a_max": 7.85,
+ "v_switch": 13.55,
+ "v_max": 13.5,
+ "mu": 0.8,
+ "width": 0.296,
+ "length": 0.568,
+ "note": "m from sim/perf/mass.py (not weighed); a_max and v_switch from the motor model at mu 0.8; v_max is the ESC cap; width and length are the Traxxas figures. lf, lr, h, I, C_Sf and C_Sr were not derived: keep the simulator defaults until the car is weighed on each axle."
+}

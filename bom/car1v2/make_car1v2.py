@@ -20,6 +20,9 @@ TODAY = '2026-11-09'
 BANK_POSTED = 1895.60
 BANK_PENDING = [('Mobile check deposit (Nov 9)', +250.00), ('Micro Center debit (Nov 9)', -199.11),
                 ('PayPal to FS.COM (Nov 6)', -83.08), ('PayPal, bank part of the Adafruit payment (Nov 9)', -31.49)]
+# What the three debits were, from the books audit of 2026-11-09: FS.COM is storage for a training computer; the Adafruit
+# payment (55.50 in all) was filed under car parts on an assumption; the Micro Center purpose is not recorded. All three
+# were spent before this design and are outside the 1,500.
 CAP = 1500.00
 SALES_TAX = 0.06      # Fairfax County, VA combined rate. ASSUMED, not looked up on 2026-11-09.
 PCB_DUTY = 0.35       # JLCPCB's published US DDP rate for bare PCBs since 2026-03-17; PCBWay's own figure shows at checkout.
@@ -95,13 +98,13 @@ DK = [
  ('P6KE24ALFCT-ND', 'P6KE24A', 'TVS 20.5 V 600 W', 2, 0.70, 0.49, 'in stock', 'D501 + 1', 'keep'),
  ('1N5817RLGOSCT-ND', '1N5817RLG', 'Schottky 20 V 1 A', 2, 0.67, 0.34, 'in stock', 'D402 + 1', 'keep'),
  ('2N3906FS-ND', '2N3906BU', 'PNP TO-92', 2, 0.28, 0.14, 'in stock', 'Q404 + 1', 'keep'),
- ('P14443-ND', 'EEU-FR1V681L', '680 uF 35 V (the long-lead version of EEU-FR1V681)', 4, 1.46, 0.44, 'in stock', 'C101-C103 + 1', 'keep'),
+ ('P14443-ND', 'EEU-FR1V681L', 'WRONG PART: 680 uF 35 V in a 10 x 25 mm can, 27 mm seated; the dev-kit tray allows 23 mm (review B1)', 4, 1.46, 0.44, 'in stock', '-', 'delete'),
  ('399-C1206C103K5RACTUCT-ND', 'C1206C103K5RACTU', '10 nF 50 V X7R 1206', 10, 0.124, 0.09, 'in stock', '1 used', 'keep'),
  ('311-1.00KFRCT-ND', 'RC1206FR-071KL', '1k 1206', 25, 0.0404, 0.08, 'in stock', '9 used', 'keep'),
  ('1276-1066-1-ND', 'CL21B105KAFNNNE', 'WRONG PART: 1 uF 25 V in 0805, added by mistake', 5, 0.11, 0.05, 'BACKORDER', '-', 'delete'),
  ('BAT85S-TAPCT-ND', 'BAT85S-TAP', 'Schottky 30 V DO-35', 4, 0.50, 0.74, 'in stock', 'D1001 D1002 + 2', 'keep'),
  ('F989-ND', '0297005.WXNV', 'mini blade fuse 5 A', 3, 0.39, 0.20, 'in stock', 'F401 F501 + 1', 'keep'),
- ('P14397-ND', 'EEU-FR1C102L', '1000 uF 16 V (the long-lead version; replaces the backordered EEU-FR1C102)', 2, 0.94, 0.19, 'in stock', 'C404 + 1', 'keep'),
+ ('P14397-ND', 'EEU-FR1C102L', 'WRONG PART: 1000 uF 16 V in an 8 mm can with 3.5 mm lead spacing; C404 has 5.0 mm holes (review B1)', 2, 0.94, 0.19, 'in stock', '-', 'delete'),
  ('399-C1206C105K5RACTUCT-ND', 'C1206C105K5RACTU', '1 uF 50 V X7R 1206 (replaces TDK C3216X7R1H105K160AB: 0 in stock, due 2027-03-29)', 5, 0.46, None, 'in stock', 'C104 C603 C604 + 2', 'keep'),
  ('1528-5997-ND', '5997', 'Adafruit CH334F 4-port USB hub', 1, 4.95, None, 'in stock', 'MOD601', 'keep'),
  ('2183-2813-ND', '2813', 'Pololu pushbutton power switch', 1, 10.14, None, 'ships in about 1 day', 'MOD401', 'keep'),
@@ -115,15 +118,20 @@ DK_SHIP = 4.99                     # USPS Ground Advantage (FedEx or UPS Ground 
 # Lines DigiKey would not take from a pasted list, to add by hand in the same cart.
 # (what, qty, unit, basis, note)
 DK_BY_HAND = [
- ('10 uF 50 V X7R 1210, any maker, e.g. KEMET C1210C106K5RACTU (Murata GRM32ER71H106KA12L is backordered)', 7, 0.86, 'quote',
-  'unit price is the Murata part at Mouser on 2026-10-24; C301 C402 C403 C501 C702 + 2'),
- ('220 uF 35 V low-ESR radial, 8 mm can, 3.5 mm pitch: another Panasonic EEU-FR1V221 packaging (B or L) or Nichicon UPW1V221MPD', 2, 0.71, 'cart',
-  'price is EEU-FR1V221 in the cart (backordered to 2027-01-29); C405 + 1'),
- ('TL431 in TO-92 (TI TL431ACLPR or TL431ACLP)', 2, 0.50, 'est', 'U402 + 1; 0.14 at Mouser on 2026-10-24'),
+ ('P12417-ND, Panasonic EEU-FM1V681: 680 uF 35 V, 12.5 mm can, 22 mm seated, 5.0 mm pitch. 1,548 in stock', 4, 1.47, 'page',
+  'C101 C102 C103 + 1. Replaces EEU-FR1V681L. FM series, not FR: the ripple rating was not compared'),
+ ('P12366-ND, Panasonic EEU-FM1C102: 1000 uF 16 V, 10 mm can, 22 mm seated, 5.0 mm pitch. 2,715 in stock', 2, 1.14, 'page',
+  'C404 + 1. Replaces EEU-FR1C102L. 6 mm taller than the 10 x 16 mm part the board was drawn with'),
+ ('1276-3387-1-ND, Samsung CL32B106KBJNNNE: 10 uF 50 V X7R 1210. 573,447 in stock', 10, 0.428, 'page',
+  'C301 C402 C403 C501 C702 + 5 (the price break is at 10). Replaces Murata GRM32ER71H106KA12L, backordered'),
+ ('P12408-ND, Panasonic EEU-FM1V151: 150 uF 35 V, 8 mm can, 13 mm seated, 3.5 mm pitch. 32,224 in stock', 2, 0.58, 'page',
+  'C405 + 1. A VALUE CHANGE: 150 uF, not 220 uF. No 220 uF 35 V part in an 8 mm can was in stock (EEU-FR1V221, '
+  'Rubycon 35ZLH220MEFC8X11.5 and Nichicon UHE1V221MPD all showed 0); EEU-FM1V221 and EEU-FC1V221 are 10 mm cans'),
+ ('TL431 in TO-92 with straight leads (TI TL431ACLP)', 2, 0.50, 'est', 'U402 + 1; 0.14 at Mouser on 2026-10-24. Not the formed-lead TL431ACLPRE3'),
  ('1N5247B 17 V zener, DO-35', 2, 0.17, 'quote', 'D502 + 1; Mouser 2026-10-24'),
  ('4.7 ohm 0.6 W metal film axial (Vishay MBB02070C4708FCT00)', 2, 0.26, 'quote', 'R408 + 1; Mouser 2026-10-24'),
- ('C&K PTS645VL58-2 LFS right-angle tactile switch (Mouser showed 0 in stock on 2026-11-09: check DigiKey, or take another PTS645V right-angle part)', 2, 0.33, 'page',
-  'SW401 + 1; price read at Mouser through findchips'),
+ ('C&K PTS645VL58-2 LFS right-angle tactile switch, or another PTS645V right-angle part', 2, 0.33, 'est',
+  'SW401 + 1; the price is Mouser\'s through an aggregator, where it showed 0 in stock on 2026-11-09. Not checked at DigiKey'),
 ]
 
 # ----------------------------------------------------------------------------- the other stage 1 carts
@@ -154,8 +162,23 @@ OTHER = [
  ('Small parts', 'M3 brass heat-set inserts, 50 pcs', 1, 9.00, 'est', 'screws come from the MISUMI gift'),
  ('Small parts', 'Kapton tape, zip ties, 3 mm plywood sheet 300 x 300 mm', 1, 12.00, 'est', ''),
  ('Small parts', 'JST-XH 5-pin balance-lead extension (pack balance plug to the BMS)', 1, 6.00, 'est', ''),
+ ('Small parts', '32-pitch pinion, 15 tooth, 1/8 in (3.175 mm) bore, for the Puller Pro (docs/PERFORMANCE.md)', 1, 8.00, 'est',
+  'only if the chassis does not already carry a 14 or 15 tooth pinion (checklist A4)'),
+ ('Small parts', 'In-line mini blade fuse holders, 2, with a 10 A fuse (UBEC lead) and a 7.5 A fuse (latch lead)', 1, 8.00, 'est', 'review S8'),
+ ('Small parts', 'LiPo charging bag', 1, 12.00, 'est', 'review B5'),
+ ('Small parts', 'Servo extension leads, 3-pin, 2 (FSESC servo signal to J904, and a spare)', 1, 6.00, 'est', 'review B5'),
+ ('Small parts', '24 or 26 AWG hookup wire in a few colours (latch ON and OFF, E-stop loop)', 1, 8.00, 'est', 'review B5'),
+ ('Small parts', 'M3 nuts, M2.5 x 6 and M4 x 8 screws, if the MISUMI box has none', 1, 8.00, 'est', 'review B5'),
  ('SendCutSend (gift code)', '6061 bar 40 x 15 x 3 mm with three 3.2 mm holes, and the 3 mm acrylic FET shield', 1, 0.00, 'est',
   'paid from the 250.00 gift code (Aug 5 email), never used; confirm the code applied at checkout'),
+]
+
+# Bought only if section A of the checklist finds them missing. Not in the stage 1 total; BUDGET.md shows them beside it.
+CONDITIONAL = [
+ ('Hakko T15 soldering tips, 2', 28.00, 'if the irons have no tips and the school lab\'s are not free (A8)'),
+ ('NVMe SSD, 250 to 500 GB, for the second Jetson', 45.00, 'if it has no storage of its own (A2)'),
+ ('Motor sensor-lead adapter or a longer sensor lead', 8.00, 'if the Puller Pro\'s plug and the FSESC\'s socket differ (A4)'),
+ ('Small-parts shipping from sellers that charge it', 15.00, 'the small-parts lines assume free shipping'),
 ]
 
 # Phase 2: the built-in 18650 pack with USB-C charging. Priced, not in the stage 1 carts.
@@ -231,10 +254,13 @@ def main():
     keep_total = sum(r[3] * r[4] for r in keep)
     by_hand_total = sum(q * u for (_, q, u, _, _) in DK_BY_HAND)
     dk_merch = keep_total + by_hand_total
-    # DigiKey's tariff estimate was read for the whole cart; scale it to the stage 1 merchandise.
-    dk_tariff = DK_CART_TARIFF_READ * dk_merch / DK_CART_SUBTOTAL_READ
+    # Tariff: DigiKey's own per-line figure where the cart showed one; its average rate on the lines that showed none
+    # and on the by-hand lines, which are not in the cart yet.
+    rate = DK_CART_TARIFF_READ / DK_CART_SUBTOTAL_READ
+    dk_tariff = (sum(r[5] for r in keep if r[5] is not None) + rate * sum(r[3] * r[4] for r in keep if r[5] is None)
+                 + rate * by_hand_total)
     dk_tax = SALES_TAX * (dk_merch + dk_tariff + DK_SHIP)
-    dk_all = dk_merch + dk_tariff + DK_SHIP + dk_tax
+    dk_all = round(dk_merch, 2) + round(dk_tariff, 2) + DK_SHIP + round(dk_tax, 2)      # the row's cells add up
 
     with open(os.path.join(HERE, 'cart_digikey.csv'), 'w', newline='') as f:
         w = csv.writer(f)
@@ -309,7 +335,8 @@ def main():
     A = L.append
     A('# Car 1 v2 budget')
     A('')
-    A(f'Generated by `bom/car1v2/make_car1v2.py` on prices read {TODAY}. Nothing has been ordered or paid.')
+    A(f'Generated by `bom/car1v2/make_car1v2.py` on {TODAY}. Nothing has been ordered or paid. Not every price was read that day: '
+      'the table "How firm each dollar is" says how much was.')
     A('')
     A('## Money in the bank')
     A('')
@@ -322,6 +349,13 @@ def main():
     for name, a in BANK_PENDING:
         A(f'| {name}, still to post | {a:+,.2f} |')
     A(f'| **Expected once those post** | **{money(expected)}** |')
+    A('')
+    A('The three debits were spent before this design and are not part of the 1,500: FS.COM was storage for a training '
+      'computer, the Adafruit payment (55.50 in all) was filed under car parts on an assumption, and the purpose of the '
+      'Micro Center charge is not recorded in the books.')
+    A('')
+    A('| | USD |')
+    A('| --- | ---: |')
     A(f'| The most car 1 v2 may use | {money(CAP)} |')
     A(f'| Stage 1 (below), cash, no credit used | {money(stage1)} |')
     A(f'| Left under the cap after stage 1 | {money(CAP - stage1)} |')
@@ -343,7 +377,7 @@ def main():
     A(f'| SendCutSend, bar and shield | 0.00 (gift code) | 0.00 | 0.00 | 0.00 | 0.00 |')
     A(f'| **Stage 1** | | | | | **{money(stage1)}** |')
     A('')
-    A('How firm each dollar is (merchandise only, before tariff, shipping and tax):')
+    A('How firm each dollar is (every line of the carts before sales tax, so PCBWay\'s shipping and duty are in it; DigiKey\'s tariff and shipping are not):')
     A('')
     A('| basis | USD | meaning |')
     A('| --- | ---: | --- |')
@@ -355,9 +389,37 @@ def main():
     A('The DigiKey cart as it stands holds 79 lines and shows '
       f'{money(DK_CART_SUBTOTAL_READ)} with a {money(DK_CART_TARIFF_READ)} tariff estimate. The script checks that its copy '
       f'of those lines adds to the same subtotal ({money(cart_total)}). Before checkout: delete {len(drop)} lines '
-      f'({", ".join(r[0] for r in drop)}), which are two parts added by mistake and three backordered lines whose replacements are in the cart or on the by-hand list; '
-      f'add the {len(DK_BY_HAND)} lines marked "add by hand"; and decide whether the PD trigger ({ph2[0][0]}) stays. '
+      f'({", ".join(r[0] for r in drop)}): four wrong parts (two added by mistake, and the two "L" capacitors the review found '
+      'are the wrong size) and three backordered lines; '
+      f'add the {len(DK_BY_HAND)} lines marked "add by hand", four of which now carry a DigiKey number and the stock read on {TODAY}; '
+      f'and decide whether the PD trigger ({ph2[0][0]}) stays. '
       'Three kept lines are on short backorder (the red LED to Nov 16, the 2.2k resistor to Nov 23, the 3.3 ohm resistor past due).')
+    A('')
+    A('The cart buys the parts for one board, with spares of the cheap parts. PCBWay\'s smallest order is five bare boards, '
+      'so four boards stay bare. Eight parts are bought once (U401, MOD401, MOD601, J409, J601, U601, J801, J1003): a second '
+      'board would need those again.')
+    A('')
+    A('### Only if the shelf check says so')
+    A('')
+    A('Not in the stage 1 total. Section A of `docs/CAR1V2_CHECKLIST.md` decides each one.')
+    A('')
+    A('| what | USD with tax | bought if |')
+    A('| --- | ---: | --- |')
+    cond = 0.0
+    for (what, usd, why) in CONDITIONAL:
+        A(f'| {what} | {money(usd * (1 + SALES_TAX))} | {why} |')
+        cond += usd * (1 + SALES_TAX)
+    A(f'| **All four** | **{money(cond)}** | stage 1 would then be {money(stage1 + cond)} |')
+    A('')
+    A('### If the estimates are wrong')
+    A('')
+    worse = (dk_all + (8.49 - DK_SHIP) * (1 + SALES_TAX)
+             + 2 * (155.79 * 1.15 * (1 + 0.55) + 26.55 * 1.10)
+             + bms + bms_tax + (24.99 + 10.00) * (1 + SALES_TAX) + small * 1.30 * (1 + SALES_TAX) + cond)
+    A(f'A pessimistic stage 1: the PCB quote 15 % higher, duty at 55 % instead of 35 %, DHL 10 % higher, every small-parts '
+      f'estimate 30 % over, DigiKey by FedEx, Hobbywing shipping at $10, and all four conditional items bought. That comes to '
+      f'**{money(worse)}**, with the reserve board order included. It is under the cap by {money(CAP - worse)}. '
+      f'Without the reserve order it is {money(worse - (155.79 * 1.15 * 1.55 + 26.55 * 1.10))}.')
     A('')
     A('## Priced, not in stage 1')
     A('')
@@ -368,7 +430,7 @@ def main():
     A(f'| Sensor upgrade: Triton and TiM561 wiring (`cart_sensor_upgrade.csv`) | {money(up_all)} | October quotes, not read again. |')
     def room(x):
         return f'{money(CAP - x)} under the cap' if x <= CAP else f'{money(x - CAP)} OVER the cap'
-    A(f'| **Stage 1 + phase 2** | **{money(stage1 + p2_all)}** | {room(stage1 + p2_all)} |')
+    A(f'| **Stage 1 + phase 2** | **{money(stage1 + p2_all)}** | {room(stage1 + p2_all)}, but only if every estimate holds. In the pessimistic case above it does not fit. Treat phase 2 as not yet affordable inside the cap |')
     A(f'| Stage 1 + phase 2 with a borrowed welder + sensor upgrade | {money(stage1 + p2_no_welder * (1 + SALES_TAX) + up_all)} | {room(stage1 + p2_no_welder * (1 + SALES_TAX) + up_all)} |')
     A(f'| Stage 1 + phase 2 + sensor upgrade | {money(stage1 + p2_all + up_all)} | {room(stage1 + p2_all + up_all)} |')
     A('')
@@ -386,7 +448,7 @@ def main():
     A('')
     open(os.path.join(HERE, 'BUDGET.md'), 'w').write('\n'.join(L))
     assert abs(cart_total - DK_CART_SUBTOTAL_READ) < 0.06, (cart_total, DK_CART_SUBTOTAL_READ)
-    assert stage1 < CAP and stage1 + p2_all < CAP
+    assert stage1 < CAP and worse < CAP
     fit_usd, off_usd = stage1_population()
     print(f'board population: {fit_usd:.2f} fitted, {off_usd:.2f} left off (rev B BOM prices of Oct 26)')
     print(f'DigiKey cart check: {cart_total:.2f} vs read {DK_CART_SUBTOTAL_READ:.2f}')

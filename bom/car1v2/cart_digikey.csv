@@ -66,21 +66,23 @@ keep,P6KE22ALFCT-ND,P6KE22A,TVS 18.8 V 600 W,4,0.7000,2.80,1.22,in stock,D404-D4
 keep,P6KE24ALFCT-ND,P6KE24A,TVS 20.5 V 600 W,2,0.7000,1.40,0.49,in stock,D501 + 1
 keep,1N5817RLGOSCT-ND,1N5817RLG,Schottky 20 V 1 A,2,0.6700,1.34,0.34,in stock,D402 + 1
 keep,2N3906FS-ND,2N3906BU,PNP TO-92,2,0.2800,0.56,0.14,in stock,Q404 + 1
-keep,P14443-ND,EEU-FR1V681L,680 uF 35 V (the long-lead version of EEU-FR1V681),4,1.4600,5.84,0.44,in stock,C101-C103 + 1
+delete,P14443-ND,EEU-FR1V681L,"WRONG PART: 680 uF 35 V in a 10 x 25 mm can, 27 mm seated; the dev-kit tray allows 23 mm (review B1)",4,1.4600,5.84,0.44,in stock,-
 keep,399-C1206C103K5RACTUCT-ND,C1206C103K5RACTU,10 nF 50 V X7R 1206,10,0.1240,1.24,0.09,in stock,1 used
 keep,311-1.00KFRCT-ND,RC1206FR-071KL,1k 1206,25,0.0404,1.01,0.08,in stock,9 used
 delete,1276-1066-1-ND,CL21B105KAFNNNE,"WRONG PART: 1 uF 25 V in 0805, added by mistake",5,0.1100,0.55,0.05,BACKORDER,-
 keep,BAT85S-TAPCT-ND,BAT85S-TAP,Schottky 30 V DO-35,4,0.5000,2.00,0.74,in stock,D1001 D1002 + 2
 keep,F989-ND,0297005.WXNV,mini blade fuse 5 A,3,0.3900,1.17,0.20,in stock,F401 F501 + 1
-keep,P14397-ND,EEU-FR1C102L,1000 uF 16 V (the long-lead version; replaces the backordered EEU-FR1C102),2,0.9400,1.88,0.19,in stock,C404 + 1
+delete,P14397-ND,EEU-FR1C102L,WRONG PART: 1000 uF 16 V in an 8 mm can with 3.5 mm lead spacing; C404 has 5.0 mm holes (review B1),2,0.9400,1.88,0.19,in stock,-
 keep,399-C1206C105K5RACTUCT-ND,C1206C105K5RACTU,"1 uF 50 V X7R 1206 (replaces TDK C3216X7R1H105K160AB: 0 in stock, due 2027-03-29)",5,0.4600,2.30,,in stock,C104 C603 C604 + 2
 keep,1528-5997-ND,5997,Adafruit CH334F 4-port USB hub,1,4.9500,4.95,,in stock,MOD601
 keep,2183-2813-ND,2813,Pololu pushbutton power switch,1,10.1400,10.14,,ships in about 1 day,MOD401
 delete,1528-1988-ND,3142,"WRONG PART: Adafruit jumper wires, added by mistake for the ribbon cable",1,3.9500,3.95,,in stock,-
 phase2,1528-5807-ND,5807,Adafruit HUSB238 USB-C PD trigger,1,5.9500,5.95,,in stock,MOD501 (USB-C charging)
-add by hand,,,"10 uF 50 V X7R 1210, any maker, e.g. KEMET C1210C106K5RACTU (Murata GRM32ER71H106KA12L is backordered)",7,0.86,6.02,,not in the cart (quote),unit price is the Murata part at Mouser on 2026-10-24; C301 C402 C403 C501 C702 + 2
-add by hand,,,"220 uF 35 V low-ESR radial, 8 mm can, 3.5 mm pitch: another Panasonic EEU-FR1V221 packaging (B or L) or Nichicon UPW1V221MPD",2,0.71,1.42,,not in the cart (cart),price is EEU-FR1V221 in the cart (backordered to 2027-01-29); C405 + 1
-add by hand,,,TL431 in TO-92 (TI TL431ACLPR or TL431ACLP),2,0.50,1.00,,not in the cart (est),U402 + 1; 0.14 at Mouser on 2026-10-24
+add by hand,,,"P12417-ND, Panasonic EEU-FM1V681: 680 uF 35 V, 12.5 mm can, 22 mm seated, 5.0 mm pitch. 1,548 in stock",4,1.47,5.88,,not in the cart (page),"C101 C102 C103 + 1. Replaces EEU-FR1V681L. FM series, not FR: the ripple rating was not compared"
+add by hand,,,"P12366-ND, Panasonic EEU-FM1C102: 1000 uF 16 V, 10 mm can, 22 mm seated, 5.0 mm pitch. 2,715 in stock",2,1.14,2.28,,not in the cart (page),C404 + 1. Replaces EEU-FR1C102L. 6 mm taller than the 10 x 16 mm part the board was drawn with
+add by hand,,,"1276-3387-1-ND, Samsung CL32B106KBJNNNE: 10 uF 50 V X7R 1210. 573,447 in stock",10,0.43,4.28,,not in the cart (page),"C301 C402 C403 C501 C702 + 5 (the price break is at 10). Replaces Murata GRM32ER71H106KA12L, backordered"
+add by hand,,,"P12408-ND, Panasonic EEU-FM1V151: 150 uF 35 V, 8 mm can, 13 mm seated, 3.5 mm pitch. 32,224 in stock",2,0.58,1.16,,not in the cart (page),"C405 + 1. A VALUE CHANGE: 150 uF, not 220 uF. No 220 uF 35 V part in an 8 mm can was in stock (EEU-FR1V221, Rubycon 35ZLH220MEFC8X11.5 and Nichicon UHE1V221MPD all showed 0); EEU-FM1V221 and EEU-FC1V221 are 10 mm cans"
+add by hand,,,TL431 in TO-92 with straight leads (TI TL431ACLP),2,0.50,1.00,,not in the cart (est),U402 + 1; 0.14 at Mouser on 2026-10-24. Not the formed-lead TL431ACLPRE3
 add by hand,,,"1N5247B 17 V zener, DO-35",2,0.17,0.34,,not in the cart (quote),D502 + 1; Mouser 2026-10-24
 add by hand,,,4.7 ohm 0.6 W metal film axial (Vishay MBB02070C4708FCT00),2,0.26,0.52,,not in the cart (quote),R408 + 1; Mouser 2026-10-24
-add by hand,,,"C&K PTS645VL58-2 LFS right-angle tactile switch (Mouser showed 0 in stock on 2026-11-09: check DigiKey, or take another PTS645V right-angle part)",2,0.33,0.66,,not in the cart (page),SW401 + 1; price read at Mouser through findchips
+add by hand,,,"C&K PTS645VL58-2 LFS right-angle tactile switch, or another PTS645V right-angle part",2,0.33,0.66,,not in the cart (est),"SW401 + 1; the price is Mouser's through an aggregator, where it showed 0 in stock on 2026-11-09. Not checked at DigiKey"

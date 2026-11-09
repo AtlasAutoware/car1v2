@@ -10,8 +10,9 @@ sys.path.insert(0, os.path.join(HERE, '..', '..', 'mech'))
 
 RHO, NU, G = 1.2, 1.5e-5, 9.81
 V_CFD = 8.0
-SPEEDS = (2.0, 5.0, 8.0)                 # today's speed cap, a fast lap, the CFD speed
-MASS_RANGE_KG = (3.0, 4.0)               # NOT weighed. A bracket for "how big is this against the car's weight"
+SPEEDS = (2.0, 5.0, 8.0, 11.0, 13.5)     # today's cap, a fast lap, the CFD speed, the competition's top speed, the ESC cap
+_mb = json.load(open(os.path.join(HERE, '..', 'perf', 'out', 'mass.json')))      # sim/perf/mass.py. NOT weighed
+MASS_RANGE_KG = (_mb['low_kg'], _mb['high_kg'])
 HEAT_W = dict(jetson=25.0, esc_and_board=10.0)     # Jetson: its 25 W mode. The rest: a round allowance, not measured
 DT_AIR_K = 10.0                          # air temperature rise allowed through the electronics bay
 CP_AIR = 1005.0
@@ -99,7 +100,7 @@ A('')
 A('| speed | drag, no wing | power to push the air | lift, no wing | lift as a share of the weight | what the 20 deg wing adds |')
 A('| --- | ---: | ---: | ---: | --- | --- |')
 for b in by_speed:
-    A(f"| {b['speed_mps']:.0f} m/s | {b['drag_no_wing_N']:.2f} N | {b['drag_power_W']:.1f} W | {b['lift_no_wing_N']:+.3f} N | "
+    A(f"| {b['speed_mps']:g} m/s | {b['drag_no_wing_N']:.2f} N | {b['drag_power_W']:.1f} W | {b['lift_no_wing_N']:+.3f} N | "
       f"{b['lift_pct_of_weight'][1]:.2f} to {b['lift_pct_of_weight'][0]:.2f} % | {b['wing20_extra_downforce_N']:.3f} N "
       f"({b['wing20_pct_of_weight'][1]:.2f} to {b['wing20_pct_of_weight'][0]:.2f} %) |")
 open(os.path.join(OUT, 'summary.md'), 'w').write('\n'.join(L) + '\n')
@@ -119,7 +120,7 @@ try:
     ax.plot([h['angle_deg'] for h in hand], [h['downforce_N_at_8'] for h in hand], 'x:', color='#555555',
             label='blade alone in clean air (hand estimate)')
     ax.set_xlabel('wing angle, degrees nose down'); ax.set_ylabel('force at 8 m/s, N')
-    ax.set_title('Rear wing at 8 m/s: car weight is about 29 to 39 N', fontsize=10)
+    ax.set_title(f'Rear wing at 8 m/s: car weight is about {weight[0]:.0f} to {weight[1]:.0f} N', fontsize=10)
     ax.set_xticks(ang); ax.grid(alpha=0.3); ax.legend(fontsize=7, frameon=False)
     fig.tight_layout(); fig.savefig(os.path.join(OUT, 'wing_sweep.png'))
     print('wrote wing_sweep.png')

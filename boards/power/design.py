@@ -314,7 +314,7 @@ R('R', '15.0k', 'OV_REF', 'GND', 'OV divider bottom: trips at about 18.7 V (2.49
 R('R', '1.2M', 'OV_G', 'OV_REF', 'hysteresis: releases at about 17.85 V (above the 16.8 V charge voltage)')
 d.chip('Q', PNP, {'B': 'OV_B', 'E': 'VDEV_F', 'C': 'OV_G'}, desc='pulls the gate to the source on over-voltage',
        **P_PNP)
-R('R', '10k', 'VDEV_F', 'OV_B', 'PNP B-E pull-up')
+R('R', '470', 'VDEV_F', 'OV_B', 'PNP B-E resistor: the TL431 can draw up to 1 mA below its threshold; 470 Ohm keeps Q404 off until 1.3 mA (car 1 v2 review S1)')
 R('R', '4.7k', 'OV_B', 'OV_K', 'TL431 cathode current 3.4 mA at 18.7 V, 5.9 mA at 30 V (>= 1 mA needed)')
 d.CP('C', '220u 35V', 'VDEV', 'GND', CP8, mpn='Panasonic EEU-FR1V221', mfr='Panasonic',
      desc='dev-kit lead bulk at the pads', **src(0.73, FC + 'EEU-FR1V221', 'yes'))

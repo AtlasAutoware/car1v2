@@ -1,0 +1,94 @@
+{
+ "items": [
+  {
+   "what": "Slash 4x4 rolling chassis: tub, drivetrain, suspension, wheels and tyres",
+   "grams": 2000,
+   "basis": "est",
+   "note": "Traxxas gives 2,640 g ready to run (page). Less the Velineon motor 262 g and VXL-3s 90 g (page), and about 290 g for the body, servo and receiver (est)"
+  },
+  {
+   "what": "Holmes Puller Pro 540 motor with wires",
+   "grams": 210,
+   "basis": "page",
+   "note": "Holmes Hobbies: 210 g"
+  },
+  {
+   "what": "Flipsky FSESC with leads",
+   "grams": 110,
+   "basis": "est",
+   "note": "which of the two units is the spare is not known (checklist A3)"
+  },
+  {
+   "what": "INJORA INJS235 servo and horn",
+   "grams": 80,
+   "basis": "est",
+   "note": ""
+  },
+  {
+   "what": "Jetson Orin Nano dev kit with heat sink, fan and NVMe",
+   "grams": 190,
+   "basis": "est",
+   "note": ""
+  },
+  {
+   "what": "Power board, populated, with Pico, hub, FET bar and shield",
+   "grams": 150,
+   "basis": "est",
+   "note": "bare board about 32 g by its size"
+  },
+  {
+   "what": "4S LiPo pack",
+   "grams": 520,
+   "basis": "est",
+   "note": "a 5000 mAh hard-case pack is about this. The team's packs are not recorded (checklist A1)"
+  },
+  {
+   "what": "JK-B1A8S10P BMS with leads",
+   "grams": 300,
+   "basis": "est",
+   "note": "the listing size is 151 x 105 x 15.5 mm; its mass was not read (checklist B4)"
+  },
+  {
+   "what": "Hobbywing UBEC 10A",
+   "grams": 40,
+   "basis": "est",
+   "note": ""
+  },
+  {
+   "what": "MIDI fuse and holder, XT90-S, 10 AWG leads, harnesses, USB leads",
+   "grams": 260,
+   "basis": "est",
+   "note": ""
+  },
+  {
+   "what": "RPLidar C1 with its USB adapter",
+   "grams": 125,
+   "basis": "est",
+   "note": "Slamtec's figure for the lidar was not re-read today"
+  },
+  {
+   "what": "OAK-D Pro",
+   "grams": 95,
+   "basis": "est",
+   "note": "the mount check in mech/car1v2.py uses 100 g"
+  },
+  {
+   "what": "Printed parts (PETG-CF)",
+   "grams": 884,
+   "basis": "cad",
+   "note": "1105 g if every part were solid (mech/out reports), times 0.8 for infill"
+  },
+  {
+   "what": "Standoffs, screws, inserts, E-stop button, fan, Wi-Fi adapter, joystick receiver",
+   "grams": 190,
+   "basis": "est",
+   "note": ""
+  }
+ ],
+ "total_kg": 5.15,
+ "low_kg": 4.54,
+ "high_kg": 5.76,
+ "read_on_a_page_g": 210,
+ "estimated_g": 4944,
+ "printed_solid_g": 1105.0
+}

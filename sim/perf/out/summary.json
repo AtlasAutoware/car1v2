@@ -1,0 +1,452 @@
+{
+ "question": "can car 1 v2 go 1.5 to 2.5 m/s faster than its competition",
+ "benchmark": {
+  "top_speed_mps": 11.0,
+  "src": "ForzaETH Race Stack (Baumann et al., J. Field Robotics 2025, arXiv 2403.11784): the car was tested \"up to\" 11 m/s and the abstract says over 10 m/s on tracks up to 150 m. ForzaETH won the German Grand Prix 2022 and the ICRA Grand Prix 2023. The IROS 2026 Sim Racing League report gives top speeds \"over 11 m/s\" and a 7.16 s best lap for the winner, in simulation.",
+  "margin_mps": [
+   1.5,
+   2.5
+  ]
+ },
+ "window_mps": [
+  12.5,
+  13.5
+ ],
+ "mass": {
+  "total_kg": 5.15,
+  "low_kg": 4.54,
+  "high_kg": 5.76,
+  "reference_kg": 3.74
+ },
+ "setup": {
+  "pinion": 15,
+  "spur": 54,
+  "ratio": 10.26,
+  "i_motor": 60.0,
+  "i_batt": 60.0,
+  "i_regen": 30.0,
+  "v_cap": 13.5
+ },
+ "top_speed_by_gearing": [
+  {
+   "pinion": 13,
+   "ratio": 11.84,
+   "worst": 13.6,
+   "nominal": 14.5,
+   "best": 15.9,
+   "launch_force_N": 47.9,
+   "grip_force_N": 40.4,
+   "rpm_at_cap": 27875,
+   "back_emf_at_cap_V": 12.7
+  },
+  {
+   "pinion": 14,
+   "ratio": 10.99,
+   "worst": 14.5,
+   "nominal": 15.6,
+   "best": 17.1,
+   "launch_force_N": 44.4,
+   "grip_force_N": 40.4,
+   "rpm_at_cap": 25884,
+   "back_emf_at_cap_V": 11.8
+  },
+  {
+   "pinion": 15,
+   "ratio": 10.26,
+   "worst": 15.3,
+   "nominal": 16.6,
+   "best": 18.2,
+   "launch_force_N": 41.5,
+   "grip_force_N": 40.4,
+   "rpm_at_cap": 24158,
+   "back_emf_at_cap_V": 11.0
+  },
+  {
+   "pinion": 16,
+   "ratio": 9.62,
+   "worst": 16.2,
+   "nominal": 17.5,
+   "best": 19.3,
+   "launch_force_N": 38.9,
+   "grip_force_N": 40.4,
+   "rpm_at_cap": 22649,
+   "back_emf_at_cap_V": 10.3
+  }
+ ],
+ "top_speed_reference": 17.1,
+ "run_up_from_5": {
+  "0.6": {
+   "12.5": {
+    "m": 12.5,
+    "s": 1.42
+   },
+   "13.5": {
+    "m": 15.2,
+    "s": 1.62
+   }
+  },
+  "0.8": {
+   "12.5": {
+    "m": 9.1,
+    "s": 1.03
+   },
+   "13.5": {
+    "m": 11.0,
+    "s": 1.18
+   }
+  },
+  "1.05": {
+   "12.5": {
+    "m": 8.9,
+    "s": 1.01
+   },
+   "13.5": {
+    "m": 10.7,
+    "s": 1.15
+   }
+  }
+ },
+ "run_up_from_5_reference": {
+  "0.6": {
+   "12.5": {
+    "m": 12.9,
+    "s": 1.46
+   },
+   "13.5": {
+    "m": 15.8,
+    "s": 1.68
+   }
+  },
+  "0.8": {
+   "12.5": {
+    "m": 9.9,
+    "s": 1.1
+   },
+   "13.5": {
+    "m": 12.5,
+    "s": 1.31
+   }
+  },
+  "1.05": {
+   "12.5": {
+    "m": 8.9,
+    "s": 0.96
+   },
+   "13.5": {
+    "m": 11.5,
+    "s": 1.17
+   }
+  }
+ },
+ "peak_on_straight": {
+  "lengths_m": [
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   25,
+   30
+  ],
+  "corner_speed_mps": 5.0,
+  "mu": 0.8,
+  "peaks": {
+   "reference car": [
+    9.34,
+    10.14,
+    10.87,
+    11.51,
+    12.1,
+    12.64,
+    13.14,
+    13.6,
+    14.23,
+    15.16
+   ],
+   "car 1 v2, regen 12 A": [
+    9.09,
+    9.75,
+    10.34,
+    10.89,
+    11.39,
+    11.87,
+    12.32,
+    12.75,
+    13.35,
+    14.25
+   ],
+   "car 1 v2, regen 30 A": [
+    9.35,
+    10.16,
+    10.89,
+    11.58,
+    12.23,
+    12.85,
+    13.44,
+    13.97,
+    14.65,
+    15.44
+   ],
+   "car 1 v2, regen 30 A, capped at 13.5": [
+    9.35,
+    10.16,
+    10.89,
+    11.58,
+    12.23,
+    12.85,
+    13.44,
+    13.51,
+    13.51,
+    13.51
+   ]
+  }
+ },
+ "straight_needed_m": {
+  "reference car": {
+   "11.0": 12.4,
+   "12.5": 17.5,
+   "13.5": 21.6
+  },
+  "car 1 v2, regen 12 A": {
+   "11.0": 14.4,
+   "12.5": 20.8,
+   "13.5": 25.8
+  },
+  "car 1 v2, regen 30 A": {
+   "11.0": 12.3,
+   "12.5": 16.9,
+   "13.5": 20.2
+  }
+ },
+ "same_straight_more_grip": {
+  "straight_m": 12.4,
+  "reference_peak": 11.0,
+  "rows": [
+   {
+    "mu": 0.8,
+    "corner_mps": 5.0,
+    "peak_60A": 11.03,
+    "peak_80A": 11.03
+   },
+   {
+    "mu": 0.9,
+    "corner_mps": 5.3,
+    "peak_60A": 11.46,
+    "peak_80A": 11.7
+   },
+   {
+    "mu": 1.0,
+    "corner_mps": 5.59,
+    "peak_60A": 11.78,
+    "peak_80A": 12.34
+   },
+   {
+    "mu": 1.1,
+    "corner_mps": 5.86,
+    "peak_60A": 12.07,
+    "peak_80A": 12.89
+   },
+   {
+    "mu": 1.2,
+    "corner_mps": 6.12,
+    "peak_60A": 12.24,
+    "peak_80A": 13.16
+   }
+  ]
+ },
+ "laps": {
+  "team comp_track race line (243 m)": {
+   "reference car": {
+    "lap_s": 35.91,
+    "v_max": 15.97,
+    "v_mean": 6.78,
+    "v_min": 2.21,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 12 A": {
+    "lap_s": 36.21,
+    "v_max": 15.04,
+    "v_mean": 6.72,
+    "v_min": 2.21,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 30 A": {
+    "lap_s": 35.86,
+    "v_max": 15.93,
+    "v_mean": 6.79,
+    "v_min": 2.21,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 30 A, capped at 13.5": {
+    "lap_s": 35.97,
+    "v_max": 13.5,
+    "v_mean": 6.77,
+    "v_min": 2.21,
+    "length_m": 243.4
+   },
+   "reference car, mu 0.6": {
+    "lap_s": 41.41,
+    "v_max": 14.71,
+    "v_mean": 5.88,
+    "v_min": 1.91,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 30 A, mu 0.6": {
+    "lap_s": 41.39,
+    "v_max": 14.81,
+    "v_mean": 5.88,
+    "v_min": 1.91,
+    "length_m": 243.4
+   },
+   "reference car, mu 1.05": {
+    "lap_s": 31.6,
+    "v_max": 16.55,
+    "v_mean": 7.7,
+    "v_min": 2.54,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 30 A, mu 1.05": {
+    "lap_s": 31.69,
+    "v_max": 16.21,
+    "v_mean": 7.68,
+    "v_min": 2.54,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 30 A, 4.54 kg": {
+    "lap_s": 35.86,
+    "v_max": 16.04,
+    "v_mean": 6.79,
+    "v_min": 2.21,
+    "length_m": 243.4
+   },
+   "car 1 v2, regen 30 A, 5.76 kg": {
+    "lap_s": 35.93,
+    "v_max": 15.78,
+    "v_mean": 6.78,
+    "v_min": 2.21,
+    "length_m": 243.4
+   }
+  },
+  "box, 26 x 9 m centre line (66 m)": {
+   "reference car": {
+    "lap_s": 9.67,
+    "v_max": 13.18,
+    "v_mean": 6.79,
+    "v_min": 4.42,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 12 A": {
+    "lap_s": 9.8,
+    "v_max": 12.35,
+    "v_mean": 6.7,
+    "v_min": 4.42,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 30 A": {
+    "lap_s": 9.66,
+    "v_max": 13.47,
+    "v_mean": 6.8,
+    "v_min": 4.42,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 30 A, capped at 13.5": {
+    "lap_s": 9.66,
+    "v_max": 13.47,
+    "v_mean": 6.8,
+    "v_min": 4.42,
+    "length_m": 65.7
+   },
+   "reference car, mu 0.6": {
+    "lap_s": 11.16,
+    "v_max": 11.64,
+    "v_mean": 5.89,
+    "v_min": 3.83,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 30 A, mu 0.6": {
+    "lap_s": 11.15,
+    "v_max": 11.66,
+    "v_mean": 5.89,
+    "v_min": 3.83,
+    "length_m": 65.7
+   },
+   "reference car, mu 1.05": {
+    "lap_s": 8.55,
+    "v_max": 14.04,
+    "v_mean": 7.68,
+    "v_min": 5.07,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 30 A, mu 1.05": {
+    "lap_s": 8.67,
+    "v_max": 14.26,
+    "v_mean": 7.58,
+    "v_min": 5.07,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 30 A, 4.54 kg": {
+    "lap_s": 9.66,
+    "v_max": 13.46,
+    "v_mean": 6.8,
+    "v_min": 4.42,
+    "length_m": 65.7
+   },
+   "car 1 v2, regen 30 A, 5.76 kg": {
+    "lap_s": 9.75,
+    "v_max": 13.18,
+    "v_mean": 6.74,
+    "v_min": 4.42,
+    "length_m": 65.7
+   }
+  }
+ },
+ "cross_check": {
+  "team_profile_lap_s": 41.0,
+  "team_profile": "racelines/comp_raceline.csv: lateral 6.5 m/s2, ceiling 7.0 m/s",
+  "this_model_lap_s": 43.78
+ },
+ "stopping_from_cap_m": {
+  "motor braking, regen 12 A": 16.3,
+  "motor braking, regen 30 A": 10.8,
+  "grip only (mu g)": 11.6,
+  "hardware E-stop: motor off, car coasts": 176.7,
+  "hardware E-stop from 2 m/s": 9.6
+ },
+ "kinetic_energy_J": {
+  "2.0": 10,
+  "11.0": 312,
+  "13.5": 469
+ },
+ "esc": {
+  "erpm_per_mps": 3579,
+  "max_erpm_for_cap": 48300.0,
+  "formula": "60 x ratio x pole pairs / (pi x tyre diameter)",
+  "current_at_grip_limit_A": 58.5,
+  "battery_power_at_12_5_W": 718,
+  "scan_travel_m": {
+   "RPLidar C1, 10 Hz": 1.35,
+   "SICK TiM561, 15 Hz": 0.9,
+   "Hokuyo UST-10LX, 40 Hz (what ForzaETH runs)": 0.34
+  }
+ },
+ "checks": {
+  "top speed reaches the top of the window in the worst case (heavy car, 3.5 V a cell, high resistances)": true,
+  "window reached within 15 m of straight from a 5 m/s corner at mu 0.8": true,
+  "motor stays under its 50,000 rpm limit at the cap": true,
+  "launch is grip-limited, not current-limited, at mu 0.8": true,
+  "lap time within 1 % of the reference car at equal grip (regen 30 A)": true
+ },
+ "gym_params": {
+  "m": 5.15,
+  "a_max": 7.85,
+  "v_switch": 13.55,
+  "v_max": 13.5,
+  "mu": 0.8,
+  "width": 0.296,
+  "length": 0.568,
+  "note": "m from sim/perf/mass.py (not weighed); a_max and v_switch from the motor model at mu 0.8; v_max is the ESC cap; width and length are the Traxxas figures. lf, lr, h, I, C_Sf and C_Sr were not derived: keep the simulator defaults until the car is weighed on each axle."
+ }
+}
