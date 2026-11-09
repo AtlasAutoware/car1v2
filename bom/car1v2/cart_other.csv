@@ -2,8 +2,8 @@ supplier,what,qty,unit_usd,line_usd,basis,note
 PCBWay,"ATLAS-PWR-1 bare boards, 5 pcs: 130 x 84 mm, 4 layers, 2 oz outside, 1 oz inside, HASL lead-free",1,155.79,155.79,page,"instant quote read again 2026-11-09 (same as Oct 26). Not signed in at PCBWay, so it is not in a cart; the price is ""subject to review"" after the Gerbers are uploaded"
 PCBWay,"DHL to Fairfax, VA",1,26.55,26.55,page,instant quote 2026-11-09
 PCBWay,US import duty on the boards,1,54.53,54.53,est,35 % of the board price; PCBWay shows its own figure at checkout
-PCBWay (reserve),"Second order of the same boards, only if the first has a mistake",1,155.79,155.79,quote,same quote
-PCBWay (reserve),"DHL to Fairfax, VA",1,26.55,26.55,quote,same quote
+PCBWay (reserve),"Second order of the same boards, only if the first has a mistake",1,155.79,155.79,page,"the same instant quote, read 2026-11-09"
+PCBWay (reserve),"DHL to Fairfax, VA",1,26.55,26.55,page,"the same instant quote, read 2026-11-09"
 PCBWay (reserve),US import duty on the boards,1,54.53,54.53,est,same 35 %
 Amazon,"JKBMS JK-B1A8S10P smart BMS, 3S-8S Li-ion, 100 A, Bluetooth (ASIN B0D148FGQB)",1,66.49,66.49,page,"in stock, free delivery Nov 10. Replaces the JBD 4S 100 A, sold out at 18650battery.com and 18650batterystore.com"
 Hobbywing Direct,"Hobbywing UBEC 10A V2 Car, SKU 30603003: 2-6S in, 6.0 / 7.4 / 8.4 V out, 10 A continuous",1,24.99,24.99,page,replaces the Castle BEC 2.0 (46.95) and the Castle Link (26.99); the page does not show a stock count

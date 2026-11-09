@@ -210,9 +210,9 @@ set-up that repeats the CFD cases, so the students can check these numbers on th
 ## What has not been verified
 
 - **The bank balance today.** Truthifi's free plan was out of credits; the figures are the ones in the brief.
-- **Prices not read today**: the PCBWay quote (Oct 26), the import duty on the boards (35 % assumed from
-  JLCPCB's published rate), every "small parts" line, six low-value DigiKey lines that would not go into the
-  cart from a pasted list, and all of phase 2 and the sensor upgrade. `BUDGET.md` shows how many dollars sit
+- **Prices not read today**: the import duty on the boards (35 % assumed from JLCPCB's published rate; neither
+  board house shows it before checkout), every "small parts" line, four low-value DigiKey lines that are not in the
+  cart yet, and all of phase 2 and the sensor upgrade. `BUDGET.md` shows how many dollars sit
   in each class. Sales tax is assumed at 6 %.
 - **The JK BMS**: its size comes from the Amazon listing; its wake-up procedure, lead positions and whether
   its discharge limit can be set as above come from nowhere yet. Read its manual first.

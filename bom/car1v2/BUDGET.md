@@ -44,8 +44,8 @@ How firm each dollar is (every line of the carts before sales tax, so PCBWay's s
 | basis | USD | meaning |
 | --- | ---: | --- |
 | cart | 156.43 | in the DigiKey cart on 2026-11-09, with stock shown |
-| page | 273.82 | read on the product page on 2026-11-09 |
-| quote | 183.20 | an earlier quote (PCBWay Oct 26, Mouser Oct 24), not read again |
+| page | 456.16 | read on the product page on 2026-11-09 |
+| quote | 0.86 | an earlier quote (Mouser, Oct 24), not read again |
 | est | 289.71 | an estimate: nobody has read a price for the exact item |
 
 The DigiKey cart as it stands holds 83 lines and shows 178.18 with a 28.75 tariff estimate. The script checks that its copy of those lines adds to the same subtotal (178.18). Before checkout: delete 7 lines (490-6544-2-ND, P14398-ND, P124227-ND, P14443-ND, 1276-1066-1-ND, P14397-ND, 1528-1988-ND): four wrong parts (two added by mistake, and the two "L" capacitors the review found are the wrong size) and three backordered lines. Their four replacements were added to the cart today; add the 4 low-value lines marked "add by hand"; and decide whether the PD trigger (1528-5807-ND) stays. Three kept lines are on short backorder (the red LED to Nov 16, the 2.2k resistor to Nov 23, the 3.3 ohm resistor past due).
