@@ -47,3 +47,6 @@ firmware/vesc/out/
 
 # OpenFOAM case directories (about 130 MB each): sim/aero/run_cfd.py writes them again; results.json is kept
 sim/aero/out/cases/
+
+# the raw STEP assembly is 9 MB; the zip next to it is kept (mech/car1v2_assembly.py writes both)
+mech/out/car1v2/assembly/*.step
