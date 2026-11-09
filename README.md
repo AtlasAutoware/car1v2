@@ -24,6 +24,32 @@ The picture is the rev A car; the whole-car renders have not been redone for rev
 
 ## Status
 
+**9 November 2026: car 1 v2 is designed and priced on the `rev-b-tht` branch; nothing is ordered, built or merged.**
+
+Car 1 v2 is the rebuild of car 1 on this rev B design. It keeps car 1's RPLidar C1 and OAK-D Pro (the SICK lidar
+and the LUCID camera named above are kept for later), runs from a 4S LiPo the team owns behind a JK smart BMS, and
+uses the second Jetson dev kit. Start at `docs/CAR1V2.md`.
+
+- Money: stage 1 comes to $967.72 against a $1,500 limit, and $1,272.50 if every estimate turns out badly
+  (`bom/car1v2/BUDGET.md`, one cart file per supplier). Five bare boards were quoted on 9 November at $182.34
+  (PCBWay) and $117.39 (JLCPCB), both before duty.
+- Power board: the copper is unchanged. Three values changed after the review (R419 is 470 ohm, C405 is 150 uF, and
+  the capacitor part numbers are ones in stock), and KiCad 10 was re-run on the team laptop on 9 November: ERC 0
+  errors, DRC 0 errors, 0 unconnected, 0 schematic parity issues, 47 silkscreen warnings. Parts are $149.40 a board.
+- An independent review (`docs/review_car1v2_2026-11-09.md`) checked the schematic, the BOM arithmetic and the budget
+  and said "pass with fixes" on each. What was done about every finding is at the end of `docs/CAR1V2.md`.
+- The supervisor firmware passes 129 tests on a simulated board. It has not run on a Pico.
+- Speed (`docs/PERFORMANCE.md`): on 15/54 gearing the model reaches the 12.5 to 13.5 m/s target, 1.5 to 2.5 m/s
+  above the 11 m/s competition benchmark. At equal grip it only matches a standard competition car round a lap, and
+  the E-stop does not brake, so it is not safe to run at that speed yet. The mass (5.15 kg), the grip and the motor
+  resistance in the model are not measured.
+- Aero and cooling (`docs/AERO.md`): four CFD cases at 8 m/s. The wing is left off.
+- For the builders: `docs/CAR1V2_QUICK_START.md` (short), `docs/CAR1V2_BUILD.md` (session by session),
+  `docs/CAR1V2_CHECKLIST.md` (what to confirm, measure and test by hand), `docs/CAR1V2_WIRING.md`, and a named 3D
+  assembly in `mech/out/car1v2/assembly/` (the battery, BMS, fuse and cables are not in it).
+- Not verified yet: the bank balance on the day, the LiPo's size and type, the pinion and spur on the chassis, the
+  duty rates, and the small-parts prices, which are estimates. `docs/CAR1V2.md` ends with the full list.
+
 **26 October 2026: the rev B power board is routed and its order files are made; nothing is ordered or built yet.**
 
 - An independent pre-order review (`docs/review_revb_2026-10-24.md`) said "fix first, then order; no redesign is
@@ -60,10 +86,10 @@ The picture is the rev A car; the whole-car renders have not been redone for rev
 | `software/jetson/` | the `atlas` command, services and settings for the Jetson (`system/install.sh`), with tests |
 | `software/ros2/` | `atlas_power`: battery, E-stop, charging and lidar power in ROS 2 |
 | `mech/` | the printed kit: `kit.py` (deck, pods, mounts, pack box, dev-kit tray, ESC cradle, BMS holder) and `extras.py` (canopy, bench stand, plugs and cable paths); `NOTES_REVB.md` has the rev B changes and print list |
-| `bom/` | rev A parts list and cost summary; `bom/revb/` the power board's parts and cost per block; `cost_summary.md` has both revisions |
+| `bom/` | rev A parts list and cost summary; `bom/revb/` the power board's parts and cost per block; `bom/car1v2/` the car 1 v2 budget and one cart per supplier; `cost_summary.md` has both revisions |
 | `boards/tools/` | the scripts that build, place, route and check the boards |
 | `boards/drive/`, `boards/brain/`, `boards/stack/`, `firmware/vesc/` | rev A (history): the drive board with its VESC target, the Jetson carrier forked from Antmicro's design, and the connector between them |
-| `sim/` | rev A circuit and thermal checks |
+| `sim/` | rev A circuit and thermal checks; `sim/aero/` the car 1 v2 CFD cases and `sim/perf/` its speed and lap model |
 | `share/` | pictures for posting; `car_scene.py` and `render_car.py` render the whole car (rev A; not yet updated) |
 
 ## Cost
