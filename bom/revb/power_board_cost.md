@@ -7,17 +7,17 @@ the pack hardware are car-level items in the main cost table.
 
 | Block | Parts cost (USD) | Of which not verified (USD) |
 | --- | ---: | ---: |
-| A pack input | 4.76 | 0.00 |
+| A pack input | 5.83 | 0.00 |
 | B BMS link | 1.49 | 0.00 |
-| C main switch, precharge, E-stop gate | 24.92 | 2.50 |
-| D latch and rails (5 V, servo, dev kit, lidar, camera) | 61.23 | 0.00 |
-| E USB-C charging | 21.11 | 8.00 |
-| F debug hub and console | 18.76 | 0.30 |
-| G Pico supervisor | 8.97 | 0.50 |
+| C main switch, precharge, E-stop gate | 24.75 | 2.50 |
+| D latch and rails (5 V, servo, dev kit, lidar, camera) | 61.08 | 0.00 |
+| E USB-C charging | 20.94 | 8.00 |
+| F debug hub and console | 18.38 | 0.30 |
+| G Pico supervisor | 8.80 | 0.50 |
 | H Jetson ribbon and J14 | 4.04 | 0.00 |
 | I ESC interface | 1.06 | 0.00 |
 | J E-stop, fan, holes | 3.03 | 0.00 |
-| **Total per board** | **149.37** | **11.30** |
+| **Total per board** | **149.40** | **11.30** |
 
 | Assembly class | Parts |
 | --- | ---: |

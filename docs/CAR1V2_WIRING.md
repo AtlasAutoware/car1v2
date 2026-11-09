@@ -68,7 +68,7 @@ flowchart LR
 | --- | --- | --- |
 | pack | built-in 4S3P 18650 pack, cell taps on a 7-pin lead | an owned 4S LiPo; its 5-pin balance plug goes to the BMS through an extension lead |
 | BMS | JBD 4S 100 A, UART to J201 | JK-B1A8S10P. Its UART is left unconnected: it talks at 115200 baud and the board's optocouplers pass 9600. J201 stays empty. Cell voltages are read in the JK phone app |
-| servo supply | Castle BEC 2.0 at 7.5 V | Hobbywing UBEC 10A with its jumper at 7.4 V, on the same pads (BEC+ J401 in, J403 out) |
+| servo supply | Castle BEC 2.0 at 7.5 V | Hobbywing UBEC 10A set to 7.4 V, on the same pads (BEC+ J401 in, J403 out), with a 10 A in-line blade fuse in its red input lead. The latch's VIN lead gets a 7.5 A one. The board has no fuse on either |
 | lidar | SICK TiM561: 12 V from J409, Ethernet through a USB adapter | RPLidar C1: one USB lead from its adapter board to a dev-kit USB-A port. J409 stays empty |
 | camera | LUCID Triton: 12 V from the Pololu regulator, Ethernet on the dev kit's RJ45 | OAK-D Pro: one USB-C lead to a USB 3 port. The regulator (MOD402) is not fitted and its pads stay empty |
 | charging | USB-C PD trigger and CC/CV module on the charge pads | not fitted. The LiPo comes out and goes on the balance charger. The charge pads stay empty; `CHG_PRESENT_N` rests high through its pull-up |

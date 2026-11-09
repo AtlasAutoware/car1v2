@@ -50,11 +50,13 @@ Nothing is ordered until Ragini says so.
 
    | on the board | the board guide says | in the bag |
    | --- | --- | --- |
-   | C101, C102, C103 (680 uF 35 V) | Panasonic EEU-FR1V681 | EEU-FR1V681L, the same capacitor with long leads. Trim them |
-   | C404 (1000 uF 16 V) | EEU-FR1C102 | EEU-FR1C102L, long leads |
+   | C101, C102, C103 (680 uF 35 V) | Panasonic EEU-FR1V681 | Panasonic EEU-FM1V681. 22 mm tall when seated; the dev-kit tray above allows 23 mm, so seat them flat on the board |
+   | C404 (1000 uF 16 V) | EEU-FR1C102 | EEU-FM1C102. 22 mm tall, 6 mm more than the guide's picture |
    | C104, C603, C604 (1 uF 50 V, 1206) | TDK C3216X7R1H105K160AB | KEMET C1206C105K5RACTU |
-   | the 10 uF 50 V 1210 capacitors | as listed | whichever in-stock 10 uF 50 V X7R 1210 was bought. Write its number on the sign-off sheet |
-   | C405 (220 uF 35 V) | EEU-FR1V221 | whichever in-stock 220 uF 35 V low-ESR part with the same 8 mm can and 3.5 mm lead spacing was bought. Check it against the footprint before soldering |
+   | the five 10 uF 50 V 1210 capacitors | Murata GRM32ER71H106KA12L | Samsung CL32B106KBJNNNE |
+   | C405 | EEU-FR1V221, 220 uF 35 V | EEU-FM1V151, **150 uF** 35 V. The value changed because no 220 uF part of this size was in stock |
+   | R419 | 10 kOhm | **470 ohm**. The bag has ten 470 ohm resistors; the board now uses six |
+   | U402 | TL431ACLPRE3 | TL431ACLP, the one with straight legs |
 
 3. Check the five bare boards under a light: no scratches across tracks, all holes open, the silkscreen
    readable. Some labels overlap each other or are clipped by the bare copper areas. That was known when the
@@ -71,7 +73,8 @@ Follow `docs/BUILD_POWER_BOARD.md`, "Order of assembly", steps 1 to 11, with the
 | board guide step | change for car 1 v2 |
 | --- | --- |
 | 2. The chips on the bottom | none. R801, R802 and R805 stay empty, as in the guide |
-| 9. Chips into their sockets, fuses, modules | do not fit MOD402 (the camera's 12 V regulator). Its pads stay empty |
+| 2. The chips on the bottom | R419 is 470 ohm (it is in the 470 ohm strip, not the 10 kOhm one) |
+| 9. Chips into their sockets, fuses, modules | do not fit MOD402 (the camera's 12 V regulator). Its pads stay empty. Fit the 5 A fuse in F401 only: leave F501 (the charge input) without a fuse |
 | 11. Wire pads | do not wire the PD trigger (MOD501) or the CC/CV module (MOD502). The PD-trigger pads and the four CC/CV pads stay empty. The camera pads stay empty |
 | connectors | J201 (BMS UART) and J409 (lidar 12 V) are soldered in but nothing plugs into them on this car |
 
@@ -131,9 +134,9 @@ Read "Three things to get right" in `docs/CAR1V2_WIRING.md` before starting. XT9
    XT90-S plus. 10 AWG. Do not fit the fuse yet.
 3. Build the negative lead: pack minus to the BMS's B- wire, the BMS's P- wire to the XT90-S minus.
 4. Plug the balance extension into the BMS, then into the pack, in the order the JK manual gives.
-5. Wake the BMS as its manual says. In the JK app set: 4 cells, Li-ion, cell under-voltage 3.20 V with
-   release at 3.40 V, cell over-voltage 4.25 V, discharge over-current 80 A. Save, read the settings back,
-   and check the four cell voltages in the app against your meter.
+5. Wake the BMS as its manual says. In the JK app set: 4 cells, Li-ion, cell under-voltage 3.00 V with
+   release at 3.20 V, cell over-voltage 4.25 V, discharge over-current 80 A, charge over-current 40 A. Save,
+   read the settings back, and check the four cell voltages in the app against your meter.
 6. Fit the 100 A fuse. Meter the XT90-S: it reads the pack voltage, with plus on the pin moulded "+".
 7. Heat-shrink every joint. No bare metal anywhere on the pack side.
 
@@ -171,16 +174,19 @@ SendCutSend. The FET bar is in the SendCutSend cart.
    no camera power, no camera regulator input, no PD trigger, no CC/CV, no lidar power. The "Castle BEC" row
    is the UBEC.
 5. Servo into J406. UBEC output into J403. FSESC servo lead into J904. Check the first of the three cautions
-   in the wiring doc again.
+   in the wiring doc again. The UBEC's red input lead and the latch's VIN lead each get an in-line blade fuse
+   (10 A and 7.5 A): nothing else protects those two wires.
 6. E-stop bracket on the tail, button in it, its normally closed pair to J1001.
 7. Camera arch and canopy last, after bring-up, so the board stays reachable.
 
-**Bring-up:** checklist section E, E1 to E8, in order. Do not skip E3 (the E-stop test, and the test with the
-Pico pulled out).
+**Bring-up:** checklist section E, E1 to E11, in order. Do not skip E3 (the E-stop tests). Shut the Jetson
+down before the part of E3 that pulls the Pico: pulling the Pico cuts the Jetson's power too.
 
 ## Session 7: the driving stack on the second Jetson
 
-1. JetPack 6 on the second dev kit, booting from its own storage (A2).
+1. JetPack 6 on the second dev kit, booting from its own storage (A2). For the network use the dev kit's own
+   Wi-Fi card if it is still fitted, or a cable. Car 1's Wi-Fi adapter and joystick receiver stay on car 1
+   until the swap; borrow the receiver for the hallway drive in step 5 and put it back.
 2. Clone this repo and run `sudo software/jetson/system/setup_car1v2.sh`. Fix what it flags, then run it
    again with `--check`.
 3. Install the driving stack the way car 1's Jetson has it (the team's own notes; this repo does not hold the
@@ -206,12 +212,17 @@ Use the board guide's sign-off sheet with these lines changed or added.
       R313 10 / 4.7 ohm (circle).
 - [ ] UBEC measured at 7.4 V before the servo was connected: ______ V.
 - [ ] JK BMS: first power-on done as the manual says. Settings saved and read back: under-voltage ______ V,
-      over-voltage ______ V, over-current ______ A. Four cell voltages match the meter.
-- [ ] FSESC: maximum input voltage 18 V; battery cut-off 14.0 V to 13.2 V; current limits 60 A.
+      over-voltage ______ V, discharge over-current ______ A, charge over-current ______ A. Four cell voltages
+      match the meter.
+- [ ] FSESC: maximum input voltage 18 V; battery cut-off 14.0 V to 13.2 V; current limits 60 A; battery regen
+      ______ A (-12 A unless the pack's label allows more); max ERPM ______.
+- [ ] `bat` in the supervisor's status against a meter on the pack: ______ V and ______ V.
 - [ ] Pico: MicroPython and the seven supervisor files, `car_profile.py` among them.
-- [ ] E-stop: pressing it drops the motor bus. Unplugging J1001 drops it. Pulling the Pico drops it.
-- [ ] Pack reaches 3.5 V a cell: the Jetson shuts down and the car switches off (try it once, on the bench,
-      wheels off the ground).
+- [ ] E-stop: pressing it drops the motor bus. Unplugging J1001 drops it. Pulling the Pico drops it (Jetson
+      shut down first). The VESC kill line stops the motor by itself.
+- [ ] Pack at 3.5 V a cell for 30 seconds: the Jetson shuts down and the car switches off (try it once, on
+      the bench, wheels off the ground).
+- [ ] In-line fuses fitted in the UBEC lead (10 A) and the latch lead (7.5 A). F501 has no fuse.
 
 Not used on this car, so cross them out on the sheet: the Castle BEC line, the PD trigger and CC/CV line, the
 JBD line.

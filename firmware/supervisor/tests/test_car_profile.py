@@ -50,4 +50,46 @@ def test_healthy_lipo_is_left_alone():
     rig.jetson_boots()
     rig.run_with_heartbeat(Car1v2Lipo.BAT_LOW_MS + 10000)
     assert rig.state() == Q.RUN
-    assert not rig.events('bat_low')
+    assert not rig.events('low_battery')
+
+
+def _held(bat_v, ms):
+    rig = silent_bms_rig(bat_v=bat_v)
+    rig.run(1500)
+    rig.jetson_boots()
+    rig.run_with_heartbeat(ms)
+    return rig
+
+
+def test_warning_edge_is_at_fourteen_volts():
+    hold = Car1v2Lipo.BAT_LOW_MS + Car1v2Lipo.BAT_FILTER_MS + 5000
+    above = _held(14.05, hold)
+    assert not above.events('low_battery') and above.state() == Q.RUN
+    below = _held(13.95, hold)
+    assert [e['level'] for e in below.events('low_battery')] == ['warn'] and below.state() == Q.RUN
+
+
+def test_shutdown_edge_is_at_thirteen_point_two_volts():
+    hold = Car1v2Lipo.BAT_LOW_MS + Car1v2Lipo.BAT_FILTER_MS + 5000
+    above = _held(13.25, hold)
+    assert 'shutdown' not in [e['level'] for e in above.events('low_battery')] and above.state() == Q.RUN
+    below = _held(13.15, hold)
+    assert 'shutdown' in [e['level'] for e in below.events('low_battery')]
+    assert below.state() in (Q.SHUTDOWN_REQUESTED, Q.HALTING, Q.OFF)
+
+
+def test_the_estop_sense_pin_is_never_an_output():
+    """GP10 sits on the E-stop loop's sense node (review S2). A pin driven high there could hold the node up with
+    the loop open, so the firmware may only ever read it. This fails if a pin table or any file on the Pico changes
+    that."""
+    import os, re
+    import pins
+    assert 'ESTOP_OK' in [n for n, _, _ in pins.INPUTS]
+    assert 'ESTOP_OK' not in [n for n, _, _ in pins.OUTPUTS]
+    assert pins.ESTOP_OK not in [gp for _, gp, _ in pins.OUTPUTS]
+    assert dict((n, pull) for n, _, pull in pins.INPUTS)['ESTOP_OK'] is None        # no internal pull-up either
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for f in ('pins.py', 'hal.py', 'jbd.py', 'link.py', 'sequencer.py', 'car_profile.py', 'main.py'):
+        src = open(os.path.join(here, f)).read()
+        assert not re.search(r"write\(\s*['\"]ESTOP_OK['\"]", src), f
+        assert not re.search(r'Pin\(\s*(10|pins\.ESTOP_OK|ESTOP_OK)\s*,\s*Pin\.OUT', src), f

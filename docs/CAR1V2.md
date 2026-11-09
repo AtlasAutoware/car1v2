@@ -11,12 +11,13 @@ Status on 2026-11-09: designed and priced. Nothing ordered, nothing built, nothi
 | | |
 | --- | --- |
 | Design basis | rev B (`docs/REV_B.md`): one hand-soldered power board, the NVIDIA dev-kit carrier, a Flipsky ESC |
-| Money | $1,831.92 expected in the bank; the car may use $1,500; stage 1 comes to $911.39 (`bom/car1v2/BUDGET.md`) |
+| Money | $1,831.92 expected in the bank; the car may use $1,500; stage 1 comes to $968.08, and $1,272.86 if every estimate turns out badly (`bom/car1v2/BUDGET.md`) |
 | Student build guide | `docs/CAR1V2_BUILD.md` (session by session; the board itself is `docs/BUILD_POWER_BOARD.md`) |
 | Student checklist | `docs/CAR1V2_CHECKLIST.md` (what to confirm, measure and test by hand) |
 | Wiring | `docs/CAR1V2_WIRING.md` |
 | Aero and cooling | `docs/AERO.md` |
-| Independent review | `docs/review_car1v2_2026-11-09.md` |
+| Speed against the competition | `docs/PERFORMANCE.md` |
+| Independent review | `docs/review_car1v2_2026-11-09.md` ("pass with fixes" three times; what was done about each finding is at the end of this page) |
 
 ## What the car is made of, and why
 
@@ -61,20 +62,42 @@ in the model's inputs, then change one sensor at a time in simulation before tou
 **Run everything from one 4S battery that is protected against a short circuit and over-discharge.** One
 LiPo feeds the motor, the servo and, through the board's 5 A fuse and over-voltage cut-off, the Jetson. The
 power banks are gone. A short anywhere downstream opens the BMS in well under a second and, if the BMS fails,
-the 100 A fuse in the positive lead next to the pack. Each branch on the board has its own fuse or polyfuse.
+the 100 A fuse in the positive lead next to the pack. On the board, the Jetson's feed, the lidar feed, the
+camera pads, the precharge path and the charge input each have a fuse or polyfuse. Three branches do not:
+the UBEC's lead from the motor bus, the latch's lead from the pack bus, and the servo rail. Car 1 v2 adds an
+in-line blade fuse to the first two (10 A and 7.5 A, in the small-parts cart).
 Over-discharge is stopped three times, each a little lower than the last:
 
 | level | who acts | what happens |
 | --- | --- | --- |
-| 14.0 V (3.50 V a cell) for 30 s | the supervisor tells the Jetson; the VESC starts cutting motor current | the car slows, the stack is warned |
-| 13.2 V (3.30 V a cell) for 10 s | the supervisor; the VESC stops the motor | the Jetson shuts down cleanly and the car switches itself off |
-| 3.20 V on any one cell | the BMS | the pack disconnects. This one works with every other part dead |
+| 14.0 V (3.50 V a cell) for 30 s | the Jetson's battery daemon, and the supervisor's warning at the same level; the VESC starts cutting motor current | the Jetson shuts itself down cleanly and the car switches off. This is where a normal run ends |
+| 13.2 V (3.30 V a cell) for 10 s | the supervisor; the VESC stops the motor | the backstop if the Jetson did not act: the supervisor asks it to shut down, then switches the car off |
+| 3.00 V on any one cell | the BMS | the pack disconnects. This one works with every other part dead |
+
+The BMS level is 3.00 V, as in rev B, not higher: the Pico's voltage reading can be a few tenths of a volt
+off until it is compared with a meter (checklist E2), and the BMS must not cut before the supervisor has
+shut the Jetson down. Stopping at 3.5 V a cell is the cautious choice for a LiPo. If runs end too early, the
+level to raise or lower is `ATLAS_SHUTDOWN_CELL_V` in `/etc/atlas/atlas.conf`, not the BMS.
 
 **Cut motor power from a hardware E-stop with no firmware in the path.** A normally closed button on the
 tail opens a two-wire loop. The loop's level goes straight into a 74HCT08 AND gate whose output is the enable
 of the main switch's gate driver (MIC5014) and of the precharge transistor. Open loop, broken wire or an
 unplugged button all read as "stop". The Pico only supplies the other input of the gate, so it can open the
-switch but cannot hold it closed. This is rev B's circuit, unchanged, and the reviewer checked that path.
+switch but cannot hold it closed. This is rev B's circuit, unchanged.
+
+The independent review traced that path and agrees that nothing firmware-controlled is in series with it.
+It found three limits, and they are stated here so nobody relies on more than is there:
+
+- One Pico pin (GP10) sits on the loop's sense node so the firmware can see the E-stop. The firmware only
+  reads it, and a test now fails the build if any file ever makes it an output. But a pin driven high by
+  mistake could hold the node up against its 10 kOhm pull-down. The clean fix is a 47 kOhm resistor between
+  the node and the pin. That needs either new copper or a one-resistor rework at the Pico's pin 14, and it is
+  a decision for before the boards are ordered (see "Decisions" below).
+- Rev B's last fallback is gone on this car: the Pico cannot tell the BMS to open, because the JK BMS is not
+  on its serial port. If a main FET ever failed shorted, what is left is the VESC kill line and pulling the
+  XT90-S.
+- The E-stop cuts motor power. It does not brake. The car coasts, and the steering loses power with the
+  motor bus. At walking pace that is a metre or two. At speed it is not a stop (`docs/PERFORMANCE.md`).
 
 ## The nice-to-haves
 
@@ -82,32 +105,51 @@ switch but cannot hold it closed. This is rev B's circuit, unchanged, and the re
 | --- | --- | --- |
 | Battery telemetry on the Jetson | yes, pack level | The supervisor measures pack and motor-bus voltage and sends them once a second; the Jetson's battery daemon already falls back to that when no BMS answers. Cell voltages, current and temperature are in the JK phone app, not on the Jetson: the JK's serial port runs at 115200 baud and the board's optocouplers were chosen for the JBD's 9600. |
 | IMU | yes | The OAK-D Pro's. |
-| Laptop debugging over one USB-C cable | yes | The hub block on the board: the Jetson, the FSESC and the serial console behind one port. About $11 of parts. |
-| Built-in 18650 pack with USB-C charging | not yet; priced | It needs cells, a charger and a spot welder the team does not have: $508.07 with a welder, $185.29 if one can be borrowed. With stage 1 that is $1,419.46, which is under the cap on paper, but $323 of it is one welder and the prices are September quotes. The board is built ready for it (only two plug-in modules are left off), so it can follow once the car drives. |
+| Laptop debugging over one USB-C cable | yes | The hub block on the board: the Jetson, the FSESC and the serial console behind one port. About $16 of parts at cart prices. |
+| Built-in 18650 pack with USB-C charging | not yet; priced | It needs cells, a charger and a spot welder the team does not have: $508.07 with a welder, $185.29 if one can be borrowed. With stage 1 that is $1,476.15, which is under the cap only if every estimate holds; in the pessimistic case it is not. $323 of it is one welder and the prices are September quotes. Treat it as not yet affordable inside the cap. The board is built ready for it (only two plug-in modules are left off), so it can follow once the car drives. |
 
 ## The power board for this car
 
 The board is rev B's ATLAS-PWR-1 with no copper changed, so the Gerbers from Oct 26 are still the ones to
-upload (`boards/power/out/fab/atlas_power_gerbers_pcbway.zip`). Three things happened to it today:
+upload (`boards/power/out/fab/atlas_power_gerbers_pcbway.zip`). Four things happened to it today:
 
 1. **KiCad 10 checks, for the first time.** On the team laptop (KiCad 10.0.8): the electrical rules check
    reports 0 errors and 0 warnings. The design rules check with schematic parity reports 0 unconnected pads,
-   0 errors and 47 warnings, all of them silkscreen (33 labels touching other silkscreen, 14 labels clipped by
-   solder-mask openings on the bare power copper). The reports are `boards/power/erc.rpt` and `drc.rpt`.
+   0 errors and 47 warnings, all of them silkscreen: 33 labels touching other silkscreen, 11 labels clipped by
+   solder-mask openings on the bare power copper, and 3 hub-module labels that run over through-hole pads of
+   U601. The board house clips ink at pads, so none has an electrical effect. The reports are
+   `boards/power/erc.rpt` and `drc.rpt`.
 2. **One real mismatch fixed.** The parity check found three resistors (R801, R802, R805) marked "do not
    populate" in the schematic and not on the board. The board now carries the flag. No track or pad moved.
 3. **A stage 1 population.** Fit everything except the camera's 12 V regulator (MOD402), the USB-C PD trigger
    (MOD501) and the CC/CV charger module (MOD502). `bom/car1v2/power_board_stage1.csv` lists every reference.
-   The parts left on the board for those features (a few transistors, a TVS, a fuse holder) cost about $4 and
-   mean the later upgrades are plug-in.
+   The parts left on the board for those features (a few transistors, a TVS, a fuse holder) cost about $8 and
+   mean the later upgrades are plug-in. Leave the 5 A fuse out of F501 (the charge input) so that branch is
+   not live.
+4. **One resistor value changed after the review: R419 is 470 ohm, not 10 kOhm.** R419 sits across the
+   base of the transistor that shuts off the Jetson's feed on over-voltage. The TL431 that drives it can
+   draw a few hundred microamps even when it is not tripped, and through 10 kOhm that is enough to shut the
+   feed off for good. 470 ohm keeps the transistor off until 1.3 mA, above anything the idle TL431 draws,
+   and still gives it 2 mA when the cut-off really trips. Same footprint, no copper change. This comes from
+   datasheets, not from a bench: try the five parts on a breadboard first (checklist C5).
 
 The silkscreen warnings were left alone. They are cosmetic, and clearing them means moving labels on a board
 whose layout tools run on KiCad 7 here; the first order is five boards for hand assembly with the build guide
 open. If a clean report matters for the sponsor article, it is an hour in KiCad's editor.
 
-Five in-stock substitutes went into the cart for parts DigiKey cannot ship: long-lead versions of the 680 uF
-and 1000 uF capacitors, a KEMET 1 uF 1206 for the TDK part (out until March 2027), and "any 10 uF 50 V X7R
-1210" and "any 220 uF 35 V, 8 mm can" for two backordered lines. Same values, same footprints.
+Five parts DigiKey cannot ship have substitutes, each read on its DigiKey page today for size and stock:
+
+| refs | was | now | fits? |
+| --- | --- | --- | --- |
+| C101 to C103 | Panasonic EEU-FR1V681, 680 uF 35 V | EEU-FM1V681: 12.5 mm can, 22 mm seated, 5.0 mm pitch | yes; 1 mm under the tray's 23 mm limit |
+| C404 | EEU-FR1C102, 1000 uF 16 V | EEU-FM1C102: 10 mm can, 22 mm seated, 5.0 mm pitch | yes; 6 mm taller than drawn |
+| C405 | EEU-FR1V221, 220 uF 35 V | EEU-FM1V151: **150 uF** 35 V, 8 mm can, 3.5 mm pitch | yes, but it is a value change: no 220 uF 35 V part in an 8 mm can was in stock |
+| five 10 uF 1210 | Murata GRM32ER71H106KA12L | Samsung CL32B106KBJNNNE, 10 uF 50 V X7R | yes |
+| C104, C603, C604 | TDK C3216X7R1H105K160AB (out until March 2027) | KEMET C1206C105K5RACTU, 1 uF 50 V X7R | yes, by its part number; in the cart |
+
+The first version of this list had two "long-lead" Panasonic parts that the review showed were different can
+sizes. They are still sitting in the DigiKey cart and are marked for deletion in `cart_digikey.csv`. The FM
+series replaces the FR series; its ripple-current rating was not compared with what the design needs.
 
 ## Settings to make
 
@@ -116,23 +158,27 @@ All of these are starting values to confirm on the bench, not measured ones.
 | where | setting | value |
 | --- | --- | --- |
 | JK BMS (phone app) | cells, chemistry | 4, Li-ion |
-| | cell under-voltage cut, release | 3.20 V, 3.40 V |
+| | cell under-voltage cut, release | 3.00 V, 3.20 V |
 | | cell over-voltage cut | 4.25 V (regen on a full pack must not trip it) |
 | | discharge over-current | 80 A with the longest delay offered up to 2 s |
+| | charge over-current | 40 A or more, so braking cannot trip it |
 | FSESC (VESC Tool) | motor current max, battery current max | 60 A, 60 A (car 1 runs 45 A commanded) |
+| | battery current max regen | -12 A to start. -30 A for racing, only if the pack's label allows a 30 A charge burst (`docs/PERFORMANCE.md`) |
+| | max ERPM | 48,300, which is 13.5 m/s with a 15 / 54 gearing |
 | | battery cut-off start, end | 14.0 V, 13.2 V |
 | | maximum input voltage | 18 V |
 | | servo output, kill switch on ADC2, UART app at 115200 | as rev B (`docs/SOFTWARE.md`) |
-| Hobbywing UBEC | output jumper | 7.4 V, before the servo is plugged in |
+| Hobbywing UBEC | output | 7.4 V, before the servo is plugged in. The page lists 6.0, 7.4 and 8.4 V and does not say how it is selected: read its leaflet |
+| Chassis | pinion / spur | 15 / 54 (`docs/PERFORMANCE.md`); check what is fitted first |
 | Pico | `car_profile.py` | `SETTINGS = Car1v2Lipo` (the default in the repo) |
-| Jetson | `setup_car1v2.sh` | 25 W mode, lidar feed off, shutdown at 3.50 V a cell |
+| Jetson | `setup_car1v2.sh` | 25 W mode, lidar feed off, shutdown at 3.50 V a cell held for 30 s |
 
 ## What was analysed while designing
 
 - **Aerodynamics and cooling** (`docs/AERO.md`): a CFD model of the car built from the same CAD the parts are
   printed from, run with no wing and with the kit's wing at three angles. At 8 m/s the car has 1.6 N of drag
-  and the wing adds at most 0.12 N of downforce; at the 2 m/s cap that is 0.007 N on a car that weighs 30 to
-  40 N. So the wing is left off, which also takes two posts out of the lidar's rear view. The pod vents
+  and the wing adds at most 0.12 N of downforce; at the 2 m/s cap that is 0.007 N on a car that weighs about
+  50 N. So the wing is left off, which also takes two posts out of the lidar's rear view. The pod vents
   (28.8 cm2) are enough for the 2.9 l/s of air that 35 W needs, and the fans move it, not the car's speed.
   The model is coarse and nothing in it was measured.
 - **Camera mount strength**: a hand check in `mech/car1v2.py`. A 20 g stop puts about 20 N on the upright and

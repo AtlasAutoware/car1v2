@@ -57,7 +57,8 @@ def src(price, url, verified):
 R_SRC = src(0.10, FC + 'RC1206FR-0710KL', 'yes')    # Mouser $0.10 at qty 1 (any value of the series)
 C100N = dict(mpn='Samsung CL31B104KBCNNNC (100 nF 50 V X7R 1206)', mfr='Samsung',
              **src(0.14, FC + 'CL31B104KBCNNNC', 'yes'))
-C1U = dict(mpn='TDK C3216X7R1H105K160AB (1 uF 50 V X7R 1206)', mfr='TDK', **src(0.65, FC + 'C3216X7R1H105K160AB', 'yes'))
+C1U = dict(mpn='KEMET C1206C105K5RACTU (1 uF 50 V X7R 1206)', mfr='KEMET',
+           **src(0.46, 'https://www.digikey.com/en/products/result?keywords=C1206C105K5RACTU', 'yes'))   # TDK part out of stock, 2026-11-09
 
 
 P_NPN = src(0.28, FC + '2N3904BU', 'yes')            # Mouser
@@ -102,8 +103,8 @@ def C(ref, value, a, b, desc, **kw):
 
 
 C1210 = 'Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder'
-C10U = dict(mpn='Murata GRM32ER71H106KA12L (10 uF 50 V X7R 1210)', mfr='Murata',
-            **src(0.86, FC + 'GRM32ER71H106KA12L', 'yes'))
+C10U = dict(mpn='Samsung CL32B106KBJNNNE (10 uF 50 V X7R 1210)', mfr='Samsung',
+            **src(0.69, 'https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL32B106KBJNNNE/3889045', 'yes'))   # Murata part backordered, 2026-11-09
 
 
 def C10(a, b, desc):
@@ -135,9 +136,9 @@ d.chip('J', conn('PAD_BAT+', 1, W10, desc='pack + lead, 10 AWG'), {'1': 'BAT'}, 
 d.chip('J', conn('PAD_BAT-', 1, W10, desc='pack - lead (P- after the BMS), 10 AWG'), {'1': 'GND'}, value='BAT-',
        in_bom='no')
 for _ in range(3):
-    d.CP('C', '680u 35V', 'BAT', 'GND', CP125, mpn='EEU-FR1V681', mfr='Panasonic',
-         desc='pack bulk 680 uF 35 V low-ESR, 12.5 x 20 mm (21 mm tall)',
-         **src(1.05, FC + 'EEU-FR1V681', 'yes'))
+    d.CP('C', '680u 35V', 'BAT', 'GND', CP125, mpn='EEU-FM1V681', mfr='Panasonic',
+         desc='pack bulk 680 uF 35 V low-ESR, 12.5 x 20 mm can (22 mm seated; DigiKey 2026-11-09)',
+         **src(1.47, 'https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FM1V681/613778', 'yes'))
 C('C', '1u 50V', 'BAT', 'GND', desc='HF decoupling at the pads', **C1U)
 d.D('D', '1.5KE20A', 'GND', 'BAT', DO201V, kind='Z', mpn='1.5KE20A', mfr='Yageo / Littelfuse',
     desc='pack TVS 1500 W, VRWM 17.1 V, VBR 19.0-21.0 V, VC 27.7 V', **src(0.42, FC + '1.5KE20A', 'yes'))
@@ -287,9 +288,9 @@ d.chip('J', conn('PAD_SERVO_V', 1, W16, desc='alternative: BEC output + soldered
        in_bom='no')
 d.chip('J', conn('PAD_SERVO_GND', 1, W16, desc='alternative: BEC output - soldered'), {'1': 'GND'}, value='SRV-',
        in_bom='no')
-d.CP('C', '1000u 16V', 'SERVO_V', 'GND', CP10, mpn='EEU-FR1C102', mfr='Panasonic',
-     desc='servo rail bulk 1000 uF 16 V low-ESR, 10 x 16 mm, at the servo header (stall pulses)',
-     **src(0.80, FC + 'EEU-FR1C102', 'yes'))
+d.CP('C', '1000u 16V', 'SERVO_V', 'GND', CP10, mpn='EEU-FM1C102', mfr='Panasonic',
+     desc='servo rail bulk 1000 uF 16 V low-ESR, 10 x 20 mm can (22 mm seated), at the servo header (stall pulses)',
+     **src(1.14, 'https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FM1C102/613727', 'yes'))
 d.chip('J', conn('SERVO', 3, H1.format(3), desc='steering servo S / + / - (front edge)', names=['SIG', 'V+', 'GND']),
        {'SIG': 'SERVO_SIG', 'V+': 'SERVO_V', 'GND': 'GND'}, mpn='Wurth 61300311121', mfr='Wurth', **P_H3)
 R('R', '220', 'SERVO_BUF', 'SERVO_SIG', 'servo signal series (5 V from the 74HCT08 buffer)')
@@ -316,8 +317,9 @@ d.chip('Q', PNP, {'B': 'OV_B', 'E': 'VDEV_F', 'C': 'OV_G'}, desc='pulls the gate
        **P_PNP)
 R('R', '470', 'VDEV_F', 'OV_B', 'PNP B-E resistor: the TL431 can draw up to 1 mA below its threshold; 470 Ohm keeps Q404 off until 1.3 mA (car 1 v2 review S1)')
 R('R', '4.7k', 'OV_B', 'OV_K', 'TL431 cathode current 3.4 mA at 18.7 V, 5.9 mA at 30 V (>= 1 mA needed)')
-d.CP('C', '220u 35V', 'VDEV', 'GND', CP8, mpn='Panasonic EEU-FR1V221', mfr='Panasonic',
-     desc='dev-kit lead bulk at the pads', **src(0.73, FC + 'EEU-FR1V221', 'yes'))
+d.CP('C', '150u 35V', 'VDEV', 'GND', CP8, mpn='Panasonic EEU-FM1V151', mfr='Panasonic',
+     desc='dev-kit lead bulk at the pads (150 uF: no 220 uF 35 V part in an 8 mm can was in stock on 2026-11-09)',
+     **src(0.58, 'https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FM1V151/613769', 'yes'))
 d.chip('J', conn('PAD_DEVKIT+', 1, W18, desc='dev-kit DC lead + (18 AWG, 5.5 x 2.5 mm plug)'), {'1': 'VDEV'},
        value='DEV+', in_bom='no')
 d.chip('J', conn('PAD_DEVKIT-', 1, W18, desc='dev-kit DC lead -'), {'1': 'GND'}, value='DEV-', in_bom='no')

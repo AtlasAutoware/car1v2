@@ -54,7 +54,7 @@ R78E = Chip('R-78E5.0-1.0', [('1', 'VIN', PWR_IN, L), ('3', 'VOUT', PWR_OUT, R),
 # TI TL431 LP (TO-92) / KiCad Reference_Voltage:TL431LP: 1 REF, 2 ANODE, 3 CATHODE.
 TL431 = Chip('TL431', [('1', 'REF', P_IN, L), ('3', 'K', PAS, T), ('2', 'A', PAS, B)],
              'Package_TO_SOT_THT:TO-92_Inline', desc='2.495 V shunt reference (dev-kit over-voltage cut-off)',
-             mpn='TL431ACLPRE3', mfr='Texas Instruments', width=7.62)
+             mpn='TL431ACLP', mfr='Texas Instruments', width=7.62)
 
 # Sharp PC817 / KiCad Isolator:PC817: 1 anode, 2 cathode, 3 emitter, 4 collector.
 PC817 = Chip('PC817', [('1', 'A', PAS, L), ('2', 'K', PAS, L), ('4', 'C', PAS, R), ('3', 'E', PAS, R)],

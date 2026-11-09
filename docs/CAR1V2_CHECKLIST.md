@@ -10,10 +10,10 @@ Car 1 is not touched anywhere in sections A to E. Section F is the one session w
 
 | # | check | why it matters | goes into |
 | --- | --- | --- | --- |
-| A1 | Each 4S LiPo pack: capacity, C rating, length x width x height, main connector (XT90?), balance plug (5-pin JST-XH?), age and how puffy | the battery bay and the deck opening are sized from it; the fuse and BMS limits from its ratings | `mech/kit.py` `BATT_BAY`, `docs/CAR1V2.md` |
-| A2 | The second Jetson: module name on the label, Super firmware or not, what it boots from (NVMe or the old 256 GB SD card), JetPack version (`cat /etc/nv_tegra_release`) | the setup script and the 25 W power mode assume JetPack 6 on the dev-kit carrier | `docs/CAR1V2.md` |
+| A1 | Each 4S LiPo pack: LiPo or LiHV (a LiHV pack charges to 4.35 V a cell and must not be used here), capacity, C rating, the charge rate printed on it, length x width x height, main connector (XT90?), balance plug (5-pin JST-XH?), age and how puffy | the battery bay and the deck opening are sized from it; the fuse and BMS limits from its ratings | `mech/kit.py` `BATT_BAY`, `docs/CAR1V2.md` |
+| A2 | The second Jetson: module name on the label, Super firmware or not, what it boots from (NVMe or the old 256 GB SD card), JetPack version (`cat /etc/nv_tegra_release`), and whether its own Wi-Fi card and antennas are still fitted | the setup script and the 25 W power mode assume JetPack 6 on the dev-kit carrier | `docs/CAR1V2.md` |
 | A3 | The two Flipsky units: read the silkscreen. Which is the Mini FSESC 6.7 Pro, which is the cased one. Which one is on car 1 | the spare goes on the new chassis; the cradle and the 14 V minimum depend on the model (MEASURE_FIRST 21) | `mech/kit.py` `ESC_CASE` |
-| A4 | Slash 4x4 chassis: the Puller Pro is mounted, turns freely, its sensor lead is there; pinion and spur tooth counts | motor detection and the speed calibration | `docs/CAR1V2.md` |
+| A4 | Slash 4x4 chassis: the Puller Pro is mounted, turns freely, its sensor lead is there and its plug fits the FSESC; pinion and spur tooth counts; tyre diameter and what tyres they are | motor detection and the speed calibration | `docs/CAR1V2.md` |
 | A5 | INJS235 servo: fits the servo bay, horn spline, lead length to J406 | servo mount; whether an extension lead is needed | - |
 | A6 | Progressive RC box: wire gauge printed on the two XT90-to-bare-wire cables; count the loose XT90s (pairs or singles) | one of those cables can be the board's 10 AWG pigtail, and then no XT90 or 10 AWG wire is bought | `bom/car1v2/make_car1v2.py` |
 | A7 | RC4WD box: list what is in it | its wish list had a servo, an ESC, leads and hex drivers; anything usable drops a cart line | same |
@@ -57,15 +57,23 @@ None needs the new board. Do them on the second dev kit and the spare FSESC.
       rising. The review's test named the Castle BEC; the UBEC replaces it, so its start-up is the unknown.
 - [ ] C3. Run the spare FSESC at 12.0 V on the bench supply (the Mini is rated from 14 V).
 - [ ] C4. (phase 2 only) The CC/CV module's current sense: 20 V in, 4.7 ohm on the output, measure IN- to OUT-.
+- [ ] C5. The over-voltage cut-off on a breadboard, before the boards are ordered: TL431 (U402), 2N3906 (Q404),
+      100 kOhm, 15 kOhm, 1.2 MOhm, 4.7 kOhm, and 470 ohm from the 2N3906's base to its emitter. Feed it from the
+      bench supply through 1 kOhm and measure across the 470 ohm: under 0.3 V from 12 V to 17 V (the transistor
+      stays off), and the transistor switching on between 18 and 19.6 V. Then swap the 470 ohm for 10 kOhm and
+      see whether it still stays off at 14 V. The review predicts it will not, which is why the value changed.
 
 ## D. Build the board (`docs/BUILD_POWER_BOARD.md`), with these changes
 
 - [ ] Do not fit MOD402 (camera regulator), MOD501 (PD trigger) or MOD502 (CC/CV module). R801, R802 and R805
       stay empty as before. Everything else is fitted, so the board is ready for the sensor upgrade and for
       USB-C charging later. The list is `bom/car1v2/power_board_stage1.csv`.
-- [ ] Substitutions in the cart: C101 to C103 and C404 are the long-lead versions of the same Panasonic
-      capacitors (trim the leads); C104, C603 and C604 are KEMET C1206C105K5RACTU; the 10 uF 1210 parts and
-      C405 are whatever equivalent was bought (write the part number here: ________).
+- [ ] Substitutions (all in `docs/CAR1V2.md`): C101 to C103 are EEU-FM1V681 and C404 is EEU-FM1C102, both
+      22 mm tall when seated; C405 is EEU-FM1V151, 150 uF instead of 220 uF; the five 10 uF parts are Samsung
+      CL32B106KBJNNNE; C104, C603 and C604 are KEMET C1206C105K5RACTU. Hold C101 to C103 against the 23 mm
+      limit under the dev-kit tray before soldering.
+- [ ] R419 is 470 ohm, not 10 kOhm (the bag has ten 470 ohm resistors and the board uses six).
+- [ ] Leave the 5 A fuse out of F501. Fit the fuse in F401 only.
 - [ ] Copy seven files to the Pico, `car_profile.py` among them (`firmware/supervisor/README.md`).
 - [ ] Run bench bring-up steps 1 to 4 of REV_B.md ("Bench bring-up order"). In step 2 skip the camera feed.
       In step 1 the BMS loop-back is optional, since J201 is not used.
@@ -75,9 +83,15 @@ None needs the new board. Do them on the second dev kit and the spare FSESC.
 - [ ] E1. Pack and BMS alone, XT90-S unplugged. Meter on every balance pin. Connect the BMS, wake it as its
       manual says, set it in the JK app (settings in `docs/CAR1V2.md`), read all four cells.
 - [ ] E2. Fuse fitted, XT90-S in, motor phases unplugged, E-stop released. Press the power button: green LED
-      blinks, then stays on. `atlas supervisor` on the second Jetson shows RUN and `pre_ms`.
+      blinks, then stays on. `atlas supervisor` on the second Jetson shows RUN and `pre_ms`. Compare `bat` in
+      the status with a meter on the pack: write both down. If they differ by more than 0.1 V, tell whoever
+      holds the repo before driving, because the low-battery levels are set from that reading.
 - [ ] E3. Press the E-stop. The motor bus drops at once and stays off after the button is twisted out, until
-      the power button is pressed. Pull the Pico out of its sockets with the car on: the bus must drop too.
+      the power button is pressed. Unplug J1001: the same. Then, with the Jetson shut down or its DC lead
+      unplugged (pulling the Pico also cuts the Jetson's power, with no warning to it), pull the Pico out of
+      its sockets with the car on: the bus must drop too. Last, the VESC kill line by itself: with the wheels
+      off the ground and turning slowly, `atlas supervisor kill` (or pull J903 pin 6 low) must stop the motor
+      while the bus stays on.
 - [ ] E4. Short press of the power button: the Jetson shuts down and the car switches itself off.
 - [ ] E5. `sudo software/jetson/system/setup_car1v2.sh` on the second Jetson. Fix what it flags.
 - [ ] E6. VESC Tool on the spare FSESC through the hub: motor detection for the Puller Pro, the limits and
@@ -89,6 +103,12 @@ None needs the new board. Do them on the second dev kit and the spare FSESC.
       or a stress tool) and watch `tegrastats`. Write down the hottest CPU and GPU readings and whether it
       throttled. Repeat with the canopy off. If the two differ by more than a few degrees, the canopy is too
       close to the fan (`docs/AERO.md`, "Cooling").
+- [ ] E10. Coast-down, in a long empty hallway at 2 m/s: press the E-stop and measure how far the car rolls.
+      `docs/PERFORMANCE.md` could only estimate it (about 10 m), and that number decides how the E-stop may
+      be used at higher speeds.
+- [ ] E11. Grip: drive a circle of known radius faster and faster by joystick until the car slides wide, and
+      write down the speed. Grip is that speed squared, divided by the radius and by 9.81. Every number in
+      `docs/PERFORMANCE.md` scales with it.
 
 ## F. The swap session (one work session)
 

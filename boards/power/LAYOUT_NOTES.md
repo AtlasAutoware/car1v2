@@ -367,6 +367,19 @@ boards/tools/run_kicad.sh glb-power      # 3D model for share/make_renders.py: o
   No pad, track or zone changed, so the Gerbers in `out/fab` are still the ones from Oct 26.
 - The 47 warnings are labels touching other silkscreen (the "K" cathode marks next to the diode circles, the
   hub module's pin labels over U601, the "HEATSINK = BAT+ INSULATE" note) and labels clipped where the solder
-  mask is opened over the bare power copper. None is on a pad. They were left as they are: clearing them
+  mask is opened over the bare power copper. Three of the 14 `silk_over_copper` warnings are hub-module
+  labels over through-hole pads of U601; the board house clips ink at pads, so there is no electrical
+  effect. They were left as they are: clearing them
   means moving text by hand in KiCad 10's editor, and the layout scripts here still run on KiCad 7.
 - `render-power` and `glb-power` were not run.
+
+## Value changes after the car 1 v2 review (2026-11-09, no copper change)
+
+- R419: 10 kOhm to 470 ohm (`docs/review_car1v2_2026-11-09.md`, S1). A TL431 below its threshold can still
+  draw a few hundred microamps, which through 10 kOhm turns Q404 on and holds the dev-kit feed off. Predicted
+  from datasheets; checklist C5 in `docs/CAR1V2_CHECKLIST.md` is the breadboard test.
+- C405: 220 uF to 150 uF 35 V (EEU-FM1V151). No 220 uF 35 V part in an 8 mm can was in stock.
+- Part numbers only: C101 to C103 EEU-FM1V681, C404 EEU-FM1C102 (both 22 mm seated), the five 10 uF parts
+  Samsung CL32B106KBJNNNE, C104, C603 and C604 KEMET C1206C105K5RACTU, U402 TL431ACLP (straight leads).
+- The schematic sheets, the board's footprint fields, `atlas_power_parts.json`, both BOMs and the lists in
+  `out/fab` were edited together. The Gerbers were not regenerated: no pad, track, zone or silkscreen changed.

@@ -197,9 +197,9 @@ no: not confirmed (the CC/CV module is a generic part, the bar is cut to order).
 
 | Refs | Part | Package | Qty | Unit (USD) | Source | Verified |
 | --- | --- | --- | ---: | ---: | --- | --- |
-| C101 C102 C103 | 680u 35V, EEU-FR1V681 | CP Radial D12.5mm P5.00mm | 3 | 1.05 | [findchips.com](https://www.findchips.com/search/EEU-FR1V681) | yes |
-| C404 | 1000u 16V, EEU-FR1C102 | CP Radial D10.0mm P5.00mm | 1 | 0.80 | [findchips.com](https://www.findchips.com/search/EEU-FR1C102) | yes |
-| C405 | 220u 35V, Panasonic EEU-FR1V221 | CP Radial D8.0mm P3.50mm | 1 | 0.73 | [findchips.com](https://www.findchips.com/search/EEU-FR1V221) | yes |
+| C101 C102 C103 | 680u 35V, EEU-FM1V681 | CP Radial D12.5mm P5.00mm | 3 | 1.47 | [digikey.com](https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FM1V681/613778) | yes |
+| C404 | 1000u 16V, EEU-FM1C102 | CP Radial D10.0mm P5.00mm | 1 | 1.14 | [digikey.com](https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FM1C102/613727) | yes |
+| C405 | 150u 35V, Panasonic EEU-FM1V151 | CP Radial D8.0mm P3.50mm | 1 | 0.58 | [digikey.com](https://www.digikey.com/en/products/detail/panasonic-industry/EEU-FM1V151/613769) | yes |
 | D1001 D1002 | BAT85S-TAP | D DO-35 SOD27 P2.54mm Vertical KathodeUp | 2 | 0.43 | [findchips.com](https://www.findchips.com/search/BAT85) | yes |
 | D101 | 1.5KE20A | D DO-201AD P5.08mm Vertical KathodeUp | 1 | 0.42 | [findchips.com](https://www.findchips.com/search/1.5KE20A) | yes |
 | D301 | 1.5KE22A | D DO-201AD P5.08mm Vertical KathodeUp | 1 | 0.29 | [findchips.com](https://www.findchips.com/search/1.5KE22A) | yes |
@@ -240,7 +240,7 @@ no: not confirmed (the CC/CV module is a generic part, the bar is cut to order).
 | U301 | MIC5014YN | DIP-8 W7.62mm Socket | 1 | 3.54 | [findchips.com](https://www.findchips.com/search/MIC5014YN) | yes |
 | U302 | SN74HCT08N | DIP-14 W7.62mm Socket | 1 | 0.92 | [findchips.com](https://www.findchips.com/search/SN74HCT08N) | yes |
 | U401 | R-78E5.0-1.0 | Converter DCDC RECOM R-78E-0.5 THT | 1 | 4.47 | [findchips.com](https://www.findchips.com/search/R-78E5.0-1.0) | yes |
-| U402 | TL431ACLPRE3 | TO-92 Inline | 1 | 0.14 | [findchips.com](https://www.findchips.com/search/TL431ACLPR) | yes |
+| U402 | TL431ACLP | TO-92 Inline | 1 | 0.14 | [findchips.com](https://www.findchips.com/search/TL431ACLPR) | yes |
 | U601 | MCP2221A-I/P | DIP-14 W7.62mm Socket | 1 | 3.20 | [findchips.com](https://www.findchips.com/search/MCP2221A-I%2FP) | yes |
 | U602 | MCP1700-3302E/TO | TO-92 Inline | 1 | 0.50 | [findchips.com](https://www.findchips.com/search/MCP1700-3302E%2FTO) | yes |
 | - | DIP-8 socket for U301 MIC5014 (soldered in its footprint), TE 1-2199298-2 | - | 1 | 0.27 | [findchips.com](https://www.findchips.com/search/1-2199298-2) | yes |
@@ -255,9 +255,9 @@ no: not confirmed (the CC/CV module is a generic part, the bar is cut to order).
 | HS301 | 6061 bar 40 x 15 x 3 mm, 3 x 3.2 mm holes at 13.0 mm | Heatsink Bar 3xTO220 40x15x3mm (mechanical) | 1 | 1.50 | [sendcutsend.com](https://sendcutsend.com) | no |
 | R801 R802 (DNP) | 330, RC1206FR-07330RL | R 1206 3216Metric Pad1.30x1.75mm HandSolder (SMD 1206/1210, bottom) | 0 (+2 DNP) | 0.10 | [findchips.com](https://www.findchips.com/search/RC1206FR-0710KL) | yes |
 | C1001 | 10n, KEMET C1206C103K5RACTU (10 nF 50 V X7R 1206) | C 1206 3216Metric Pad1.33x1.80mm HandSolder (SMD 1206/1210, bottom) | 1 | 0.10 | [findchips.com](https://www.findchips.com/search/C1206C103K5RACTU) | yes |
-| C104 C603 C604 | 1u 50V, TDK C3216X7R1H105K160AB (1 uF 50 V X7R 1206) | C 1206 3216Metric Pad1.33x1.80mm HandSolder (SMD 1206/1210, bottom) | 3 | 0.65 | [findchips.com](https://www.findchips.com/search/C3216X7R1H105K160AB) | yes |
+| C104 C603 C604 | 1u 50V, KEMET C1206C105K5RACTU (1 uF 50 V X7R 1206) | C 1206 3216Metric Pad1.33x1.80mm HandSolder (SMD 1206/1210, bottom) | 3 | 0.46 | [digikey.com](https://www.digikey.com/en/products/result?keywords=C1206C105K5RACTU) | yes |
 | C201 C302 C303 C304 C401 C406 C407 C502 C601 C602 C701 ... | 100n, Samsung CL31B104KBCNNNC (100 nF 50 V X7R 1206) | C 1206 3216Metric Pad1.33x1.80mm HandSolder (SMD 1206/1210, bottom) | 13 | 0.14 | [findchips.com](https://www.findchips.com/search/CL31B104KBCNNNC) | yes |
-| C301 C402 C403 C501 C702 | 10u 50V, Murata GRM32ER71H106KA12L (10 uF 50 V X7R 1210) | C 1210 3225Metric Pad1.33x2.70mm HandSolder (SMD 1206/1210, bottom) | 5 | 0.86 | [findchips.com](https://www.findchips.com/search/GRM32ER71H106KA12L) | yes |
+| C301 C402 C403 C501 C702 | 10u 50V, Samsung CL32B106KBJNNNE (10 uF 50 V X7R 1210) | C 1210 3225Metric Pad1.33x2.70mm HandSolder (SMD 1206/1210, bottom) | 5 | 0.69 | [digikey.com](https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL32B106KBJNNNE/3889045) | yes |
 | R1002 R1004 | 100, RC1206FR-07100RL | R 1206 3216Metric Pad1.30x1.75mm HandSolder (SMD 1206/1210, bottom) | 2 | 0.10 | [findchips.com](https://www.findchips.com/search/RC1206FR-0710KL) | yes |
 | R201 R305 R406 R602 R804 R812 R813 R901 R1001 | 1k, RC1206FR-071KL | R 1206 3216Metric Pad1.30x1.75mm HandSolder (SMD 1206/1210, bottom) | 9 (+1 DNP) | 0.10 | [findchips.com](https://www.findchips.com/search/RC1206FR-0710KL) | yes |
 | R202 R204 R311 R315 R413 R420 R423 | 4.7k, RC1206FR-074K7L | R 1206 3216Metric Pad1.30x1.75mm HandSolder (SMD 1206/1210, bottom) | 7 | 0.10 | [findchips.com](https://www.findchips.com/search/RC1206FR-0710KL) | yes |
