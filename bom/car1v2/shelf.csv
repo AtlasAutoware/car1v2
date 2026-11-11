@@ -1,0 +1,19 @@
+item,from,evidence,confirm by hand
+Traxxas Slash 4x4 chassis with the Holmes Hobbies Puller Pro 540 2200 kV motor,"bought or donated for ""car 2""",brief; atlas_knowledge.md section 6,the motor is fitted and turns; the sensor lead is in the box
+INJORA INJS235 servo,"""car 2""",brief,fits the Slash 4x4 servo bay; note the horn spline
+"NVIDIA Jetson Orin Nano Super dev kit, 500 GB NVMe",car 1,brief; boots from NVMe since Oct 26,stays on car 1; not needed for car 1 v2
+Second Jetson Orin Nano on NVIDIA's dev-kit carrier,on hand,"Ragini, Nov 9: ""ready to go"", ""it's NVIDIA's dev kit""","which module (Orin Nano 8 GB, Super firmware or not); what it boots from (an NVMe drive, or car 1's retired 256 GB SD card); JetPack version"
+"Flipsky FSESC, two units",car 1 and the spare,brief; Ragini Oct 24,which is the Mini 6.7 Pro and which the cased full-size unit (MEASURE_FIRST 21); the spare goes on the new chassis
+RPLidar C1,car 1,brief; atlas_knowledge.md section 5,the four M2.5 holes on its base: measure the pattern
+Luxonis OAK-D Pro,car 1,brief,the 1/4-20 thread under it; which IMU it reports (BNO086 or BMI270)
+4S LiPo packs,car 1,brief,"for each pack: capacity, C rating, length x width x height, main connector, balance plug"
+"RC balance charger (iCharger X6), MEAN WELL 350 W supply, XT90 charge cables","Progressive RC, July",atlas_knowledge.md,charger sets up 4S LiPo balance charge
+"2 panel-mount XT90 extension cables, 2 XT90 to bare-wire parallel cables, 3 XT90 connectors","Progressive RC order 310320, delivered Oct 14",order email Oct 9,wire gauge of the bare-wire cables (need 10 AWG for the board pigtail)
+"Anderson Powerpole PP45: 30 red and 30 black housings, 60 contacts for 10-14 AWG","Anderson Power sample order 250322, shipped Sep 21",order acknowledgment Sep 15,whether the lab has a Powerpole crimper
+About 500 M3 x 10 screws plus 6 and 8 mm lengths,MISUMI,atlas_knowledge.md,-
+Noctua fan,on hand,brief,model: the board header wants a 5 V PWM fan (NF-A4x10 5V PWM)
+Hakko FM206 station with two FM2027 irons,"Hakko, August",atlas_knowledge.md,the kits came with no tips: T15 tips are needed unless the school lab irons are used
+"Bambu P1S with PETG-CF, laser cutter, nickel strip",on hand,brief,laser sheet thickness (MEASURE_FIRST 27)
+RC4WD parts box,"RC4WD, shipped Sep 4",email thread,"contents unknown: the wish list had a servo, an ESC, a 2S pack, adapters, servo leads, hex drivers"
+"SICK TiM561 with its M12 cables, LUCID Triton with the Edmund Optics 4 mm lens, PoE injector",donated,brief; lens shipped Oct 27,kept for the sensor upgrade
+UGREEN 130 W and Omni 20+ power banks,car 1,brief,not used on car 1 v2

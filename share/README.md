@@ -30,3 +30,26 @@ To make them again:
 4. `sim/run_all.sh` writes the plots to `sim/out/`.
 
 `make_renders.py` is the older VTK version, with no chassis, canopy or cables. It writes the same car file names.
+
+## Car 1 v2 (11 November 2026)
+
+| file | what it shows |
+| --- | --- |
+| `car1v2_car_front_left.png`, `car1v2_car_rear_right.png`, `car1v2_car_side.png`, `car1v2_car_top.png` | Car 1 v2, stage 1, on the stand-in Slash 4x4: the printed kit, the power board under the dev-kit tray, the Jetson dev kit, the canopy, the FSESC, the RPLidar C1 and the OAK-D Pro on their new mounts. 1800 x 1200, 96 samples. |
+| `car1v2_car_exploded.png` | The same with the power board lifted 45 mm, the Jetson on its tray 120 mm and the canopy 195 mm. |
+| `../boards/power/out/render/power_iso.png`, `power_top.png` | The power board with its parts, rendered by KiCad 10 on a transparent background. |
+
+Not drawn, because nobody has measured where they go: the LiPo pack, the JK BMS, the fuse, the XT90-S, the UBEC and
+every cable. The lidar, the camera, the Jetson dev kit, the FSESC and the fan are simple shapes sized from their
+envelopes in `mech/`, not models of the real parts. In the whole-car pictures the power board is bare apart from
+the FET heatsink bar: the GLB that kicad-cli exported on the team laptop has the board, copper and silkscreen but
+no component models.
+
+To make them again:
+
+1. On the KiCad machine: `bash boards/tools/run_kicad.sh "" glb-power`, then in `boards/power`
+   `kicad-cli pcb render --quality high --background transparent --perspective --rotate '-50,0,-35' --zoom 0.85 -w 2700 -h 1800 -o out/render/power_iso.png atlas_power.kicad_pcb`
+   (and `--side top` for `power_top.png`).
+2. `python3 share/car1v2_scene.py` writes the scene (`share/scene_car1v2/`, not in git). It needs CadQuery.
+3. `python3 share/render_car.py -- --scene scene_car1v2 --prefix car1v2_ --size 1800x1200 --samples 96 car_front_left`
+   and the same for `car_rear_right car_side car_top car_exploded`. About 5 minutes a view on two CPU cores.

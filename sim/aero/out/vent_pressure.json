@@ -1,0 +1,42 @@
+{
+ "case": "nowing",
+ "speed_mps": 8.0,
+ "deck_top_z_m": 0.1422,
+ "dynamic_pressure_Pa": {
+  "2.0": 2.4,
+  "5.0": 15.0,
+  "8.0": 38.4
+ },
+ "regions": {
+  "pod_outer_left": {
+   "cp": -0.338,
+   "sd_cp": 0.004,
+   "area_m2": 0.00336,
+   "faces": 156
+  },
+  "pod_outer_right": {
+   "cp": -0.304,
+   "sd_cp": 0.002,
+   "area_m2": 0.00331,
+   "faces": 156
+  },
+  "front_faces_above_deck": {
+   "cp": 0.465,
+   "sd_cp": 0.0,
+   "area_m2": 0.01555,
+   "faces": 609
+  },
+  "rear_faces_above_deck": {
+   "cp": -0.185,
+   "sd_cp": 0.002,
+   "area_m2": 0.00278,
+   "faces": 108
+  },
+  "top_faces_above_deck": {
+   "cp": -0.404,
+   "sd_cp": 0.001,
+   "area_m2": 0.01643,
+   "faces": 661
+  }
+ }
+}

@@ -1,0 +1,508 @@
+{
+ "parts": [
+  {
+   "name": "chassis_tub",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    300.0,
+    100.0,
+    24.0
+   ]
+  },
+  {
+   "name": "chassis_gearbox",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    50.0,
+    50.0,
+    46.0
+   ]
+  },
+  {
+   "name": "chassis_motor",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    36.0,
+    60.0,
+    36.0
+   ]
+  },
+  {
+   "name": "chassis_centre_shaft",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    238.0,
+    16.0,
+    13.0
+   ]
+  },
+  {
+   "name": "chassis_steering_servo",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    22.0,
+    56.0,
+    46.0
+   ]
+  },
+  {
+   "name": "chassis_steering_linkage",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    45.0,
+    80.0,
+    36.0
+   ]
+  },
+  {
+   "name": "chassis_front_tower",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    4.0,
+    120.0,
+    53.0
+   ]
+  },
+  {
+   "name": "chassis_front_shock_L",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    20.0,
+    20.0,
+    68.0
+   ]
+  },
+  {
+   "name": "chassis_front_post_L",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    7.0,
+    7.0,
+    44.2
+   ]
+  },
+  {
+   "name": "chassis_front_shock_R",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    20.0,
+    20.0,
+    68.0
+   ]
+  },
+  {
+   "name": "chassis_front_post_R",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    7.0,
+    7.0,
+    44.2
+   ]
+  },
+  {
+   "name": "chassis_rear_tower",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    4.0,
+    120.0,
+    53.0
+   ]
+  },
+  {
+   "name": "chassis_rear_shock_L",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    20.0,
+    20.0,
+    68.0
+   ]
+  },
+  {
+   "name": "chassis_rear_post_L",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    7.0,
+    7.0,
+    44.2
+   ]
+  },
+  {
+   "name": "chassis_rear_shock_R",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    20.0,
+    20.0,
+    68.0
+   ]
+  },
+  {
+   "name": "chassis_rear_post_R",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    7.0,
+    7.0,
+    44.2
+   ]
+  },
+  {
+   "name": "chassis_front_tyre_L",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    117.1,
+    91.4,
+    140.0
+   ]
+  },
+  {
+   "name": "chassis_front_tyre_R",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    117.1,
+    91.4,
+    140.0
+   ]
+  },
+  {
+   "name": "chassis_rear_tyre_L",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    110.0,
+    42.0,
+    140.0
+   ]
+  },
+  {
+   "name": "chassis_rear_tyre_R",
+   "group": "Slash 4x4 chassis (stand-in)",
+   "size_mm": [
+    110.0,
+    42.0,
+    140.0
+   ]
+  },
+  {
+   "name": "deck_rear",
+   "group": "printed: deck",
+   "size_mm": [
+    146.0,
+    177.5,
+    25.2
+   ]
+  },
+  {
+   "name": "deck_mid",
+   "group": "printed: deck",
+   "size_mm": [
+    162.0,
+    177.5,
+    15.0
+   ]
+  },
+  {
+   "name": "deck_front",
+   "group": "printed: deck",
+   "size_mm": [
+    156.0,
+    177.5,
+    25.2
+   ]
+  },
+  {
+   "name": "splice_rear_left",
+   "group": "printed: deck",
+   "size_mm": [
+    30.0,
+    72.0,
+    3.0
+   ]
+  },
+  {
+   "name": "splice_rear_right",
+   "group": "printed: deck",
+   "size_mm": [
+    30.0,
+    72.0,
+    3.0
+   ]
+  },
+  {
+   "name": "splice_front_left",
+   "group": "printed: deck",
+   "size_mm": [
+    30.0,
+    72.0,
+    3.0
+   ]
+  },
+  {
+   "name": "splice_front_right",
+   "group": "printed: deck",
+   "size_mm": [
+    30.0,
+    72.0,
+    3.0
+   ]
+  },
+  {
+   "name": "bumper",
+   "group": "printed: kit",
+   "size_mm": [
+    62.0,
+    124.0,
+    74.0
+   ]
+  },
+  {
+   "name": "side_pod_left",
+   "group": "printed: kit",
+   "size_mm": [
+    225.0,
+    25.0,
+    50.0
+   ]
+  },
+  {
+   "name": "side_pod_right",
+   "group": "printed: kit",
+   "size_mm": [
+    225.0,
+    25.0,
+    50.0
+   ]
+  },
+  {
+   "name": "camera_arch",
+   "group": "printed: kit",
+   "size_mm": [
+    80.0,
+    102.0,
+    103.8
+   ]
+  },
+  {
+   "name": "devkit_tray",
+   "group": "printed: kit",
+   "size_mm": [
+    130.0,
+    84.0,
+    51.0
+   ]
+  },
+  {
+   "name": "canopy_leg",
+   "group": "printed: kit",
+   "size_mm": [
+    14.0,
+    28.5,
+    84.6
+   ]
+  },
+  {
+   "name": "esc_cradle",
+   "group": "printed: kit",
+   "size_mm": [
+    75.0,
+    61.0,
+    9.0
+   ]
+  },
+  {
+   "name": "stack_canopy",
+   "group": "printed: kit",
+   "size_mm": [
+    128.0,
+    129.0,
+    6.4
+   ]
+  },
+  {
+   "name": "c1_plinth",
+   "group": "printed: car 1 v2 mounts",
+   "size_mm": [
+    70.0,
+    64.0,
+    6.0
+   ]
+  },
+  {
+   "name": "oakd_cradle",
+   "group": "printed: car 1 v2 mounts",
+   "size_mm": [
+    48.0,
+    91.0,
+    44.5
+   ]
+  },
+  {
+   "name": "estop_bracket_place_is_your_choice",
+   "group": "printed: car 1 v2 mounts",
+   "size_mm": [
+    24.0,
+    46.0,
+    50.0
+   ]
+  },
+  {
+   "name": "rplidar_c1",
+   "group": "sensors (moved over from car 1)",
+   "size_mm": [
+    55.6,
+    55.6,
+    41.3
+   ]
+  },
+  {
+   "name": "oak_d_pro",
+   "group": "sensors (moved over from car 1)",
+   "size_mm": [
+    22.9,
+    97.0,
+    29.5
+   ]
+  },
+  {
+   "name": "power_pcb",
+   "group": "power board",
+   "size_mm": [
+    130.0,
+    84.0,
+    1.6
+   ]
+  },
+  {
+   "name": "power_parts_low",
+   "group": "power board",
+   "size_mm": [
+    130.0,
+    84.0,
+    23.0
+   ]
+  },
+  {
+   "name": "power_parts_tall",
+   "group": "power board",
+   "size_mm": [
+    130.0,
+    66.0,
+    35.0
+   ]
+  },
+  {
+   "name": "fet_bar",
+   "group": "power board",
+   "size_mm": [
+    40.0,
+    8.5,
+    20.0
+   ]
+  },
+  {
+   "name": "fet_shield_acrylic",
+   "group": "power board",
+   "size_mm": [
+    34.0,
+    23.0,
+    3.0
+   ]
+  },
+  {
+   "name": "power_standoffs_7mm",
+   "group": "standoffs",
+   "size_mm": [
+    127.5,
+    81.5,
+    7.0
+   ]
+  },
+  {
+   "name": "tray_standoffs_25mm",
+   "group": "standoffs",
+   "size_mm": [
+    127.5,
+    81.5,
+    25.0
+   ]
+  },
+  {
+   "name": "canopy_standoffs",
+   "group": "standoffs",
+   "size_mm": [
+    6.3,
+    82.3,
+    48.0
+   ]
+  },
+  {
+   "name": "devkit_pcb",
+   "group": "Jetson dev kit",
+   "size_mm": [
+    100.0,
+    79.0,
+    1.6
+   ]
+  },
+  {
+   "name": "jetson_module_and_sink",
+   "group": "Jetson dev kit",
+   "size_mm": [
+    78.0,
+    48.0,
+    32.0
+   ]
+  },
+  {
+   "name": "devkit_io",
+   "group": "Jetson dev kit",
+   "size_mm": [
+    95.0,
+    22.0,
+    16.0
+   ]
+  },
+  {
+   "name": "devkit_headers",
+   "group": "Jetson dev kit",
+   "size_mm": [
+    86.5,
+    6.0,
+    8.5
+   ]
+  },
+  {
+   "name": "devkit_bottom_parts",
+   "group": "Jetson dev kit",
+   "size_mm": [
+    100.0,
+    79.0,
+    6.0
+   ]
+  },
+  {
+   "name": "fsesc",
+   "group": "motor controller",
+   "size_mm": [
+    71.0,
+    43.0,
+    22.7
+   ]
+  },
+  {
+   "name": "pod_fan_40mm",
+   "group": "fan",
+   "size_mm": [
+    40.0,
+    10.0,
+    40.0
+   ]
+  }
+ ],
+ "not_included": [
+  "4S LiPo pack",
+  "JK BMS and its holder",
+  "MIDI fuse",
+  "XT90-S",
+  "UBEC",
+  "cables"
+ ],
+ "frame": "x forward, y left, z up, mm; z = 0 is the top of the deck"
+}

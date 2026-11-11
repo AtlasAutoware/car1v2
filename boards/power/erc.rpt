@@ -1,0 +1,35 @@
+ERC report (2026-11-09T17:50:13, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+
+***** Sheet /A_PACK Pack input: 10 AWG pads, bulk capacitance, TVS/
+
+***** Sheet /B_BMS BMS link: opto-isolated UART to the JBD smart BM/
+
+***** Sheet /C_SWITCH Main switch: 3 x IRFB7430 high side, MIC5014, pr/
+
+***** Sheet /D_RAILS Latch and rails: Pololu #2813, R-78E 5 V, Castle/
+
+***** Sheet /E_CHARGE USB-C charging: PD trigger 20 V, CC/CV buck 16.8/
+
+***** Sheet /F_DEBUG One-cable debugging: laptop USB-C -> CH334F hub/
+
+***** Sheet /G_SUPER Supervisor: Raspberry Pi Pico in sockets (GPIO m/
+
+***** Sheet /H_JETSON Jetson dev kit: J12 40-pin ribbon (2x20 box head/
+
+***** Sheet /I_ESC ESC interface: VM pads, COMM header, servo-signa/
+
+***** Sheet /J_MISC E-stop loop, fan, mounting holes, board ID/
+
+ ** ERC messages: 0  Errors 0  Warnings 0
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Library symbol issue
+    - Symbol doesn't match copy in library
+    - Footprint link issue
+    - Assigned footprint doesn't match footprint filters
