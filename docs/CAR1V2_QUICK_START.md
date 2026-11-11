@@ -42,4 +42,4 @@ Wheels off the ground any time the motor can spin.
 
 The lidar and camera stay on car 1 until everything else on the new car works. Moving them over is the last step.
 
-The power board gets soldered when the bare boards arrive, and that has its own guide. The long version of everything is in the carv2 repo on GitHub, rev-b-tht branch: docs/CAR1V2_BUILD.md for the steps and docs/CAR1V2_CHECKLIST.md for the measurements. If the model and a real part disagree, the real part wins. Tell Eshan and the model gets fixed.
+The power board gets soldered when the bare boards arrive, and that has its own guide. The long version of everything is in the car1v2 repo on GitHub (it was called carv2 until 11 November), rev-b-tht branch: docs/CAR1V2_BUILD.md for the steps and docs/CAR1V2_CHECKLIST.md for the measurements. If the model and a real part disagree, the real part wins. Tell Eshan and the model gets fixed.

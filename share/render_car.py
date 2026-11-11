@@ -2,6 +2,8 @@
 
     python3 -m pip install bpy==4.2.0          (Python 3.11; or run inside Blender 4.2: blender -b -P share/render_car.py -- ...)
     python3 share/render_car.py -- car_front_left car_rear_right [--quick] [--samples 128] [--size 3000x2000]
+    python3 share/render_car.py -- --scene scene_car1v2 --prefix car1v2_ car_front_left car_exploded     (car 1 v2,
+                                                                         scene from share/car1v2_scene.py)
 
 Views: car_front_left, car_rear_right, car_side, car_top, car_exploded, car_front, bench_stand.
 Writes share/<view>.png. The two boards come from their KiCad models (boards/*/out/render/atlas_*.glb, made by
@@ -16,7 +18,6 @@ import bpy
 import mathutils
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCENE_DIR = os.path.join(HERE, 'scene')
 MM = 0.001
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:]
@@ -24,7 +25,10 @@ QUICK = '--quick' in argv
 SAMPLES = int(argv[argv.index('--samples') + 1]) if '--samples' in argv else (16 if QUICK else 160)
 SIZE = argv[argv.index('--size') + 1] if '--size' in argv else ('900x600' if QUICK else '3000x2000')
 W, H = (int(v) for v in SIZE.split('x'))
-_vals = {argv[i + 1] for i, a in enumerate(argv) if a in ('--samples', '--size', '--glb-dir', '--light') and i + 1 < len(argv)}
+_vals = {argv[i + 1] for i, a in enumerate(argv)
+         if a in ('--samples', '--size', '--glb-dir', '--light', '--scene', '--prefix') and i + 1 < len(argv)}
+SCENE_DIR = os.path.join(HERE, argv[argv.index('--scene') + 1] if '--scene' in argv else 'scene')
+PREFIX = argv[argv.index('--prefix') + 1] if '--prefix' in argv else ''
 VIEWS = [a for a in argv if not a.startswith('--') and a not in _vals]
 GLB_FROM = argv[argv.index('--glb-dir') + 1] if '--glb-dir' in argv else None
 LIGHT_SCALE = float(argv[argv.index('--light') + 1]) if '--light' in argv else 1.0
@@ -318,7 +322,7 @@ def swing_antennas(deg):
 def render(view):
     sc = bpy.context.scene
     F = (0.012, 0.0, -0.038)
-    set_visible(['chassis', 'deck', 'pack', 'drive', 'brain', 'canopy', 'sensors', 'cable'], True)
+    set_visible(['chassis', 'deck', 'pack', 'drive', 'brain', 'power', 'jetson', 'canopy', 'sensors', 'cable'], True)
     lifts = {}
     folded = None
     if view == 'car_front_left':
@@ -333,7 +337,7 @@ def render(view):
         camera(view, -90.0, 89.9, 1.5, (0.01, 0.0, 0.0), lens=60)
         floor_tone(0.0025, 0.75)
     elif view == 'car_exploded':
-        lifts = {'drive': 55, 'brain': 115, 'canopy': 185, 'cable_canopy': 185}
+        lifts = MAN.get('exploded') or {'drive': 55, 'brain': 115, 'canopy': 185, 'cable_canopy': 185}
         for g, dz in lifts.items():
             lift([g], dz)
         set_visible(['cable'], False)
@@ -344,7 +348,7 @@ def render(view):
         pass
     else:
         raise SystemExit('unknown view ' + view)
-    sc.render.filepath = os.path.join(HERE, view + ('_quick' if QUICK else '') + '.png')
+    sc.render.filepath = os.path.join(HERE, PREFIX + view + ('_quick' if QUICK else '') + '.png')
     bpy.ops.render.render(write_still=True)
     print('wrote', sc.render.filepath, flush=True)
     for g, dz in lifts.items():

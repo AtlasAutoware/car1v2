@@ -50,3 +50,6 @@ sim/aero/out/cases/
 
 # the raw STEP assembly is 9 MB; the zip next to it is kept (mech/car1v2_assembly.py writes both)
 mech/out/car1v2/assembly/*.step
+
+# car 1 v2 render scene (share/car1v2_scene.py writes it)
+share/scene_car1v2/

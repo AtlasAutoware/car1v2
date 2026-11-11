@@ -1,9 +1,12 @@
-# Atlas car v2
+# Atlas car 1 v2
 
-The second Atlas Autoware car: a Traxxas Slash 4x4 with a Holmes Hobbies Puller Pro 540 motor, a SICK TiM561 lidar
-and a LUCID Triton camera, built on a carbon-fibre-printed deck.
+Car 1 v2 is the rebuild of car 1, Atlas Autoware's 1/10-scale self-driving race car: a Traxxas Slash 4x4 with a
+Holmes Hobbies Puller Pro 540 motor on a carbon-fibre-printed deck, carrying car 1's RPLidar C1 and OAK-D Pro. There
+is one car. This repository was named `carv2` until 11 November 2026, and its older files call the car "car v2" or
+"car 2". The SICK TiM561 lidar and the LUCID Triton camera that the first design was drawn around are kept for a
+later upgrade. Start at `docs/CAR1V2.md`.
 
-Rev B (October 2026) is the version being built. Its electronics are:
+Rev B (October 2026) is the electronics design car 1 v2 starts from. Its electronics are:
 
 - **Power board (ATLAS-PWR-1).** A 4-layer board that students solder at school: the motor-bus switch with
   precharge and a hardware E-stop, the power latch, the feeds for the Jetson, lidar, camera, servo and fan, USB-C
@@ -18,11 +21,17 @@ Rev B (October 2026) is the version being built. Its electronics are:
 on it and an 8-layer Jetson carrier) was finished in September, quoted by PCBWay at $1,927.81 for one assembled set,
 and is kept in the repo as history.
 
-![car v2 rev A, rendered on a stand-in Slash 4x4](share/car_front_left.png)
+![car 1 v2, stage 1, rendered on a stand-in Slash 4x4](share/car1v2_car_front_left.png)
 
-The picture is the rev A car; the whole-car renders have not been redone for rev B yet.
+The picture is car 1 v2 as designed on 9 November 2026 (`share/car1v2_scene.py`, `share/render_car.py`). Bought
+parts are stand-ins, and the battery, the BMS, the fuse and the cables are not drawn. The rev A renders are
+`share/car_*.png`.
 
 ## Status
+
+**11 November 2026: the repository is renamed from `carv2` to `car1v2`.** GitHub redirects the old address. Whole-car
+renders of car 1 v2 are in `share/car1v2_*.png`, and KiCad 3D renders of the power board are in
+`boards/power/out/render/power_iso.png` and `power_top.png`.
 
 **9 November 2026: car 1 v2 is designed and priced on the `rev-b-tht` branch; nothing is ordered, built or merged.**
 

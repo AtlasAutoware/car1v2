@@ -73,7 +73,7 @@ debug console (pins 3/4/7) also reaches the hub through the power board's USB-se
 ### B3. Atlas tools on the Jetson
 
 ```
-git clone https://github.com/AtlasAutoware/carv2.git && cd carv2
+git clone https://github.com/AtlasAutoware/car1v2.git && cd car1v2
 sudo software/jetson/system/install.sh
 sudo reboot
 atlas status
@@ -201,7 +201,7 @@ USB0, which NVIDIA's initrd flash may need.
 ### 4. Atlas tools on the Jetson
 
 ```
-git clone https://github.com/AtlasAutoware/carv2.git && cd carv2
+git clone https://github.com/AtlasAutoware/car1v2.git && cd car1v2
 sudo software/jetson/system/install.sh
 sudo reboot
 atlas status

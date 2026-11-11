@@ -1,7 +1,7 @@
 # Car 1 v2
 
 Car 1 v2 is the rebuild of car 1, Atlas Autoware's 1/10-scale self-driving race car for RoboRacer (F1TENTH).
-The repository and the older notes call it "car v2" or "car 2". There is one car. Everything on car 1 today
+The older notes call it "car v2" or "car 2", and the repository was named `carv2` until 11 November 2026. There is one car. Everything on car 1 today
 and everything bought or donated for "car 2" is one pile of parts, and this page says which of them the car
 uses, what still has to be bought, and what was left out to fit the money.
 
